@@ -28,52 +28,31 @@ class UserController extends Controller
     public function Home(Request $request)
     {
         $TableKey = 'user-table';
-
         $filter_status = $request->input('filter_status');
         if (!$filter_status) {
             $filter_status = 'active';
         }
-
-        $QueryRoute = QueryRoute($request);
-        $QueryRoute->ArrQuery->status = 'all';
-        $QueryRoute->ArrQuery->set = 'fetch';
-        $QueryRoute->ArrQuery->{'orderBy.blast_users.created_at'} = 'desc';
-        $QueryRoute->ArrQuery->skip = ___TableGetSkip($request, $TableKey, $QueryRoute->ArrQuery->take);
-        $QueryRoute->ArrQuery->{'with.total'} = 'true';
-        $UserBrowseController = new UserBrowseController($QueryRoute);
-        $data = $UserBrowseController->get($QueryRoute);
-
         $filter_search = $request->input('filter_search');
-        
         if (isset($request['user-table-show'])) {
             $selected = $request['user-table-show'];
-        } 
-        else {
+        } else {
             $selected = 5;
         }
 
-        $options = array(5,10,15,20);
-        // $filter_entries = $request->input('filter_entries');
-        // $items = $request->items ?? 5;
+        $options = [5,10,15,20];
         $User = UserBrowseController::FetchBrowse($request)
             ->where('take', $selected)
-            ->where('status', $filter_status)
             ->where('orderBy.blast_users.created_at', 'desc')
             ->where('with.total', 'true')
             ->middleware(function($fetch) use($filter_search, $request, $TableKey) {
                 if ($filter_search) {
                     $fetch->equal('search', $filter_search);
                 }
-                // , $filter_entries
-                // if ($filter_entries) {
-                //     $fetch->where('take', $filter_entries);
-                // }
                 $fetch->equal('skip', ___TableGetSkip($request, $TableKey, $fetch->QueryRoute->ArrQuery->take));
                 return $fetch;
             })
             ->get('fetch');
-        //    dd($User);
-        $DataTable = [  
+        $DataTable = [
             'key' => $TableKey,
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)$User['total'], (int)$User['query']->take, ___TableGetCurrentPage($request, $TableKey)),
@@ -88,24 +67,21 @@ class UserController extends Controller
             ],
             'records' => []
         ];
-        // dd($DataTable);
-       
+
         if ($User['records']) {
             $DataTable['records'] = $User['records'];
             $DataTable['total'] = $User['total'];
             $DataTable['show'] = $User['show'];
         }
-        
+
         $ParseData = [
             'filter_status' => $filter_status,
             'filter_search' => $filter_search,
             'options'    => $options,
             'selected' => $selected,
-            // 'filter_entries' => $filter_entries,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
-        // dd($ParseData);
         return view('app.user.home.index', $ParseData);
     }
 

@@ -59,19 +59,6 @@ class UserBrowseController extends Controller
             if (isset($request->ArrQuery->status)) {
                 $query->where("$this->UserTable.status", $request->ArrQuery->status);
             }
-        //     if (isset($request->ArrQuery->search)) {
-        //        $search = '%' . $request->ArrQuery->search . '%';
-        //        if (isset($request->ArrQuery->for) && ($request->ArrQuery->for === 'select')) {
-        //           $query->where("$this->UserTable.username", 'like', $search);
-        //           $query->orWhere("$this->UserTable.email", 'like', $search);
-        //        } else {
-        //            $query->where(function ($query) use($search) {
-        //                foreach ($this->search as $key => $value) {
-        //                    $query->orWhere("$this->UserTable.$value", 'like', $search);
-        //                }
-        //            });
-        //        }
-        //    }
        })
        ->join($this->PositionTable, "$this->PositionTable.id", "$this->UserTable.position_id")
        ->select(
@@ -82,8 +69,6 @@ class UserBrowseController extends Controller
             "$this->UserTable.email as user.email",
             "$this->UserTable.gender as user.gender",
             "$this->UserTable.position_id as user.position_id",
-            "$this->UserTable.category_id as user.category_id",
-            "$this->UserTable.status as user.status",
             "$this->UserTable.address as user.address",
             "$this->UserTable.remember_token as user.remember_token",
             "$this->UserTable.updated_at as user.updated_at",
