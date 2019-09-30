@@ -1,0 +1,23 @@
+{
+    "name": "satellite",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dofasol678/scoregame-satellite/issues"
+    },
+    "homepage": "https://github.com/dofasol678/scoregame-satellite#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "lodash": "^4.17.15",
+        "socket.io": "^2.2.0"
+    }
+}
