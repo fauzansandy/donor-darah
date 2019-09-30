@@ -49,47 +49,6 @@
               </a>
               <span class="icon-thumbnail"><i class="fas fa-users"></i></span>
           </li>
-          <li>
-              <a href="javascript:;">
-                  <span class="title">WhatsApp</span>
-                  <span class="arrow"></span>
-              </a>
-              <span class="icon-thumbnail"><i class="fab fa-whatsapp"></i></span>
-              <ul class="sub-menu">
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/source'); !!}">Source</a>
-                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
-                  </li>
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/category'); !!}">Category</a>
-                      <span class="icon-thumbnail"><i class="fas fa-list-ol"></i></span>
-                  </li>
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/phone_number'); !!}">Phone Number</a>
-                      <span class="icon-thumbnail"><i class="fas fa-mobile"></i></span>
-                  </li>
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/import'); !!}">Import</a>
-                      <span class="icon-thumbnail"><i class="fas fa-upload"></i></span>
-                  </li>
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/assign'); !!}">Assign</a>
-                      <span class="icon-thumbnail"><i class="fas fa-file-signature"></i></span>
-                  </li>
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/reply'); !!}">Replies</a>
-                      <span class="icon-thumbnail"><i class="fas fa-comment-dots"></i></span>
-                  </li>
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/user_phone_number'); !!}">User Phone Number</a>
-                      <span class="icon-thumbnail"><i class="fas fa-mobile"></i></span>
-                  </li>
-                  <li class="">
-                      <a href="{!! url('/blast/whatsapp/user_notes_phone_number'); !!}">User Notes Phone Number</a>
-                      <span class="icon-thumbnail"><i class="fas fa-mobile"></i></span>
-                  </li>
-              </ul>
-          </li>
           <li class="">
               <a href="{!! url('/logout'); !!}" class="detailed">
                   <span class="title">Logout</span>

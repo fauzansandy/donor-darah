@@ -8,7 +8,7 @@ $(document).ready(function() {
                         message: 'The username is required'
                     },
                     stringLength: {
-                        min: 6,
+                        min: 4,
                         max: 30,
                         message: 'The username must be more than 6 and less than 30 characters long',
                     },
@@ -54,7 +54,6 @@ $(document).ready(function() {
             document.cookie = `AccessToken=${oauth.access_token}`
             window.location = `${window.appUrl}/`
         }).catch(() => {
-
         })
     })
 })

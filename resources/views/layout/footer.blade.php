@@ -77,6 +77,44 @@
         })
         @if(config('app.debug'))Pusher.logToConsole = true;@endif
 
+        axios.interceptors.response.use(
+            response => response,
+            error => {
+                if (error.response && error.response.data) {
+                    console.log(
+                        'REQUEST API ERROR :',
+                        error.response.data,
+                        'ON -> ',
+                        error.response.request._url,
+                        error.config && error.config.data ? JSON.parse(error.config.data) : null
+                    )
+                    console.log(error.response)
+                }
+                if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                    Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+                }
+                if (error.response && error.response.data && error.response.data.errors) {
+                    let errors = ''
+                    for (let i = 0; i < Object.keys(error.response.data.errors).length; i++) {
+                        const key = Object.keys(error.response.data.errors)[i]
+                        for (let j = 0; j < error.response.data.errors[key].length; j++) {
+                            const message = error.response.data.errors[key][j]
+                            let prefix = ', '
+                            if (i === 0 && j === 0) {
+                                prefix = ''
+                            }
+                            errors += `${prefix}${message}`
+                        }
+                    }
+                    if (error.response && error.response.status === 401) {
+                    } else {
+                        Swal.fire({ title: 'Opps...', text: errors, type: 'error', confirmButtonText: 'Ok' })
+                    }
+                }
+                return Promise.reject(error)
+            }
+        )
+
         const pusher = new Pusher('{{ App\Support\Realtime\Realtime::GetPusherKey() }}', {
             cluster: 'ap1',
             forceTLS: true
