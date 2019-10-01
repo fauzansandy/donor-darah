@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Http\Middleware\BaseMiddleware;
 use Illuminate\Contracts\Auth\Factory as Auth;
 
-class Authenticate
+class Authenticate extends BaseMiddleware
 {
     /**
      * The authentication guard factory instance.

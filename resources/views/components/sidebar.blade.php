@@ -43,11 +43,89 @@
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
           </li>
           <li>
-              <a href="{!! url('/user'); !!}" class="detailed">
-                  <span class="title">Users</span>
-                  <span class="details">list of users</span>
+              <a href="javascript:;">
+                  <span class="title">User Management</span>
               </a>
-              <span class="icon-thumbnail"><i class="fas fa-users"></i></span>
+              <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
+              <ul class="sub-menu">
+                  <li class="">
+                      <a href="{!! url('/user'); !!}">User CMS</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+                  <li class="">
+                      <a href="{!! url('/position'); !!}">Role User</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="javascript:;">
+                  <span class="title">Dealer Management</span>
+              </a>
+              <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
+              <ul class="sub-menu">
+                  <li class="">
+                      <a href="{!! url('/dealer/user'); !!}">User Dealer</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+                  <li class="">
+                      <a href="{!! url('/dealer/verification/request'); !!}">Verification Request</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="javascript:;">
+                  <span class="title">Ringkasan Pengajuan</span>
+              </a>
+              <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
+              <ul class="sub-menu">
+                  <li class="">
+                      <a href="{!! url('/application/verified'); !!}">Verify</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+                  <li class="">
+                      <a href="{!! url('/application/notverified'); !!}">Not verify</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="javascript:;">
+                  <span class="title">Reward Dealer</span>
+              </a>
+              <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
+              <ul class="sub-menu">
+                  <li class="">
+                      <a href="{!! url('/reward/dealer'); !!}">Cash reward ,  total unit valid & level dealer</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="javascript:;">
+                  <span class="title">Content Management</span>
+              </a>
+              <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
+              <ul class="sub-menu">
+                  <li class="">
+                      <a href="{!! url('/content/master'); !!}">Master Content</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+                  <li class="">
+                      <a href="{!! url('/content/feedback'); !!}">Feedback</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+                  <li class="">
+                      <a href="{!! url('/content/pushnotification'); !!}">Push notifikasi</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+                  <li class="">
+                      <a href="{!! url('/content/news'); !!}">Berita</a>
+                      <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                  </li>
+
+              </ul>
           </li>
           <li class="">
               <a href="{!! url('/logout'); !!}" class="detailed">

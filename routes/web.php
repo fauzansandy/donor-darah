@@ -15,8 +15,19 @@ $router->get('/logout', 'CMS\Authentication\AuthenticationController@Logout');
 
 $router->get('/', 'CMS\Home\HomeController@Home');
 
+$router->get('/position', 'CMS\Position\PositionController@Home');
+
 $router->get('/user', 'CMS\User\UserController@Home');
-$router->get('/user/new', 'CMS\User\UserController@New');
-$router->get('/user/edit/{id}', 'CMS\User\UserController@Edit');
-$router->get('/user/{id}', 'CMS\User\UserController@Detail');
-$router->get('/user/{id}/blast/whatsapp/phone_number', 'CMS\User\UserController@DetailBlastWhatsAppPhoneNumber');
+
+$router->get('/dealer/user', 'CMS\DealerManagement\DealerManagementController@User');
+$router->get('/dealer/verification/request', 'CMS\DealerManagement\DealerManagementController@VerificationRequest');
+
+$router->get('/application/verified', 'CMS\Application\ApplicationController@Verified');
+$router->get('/application/notverified', 'CMS\Application\ApplicationController@NotVerified');
+
+$router->get('/reward/dealer', 'CMS\Reward\RewardController@Dealer');
+
+$router->get('/content/master', 'CMS\ContentManagement\ContentManagementController@Master');
+$router->get('/content/feedback', 'CMS\ContentManagement\ContentManagementController@FeedBack');
+$router->get('/content/pushnotification', 'CMS\ContentManagement\ContentManagementController@PushNotification');
+$router->get('/content/news', 'CMS\ContentManagement\ContentManagementController@News');

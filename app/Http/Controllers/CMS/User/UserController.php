@@ -33,8 +33,8 @@ class UserController extends Controller
             $filter_status = 'active';
         }
         $filter_search = $request->input('filter_search');
-        if (isset($request['user-table-show'])) {
-            $selected = $request['user-table-show'];
+        if ($request->input('user-table-show')) {
+            $selected = $request->input('user-table-show');
         } else {
             $selected = 5;
         }
@@ -110,110 +110,6 @@ class UserController extends Controller
         $data = $UserBrowseController->get($QueryRoute);
 
         return view('app.user.detail.home.index', [ 'data' => $data->original['data']['records'] ]);
-    }
-
-    public function UserPhoneNumberMiddlewareQuery($fetch, $filter_category)
-    {
-        if ($filter_category) {
-            $fetch->equal('blast_category_id', $filter_category);
-        }
-        return $fetch;
-    }
-
-    public function DetailBlastWhatsAppPhoneNumber(Request $request, $id)
-    {
-        // --
-        $filter_category = $request->input('filter_category');
-        if ($filter_category) {
-            $FilterCategoryData = CategoryBrowseController::FetchBrowse($request)
-                ->where('id', $filter_category)
-                ->where('status', 'all')->get('first');
-        }
-
-        $AvailableCount = UserPhoneNumberBrowseController::FetchBrowse($request)
-            ->equal('user_id', $id)->equal('status', 'available')->equal('with.total', true)
-            ->middleware(function($fetch) use($filter_category) {
-                return $this->UserPhoneNumberMiddlewareQuery($fetch, $filter_category);
-            })->get('count');
-        $DeliveredCount = UserPhoneNumberBrowseController::FetchBrowse($request)
-            ->equal('user_id', $id)->equal('status', 'delivered')->equal('with.total', true)
-            ->middleware(function($fetch) use($filter_category) {
-                return $this->UserPhoneNumberMiddlewareQuery($fetch, $filter_category);
-            })->get('count');
-        $FailedCount = UserPhoneNumberBrowseController::FetchBrowse($request)
-            ->equal('user_id', $id)->equal('status', 'failed')->equal('with.total', true)
-            ->middleware(function($fetch) use($filter_category) {
-                return $this->UserPhoneNumberMiddlewareQuery($fetch, $filter_category);
-            })->get('count');
-
-
-        $CategoryUser = UserPhoneNumberBrowseController::FetchBrowse($request)
-            ->equal('user_id', $id)
-            ->equal('status', 'all')
-            ->equal('take', 'all')
-            ->equal('groupBy', 'category')
-            ->equal('with.total', false)
-            ->get();
-
-        $CategorySelect = $CategoryUser['records']->map(function($category) {
-            return ['value' => $category->category['id'], 'label' => $category->category['name']];
-        });
-
-        $User = UserBrowseController::FetchBrowse($request)
-            ->equal('id', $id)->equal('take', 'all')->equal('with.total', true)->get('first');
-
-        $TableKey = 'user-phone-number-table';
-        $UserPhoneNumber = UserPhoneNumberBrowseController::FetchBrowse($request)
-            ->equal('user_id', $id)
-            ->equal('status', 'all')
-            ->equal('orderBy.blast_users.created_at', 'desc')
-            ->equal('with.total', 'true')
-            ->middleware(function($fetch) use($request, $filter_category, $TableKey) {
-                if ($filter_category) {
-                    $fetch->equal('blast_category_id', $filter_category);
-                }
-                $fetch->equal('skip', ___TableGetSkip($request, $TableKey, $fetch->QueryRoute->ArrQuery->take));
-                return $fetch;
-            })
-            ->get('fetch');
-
-        $DataTable = [
-            'key' => $TableKey,
-            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
-            'paginate' => ___TablePaginate((int)$UserPhoneNumber['total'], (int)$UserPhoneNumber['query']->take, ___TableGetCurrentPage($request, $TableKey)),
-            'heads' => [
-                (object)['name' => 'phone_number', 'label' => 'Phone Number'],
-                (object)['name' => 'blast_category_id', 'label' => 'Category ID'],
-                (object)['name' => 'status', 'label' => 'Status'],
-                (object)['name' => 'updated_at', 'label' => 'Updated At'],
-                (object)['name' => 'created_at', 'label' => 'Created At'],
-            ],
-            'records' => []
-        ];
-        if ($UserPhoneNumber['records']) {
-            $DataTable['records'] = $UserPhoneNumber['records'];
-            $DataTable['total'] = $UserPhoneNumber['total'];
-            $DataTable['show'] = $UserPhoneNumber['show'];
-        }
-
-        $ParseData = [
-            'hasOne' => [],
-            'count' => [
-                'available' => $AvailableCount['total'],
-                'delivered' => $DeliveredCount['total'],
-                'failed' => $FailedCount['total'],
-            ],
-            'select' => ['categories' => $CategorySelect],
-            'user' => $User['records'],
-            'filter_category' => $filter_category,
-            'data' => $DataTable,
-            'filter_category' => $filter_category
-
-        ];
-        if (isset($FilterCategoryData)) {
-            $ParseData['hasOne']['FilterCategory'] = $FilterCategoryData['records'];
-        }
-        return view('app.user.detail.whatsapp.phone_number.home.index', $ParseData);
     }
 
     public function Edit(Request $request, $id)

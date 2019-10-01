@@ -29,12 +29,12 @@
     <link href="/pages/css/themes/corporate.css" class="main-stylesheet" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/formvalidation/dist/css/formValidation.min.css" rel="stylesheet">
     <link href="/assets/plugins/fontawesome/css/all.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
     <link href="/assets/css/spinkit.css" rel="stylesheet">
     <link href="/assets/plugins/sweetalert/sweetalert2.min.css" rel="stylesheet">
     <link href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
     <link href="/assets/plugins/summernote/css/summernote.css" rel="stylesheet" type="text/css" media="screen">
     <link href="/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" media="screen">
     <link href="/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="/assets/css/style.css" rel="stylesheet">
   </head>
   <body class="@yield('bodyClass')">

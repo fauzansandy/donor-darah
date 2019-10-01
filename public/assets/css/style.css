@@ -99,3 +99,12 @@
 .form-group.form-group-default.form-group-default-select2 > .fv-plugins-message-container {
     padding-left: 12px;
 }
+
+/*  */
+.page-sidebar .sidebar-menu .menu-items > li > a > .title {
+    overflow: unset;
+    width: 100%;
+}
+.page-sidebar .sidebar-menu .menu-items li > a {
+    width: 78%;
+}
