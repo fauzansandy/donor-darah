@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use App\Http\Middleware\BaseMiddleware;
 use Illuminate\Contracts\Auth\Factory as Auth;
 
-class Authenticate extends BaseMiddleware
+class Authenticate
 {
     /**
      * The authentication guard factory instance.
@@ -42,7 +41,7 @@ class Authenticate extends BaseMiddleware
             $this->Json::set('exception.message', 'Unauthorized.');
             return response()->json($this->Json::get(), 401);
         }
-        $Me = (object)[ 'account' => $request->user(), 'type' => 'user'];
+        $Me = (object)['account' => $request->user(), 'type' => 'user'];
         $this->_Request->merge(['Me' => $Me]);
         return $next($request);
     }

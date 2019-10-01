@@ -33,7 +33,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(\Laravel\Passport\PassportServiceProvider::class);
         $this->app->register(\Dusterio\LumenPassport\PassportServiceProvider::class);
         $this->app->register(\Barryvdh\Cors\ServiceProvider::class);
-        $this->app->register(\Maatwebsite\Excel\ExcelServiceProvider::class);
 
         // \Dusterio\LumenPassport\LumenPassport::routes($this->app, ['prefix' => 'v1/oauth']);
         $this->app->singleton('filesystem', function ($app) {
