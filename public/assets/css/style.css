@@ -77,6 +77,34 @@
     margin-top: 25px!important;
 }
 
+.blade-datatable-sort{
+    width: auto ;
+    text-align:left ;
+    float:left;
+}
+.blade-datatable-sort .select{
+    line-height: 1.5;
+    display: inline-block!important;
+    vertical-align: middle;
+}
+.blade-datatable-sort p {
+    padding-top:10px;
+    padding-left:0px;
+    display: inline-block!important;
+    vertical-align: middle;
+}
+.card-header a:not(.btn) {
+    color: #000000 !important;
+    opacity:1 !important;
+}
+
+.dropdown-menu {
+    width:100%!important;
+    border: 1px  #000;
+}
+
+/*  */
+
 
 .card-action {
 

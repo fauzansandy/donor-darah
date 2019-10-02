@@ -25,8 +25,11 @@ class DealerManagementController extends Controller
             $selected = 5;
         }
 
+        $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'selected' => $selected,

@@ -1,35 +1,37 @@
-{{-- <style>
-  .sort{
-      width: auto ;
-      text-align:left ;
-  }
-  .sort .select{
-    line-height: 1.5;
-    display: inline-block!important;
-    vertical-align: middle;
-  }
-
-  .sort p {
-    /* line-height: 1.5; */
-    padding-top:10px;
-    padding-left:0px;
-    display: inline-block!important;
-    vertical-align: middle;
-  }
-</style> --}}
- <div class="blade-datatable table-responsive">
-    {{-- <div class="sort">
-        <p>Show</p>
-        <div class="select">
-            <select>
-                <option value="10" selected>10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
+<div class="blade-datatable table-responsive">
+    <div class="row blade-datatable-header">
+        <div class="col-12 blade-datatable-header-panel">
+            <div class="row">
+                <div class="col-8">
+                    <div class="blade-datatable-sort">
+                        <p>Show</p>
+                        <div class="dropdown dropdown-default">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ $data['take'] }}
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ fullUri([$data['key']."-take" => 10]) }}">10</a>
+                                <a class="dropdown-item" href="{{ fullUri([$data['key']."-take" => 25]) }}">25</a>
+                                <a class="dropdown-item" href="{{ fullUri([$data['key']."-take" => 50]) }}">50</a>
+                                <a class="dropdown-item" href="{{ fullUri([$data['key']."-take" => 100]) }}">100</a>
+                            </div>
+                        </div>
+                        <p>Entries</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <form action="{{ fullUri() }}">
+                        <div class="input-group">
+                            <input name="{{ $data['key'] }}-filter_search" value="{{ $data['filter_search'] }}" class="form-control" type="text">
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text info"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </from>
+                </div>
+            </div>
         </div>
-        <p>Entries</p>
-    </div> --}}
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>

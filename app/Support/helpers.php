@@ -200,6 +200,22 @@ if ( ! function_exists('___TableGetSkip'))
     }
 }
 
+if ( ! function_exists('___TableGetFilterSearch'))
+{
+    function ___TableGetFilterSearch($request, $TableKey)
+    {
+        return $request->input("$TableKey-filter_search");
+    }
+}
+
+if ( ! function_exists('___TableGetTake'))
+{
+    function ___TableGetTake($request, $TableKey)
+    {
+        return $request->input("$TableKey-take") ? $request->input("$TableKey-take") : 10;
+    }
+}
+
 if ( ! function_exists('UrlPrevious'))
 {
     function UrlPrevious($urlBackup = null)
@@ -254,10 +270,35 @@ if ( ! function_exists('BrowseData'))
 }
 
 // Satellite Helper
-if ( ! function_exists('BrowseData'))
+if ( ! function_exists('SatelliteClient'))
 {
     function SatelliteClient()
     {
         return App\Support\Satellite\Client::class;
+    }
+}
+
+// URL Helper
+if ( ! function_exists('fullUrl'))
+{
+    function fullUrl()
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        return $actual_link;
+    }
+}
+
+if ( ! function_exists('fullUri'))
+{
+    function fullUri($QueryString = [])
+    {
+        $Qs = $_SERVER['QUERY_STRING'];
+        parse_str($Qs, $QsArr);
+        $MergedQuery = array_merge($QsArr, $QueryString);
+        $url = strtok($_SERVER["REQUEST_URI"], '?');
+        if (count($MergedQuery) > 0) {
+            $url .= '?'.http_build_query($MergedQuery);
+        }
+        return $url;
     }
 }
