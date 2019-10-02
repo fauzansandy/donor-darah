@@ -22,42 +22,26 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-
-    // Batch
-
     public function Home(Request $request)
     {
         $TableKey = 'user-table';
-        $filter_status = $request->input('filter_status');
-        if (!$filter_status) {
-            $filter_status = 'active';
-        }
-        $filter_search = $request->input('filter_search');
-        if ($request->input('user-table-show')) {
-            $selected = $request->input('user-table-show');
-        } else {
-            $selected = 5;
-        }
 
-        $options = [5,10,15,20];
         $User = UserBrowseController::FetchBrowse($request)
-            ->where('take', $selected)
             ->where('orderBy.blast_users.created_at', 'desc')
             ->where('with.total', 'true')
-            ->middleware(function($fetch) use($filter_search, $request, $TableKey) {
-                if ($filter_search) {
-                    $fetch->equal('search', $filter_search);
-                }
+            ->middleware(function($fetch) use($request, $TableKey) {
                 $fetch->equal('skip', ___TableGetSkip($request, $TableKey, $fetch->QueryRoute->ArrQuery->take));
                 return $fetch;
             })
             ->get('fetch');
+
+        $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
-            'paginate' => ___TablePaginate((int)$User['total'], (int)$User['query']->take, ___TableGetCurrentPage($request, $TableKey)),
-            'selected' =>$selected,
-            'options' => $options,
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
                 (object)['name' => 'id', 'label' => 'ID'],
                 (object)['name' => 'name', 'label' => 'Name'],
@@ -75,10 +59,6 @@ class UserController extends Controller
         }
 
         $ParseData = [
-            'filter_status' => $filter_status,
-            'filter_search' => $filter_search,
-            'options'    => $options,
-            'selected' => $selected,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];

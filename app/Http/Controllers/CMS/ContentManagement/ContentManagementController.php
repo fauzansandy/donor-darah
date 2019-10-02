@@ -122,7 +122,6 @@ class ContentManagementController extends Controller
                 (object)['name' => 'TITLE', 'name' => 'Title'],
                 (object)['name' => 'ROLE', 'name' => 'Role'],
                 (object)['name' => 'TGL_UPDATE', 'name' => 'Tgl Update'],
-                (object)['name' => 'EDIT', 'name' => 'Edit'],
                 (object)['name' => 'STATUS', 'name' => 'Status'],
                 (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
@@ -139,5 +138,15 @@ class ContentManagementController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.content.news.home.index', $ParseData);
+    }
+
+    public function NewsNew(Request $request)
+    {
+        return view('app.content.news.home.index');
+    }
+
+    public function NewsDetail(Request $request)
+    {
+        return view('app.content.news.home.index');
     }
 }

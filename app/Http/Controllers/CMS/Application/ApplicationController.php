@@ -17,29 +17,32 @@ class ApplicationController extends Controller
     public function Verified(Request $request)
     {
         $TableKey = 'application-verified-table';
-        $filter_search = $request->input('filter_search');
 
+        $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
-                (object)['name' => 'Tgl Submit', 'label' => 'Tgl Submit'],
-                (object)['name' => 'Nama dealer', 'label' => 'Nama dealer'],
-                (object)['name' => 'Nama user', 'label' => 'Nama user'],
-                (object)['name' => 'Jabatan', 'label' => 'Jabatan'],
-                (object)['name' => 'Status Verifed', 'label' => 'Status Verifed'],
-                (object)['name' => 'Status Pengajuan Aplikasi', 'label' => 'Status Pengajuan Aplikasi']
+                (object)['name' => 'TGL_SUBMIT', 'label' => 'Tgl Submit'],
+                (object)['name' => 'NAMA_DEALER', 'label' => 'Nama dealer'],
+                (object)['name' => 'NAMA_USER', 'label' => 'Nama user'],
+                (object)['name' => 'JABATAN', 'label' => 'Jabatan'],
+                (object)['name' => 'STATUS_VERIFED', 'label' => 'Status Verifed'],
+                (object)['name' => 'STATUS_PENGAJUAN_APLIKASI', 'label' => 'Status Pengajuan Aplikasi'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
-            'records' => []
+            'records' => [
+                (object)['TGL_SUBMIT' => '2019-09-01', 'NAMA_DEALER' => 'WALDI', 'NAMA_USER' => 'Waldi Irawan','JABATAN' => 'OWNER', 'STATUS_VERIFED' => 'VERIFIED', 'STATUS_PENGAJUAN_APLIKASI' => 'PENDING']
+            ]
         ];
 
-        $DataTable['records'] = [];
         $DataTable['total'] = 0;
         $DataTable['show'] = 0;
 
         $ParseData = [
-            'filter_search' => $filter_search,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
@@ -49,29 +52,32 @@ class ApplicationController extends Controller
     public function NotVerified(Request $request)
     {
         $TableKey = 'application-notverified-table';
-        $filter_search = $request->input('filter_search');
 
+        $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
-                (object)['name' => 'Tgl Submit', 'label' => 'Tgl Submit'],
-                (object)['name' => 'Nama dealer', 'label' => 'Nama dealer'],
-                (object)['name' => 'Nama user', 'label' => 'Nama user'],
-                (object)['name' => 'Jabatan', 'label' => 'Jabatan'],
-                (object)['name' => 'Status Verifed', 'label' => 'Status Verifed'],
-                (object)['name' => 'Status Pengajuan Aplikasi', 'label' => 'Status Pengajuan Aplikasi']
+                (object)['name' => 'TGL_SUBMIT', 'label' => 'Tgl Submit'],
+                (object)['name' => 'NAMA_DEALER', 'label' => 'Nama dealer'],
+                (object)['name' => 'NAMA_USER', 'label' => 'Nama user'],
+                (object)['name' => 'JABATAN', 'label' => 'Jabatan'],
+                (object)['name' => 'STATUS_VERIFED', 'label' => 'Status Verifed'],
+                (object)['name' => 'STATUS_PENGAJUAN_APLIKASI', 'label' => 'Status Pengajuan Aplikasi'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
-            'records' => []
+            'records' => [
+                (object)['TGL_SUBMIT' => '2019-09-01', 'NAMA_DEALER' => 'WALDI', 'NAMA_USER' => 'Waldi Irawan','JABATAN' => 'OWNER', 'STATUS_VERIFED' => 'NOT VERIFIED', 'STATUS_PENGAJUAN_APLIKASI' => 'PENDING']
+            ]
         ];
 
-        $DataTable['records'] = [];
         $DataTable['total'] = 0;
         $DataTable['show'] = 0;
 
         $ParseData = [
-            'filter_search' => $filter_search,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];

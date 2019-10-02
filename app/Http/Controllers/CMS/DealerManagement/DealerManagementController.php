@@ -60,30 +60,32 @@ class DealerManagementController extends Controller
     public function VerificationRequest(Request $request)
     {
         $TableKey = 'user-verification-request-table';
-        $filter_search = $request->input('filter_search');
 
+        $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
-                (object)['name' => 'Date Request', 'name' => 'Date Request'],
-                (object)['name' => 'Dealer Name', 'name' => 'Dealer Name'],
-                (object)['name' => 'Nama user', 'name' => 'Nama user'],
-                (object)['name' => 'Email', 'name' => 'Email'],
-                (object)['name' => 'No hp', 'name' => 'No hp'],
-                (object)['name' => 'Jabatan', 'name' => 'Jabatan'],
-                (object)['name' => 'Status User', 'name' => 'Status User']
+                (object)['name' => 'DATE_REQUEST', 'name' => 'Date Request'],
+                (object)['name' => 'DEALER_NAME', 'name' => 'Dealer Name'],
+                (object)['name' => 'NAMA_USER', 'name' => 'Nama user'],
+                (object)['name' => 'EMAIL', 'name' => 'Email'],
+                (object)['name' => 'NO_HP', 'name' => 'No hp'],
+                (object)['name' => 'JABATAN', 'name' => 'Jabatan'],
+                (object)['name' => 'STATUS_USER', 'name' => 'Status User']
             ],
-            'records' => []
+            'records' => [
+                (object)['DATE_REQUEST' => '2019-09-01', 'DEALER_NAME' => 'WALDI', 'NAMA_USER' => 'Waldi Irawan', 'EMAIL' => 'waldirawan127@gmail.com', 'NO_HP' => '081311383560', 'JABATAN' => 'OWNER', 'STATUS_USER' => 'ACTIVE']
+            ]
         ];
 
-        $DataTable['records'] = [];
         $DataTable['total'] = 0;
         $DataTable['show'] = 0;
 
         $ParseData = [
-            'filter_search' => $filter_search,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];

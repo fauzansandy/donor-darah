@@ -17,28 +17,30 @@ class PositionController extends Controller
     public function Home(Request $request)
     {
         $TableKey = 'position-table';
-        $filter_search = $request->input('filter_search');
 
+        $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
-                (object)['name' => 'id', 'label' => 'ID'],
-                (object)['name' => 'name', 'label' => 'Name'],
-                (object)['name' => 'updated_at', 'label' => 'Updated At'],
-                (object)['name' => 'created_at', 'label' => 'Created At'],
-                (object)['name' => 'action', 'label' => 'Action']
+                (object)['name' => 'ID', 'label' => 'ID'],
+                (object)['name' => 'NAME', 'label' => 'Name'],
+                (object)['name' => 'UPDATED_AT', 'label' => 'Updated At'],
+                (object)['name' => 'CREATED_AT', 'label' => 'Created At'],
+                (object)['name' => 'ACTION', 'label' => 'Action']
             ],
-            'records' => []
+            'records' => [
+                (object)['ID' => '1', 'NAME' => 'ADMIN', 'UPDATED_AT' => '2019-09-01 00:00:00', 'CREATED_AT' => '2019-09-01 00:00:00']
+            ]
         ];
 
-        $DataTable['records'] = [];
         $DataTable['total'] = 0;
         $DataTable['show'] = 0;
 
         $ParseData = [
-            'filter_search' => $filter_search,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];

@@ -20,7 +20,7 @@ $router->get('/position', 'CMS\Position\PositionController@Home');
 $router->get('/user', 'CMS\User\UserController@Home');
 
 $router->get('/dealer/user', 'CMS\DealerManagement\DealerManagementController@User');
-$router->get('/dealer/user/{id}/edit', 'CMS\DealerManagement\DealerManagementController@UserEdit');
+$router->get('/dealer/user/{id}', 'CMS\DealerManagement\DealerManagementController@UserEdit');
 $router->get('/dealer/verification/request', 'CMS\DealerManagement\DealerManagementController@VerificationRequest');
 
 $router->get('/application/verified', 'CMS\Application\ApplicationController@Verified');
@@ -31,4 +31,7 @@ $router->get('/reward/dealer', 'CMS\Reward\RewardController@Dealer');
 $router->get('/content/master', 'CMS\ContentManagement\ContentManagementController@Master');
 $router->get('/content/feedback', 'CMS\ContentManagement\ContentManagementController@FeedBack');
 $router->get('/content/pushnotification', 'CMS\ContentManagement\ContentManagementController@PushNotification');
+
 $router->get('/content/news', 'CMS\ContentManagement\ContentManagementController@News');
+$router->get('/content/news/new', 'CMS\ContentManagement\ContentManagementController@NewsNew');
+$router->get('/content/news/{id}', 'CMS\ContentManagement\ContentManagementController@NewsDetail');

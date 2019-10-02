@@ -49,7 +49,7 @@
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
-                                    <a href="{{ url('/dealer/user/1/edit') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                    <a href="{{ url('/content/news/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
                                 </div>
                             </td>
                         </tr>

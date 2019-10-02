@@ -29,13 +29,6 @@
                                 <li class="nav-item">
                                     <a href="{{ url('/user/new') }}"><i class="fas fa-plus"></i> Create</a>
                                 </li>
-                                <li class="nav-item">
-                                    @if ($filter_status === 'active')
-                                        <a href="{{ url('/user?filter_status=inactive') }}"><i class="fas fa-eye-slash"></i> Inactive</a>
-                                    @else
-                                        <a href="{{ url('/user?filter_status=active') }}"><i class="fas fa-eye"></i> Active</a>
-                                    @endif
-                                </li>
                             </ul>
                         </div>
                         <div class="col-sm-4">
@@ -54,12 +47,41 @@
         <div class="card card-white">
             <div class="card-header ">
                 <div class="card-title">User Data</div><br>
-                @include('components.search')
-                @include('components.entries')
             </div>
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])
                     @scopedslot('head', ($item))
+                        @if($item->name === 'ID')
+                            <th style="width: 3%">{{ $item->name }}</th>
+                        @elseif ($item->name === 'ACTION')
+                            <th style="width: 112px">{{ $item->name }}</th>
+                        @else
+                            <th>{{ $item->name }}</th>
+                        @endif
+                    @endscopedslot
+                    @scopedslot('record', ($item, $props))
+                        <tr>
+                            <td class="v-align-middle ">
+                                <p>{{ $item->id }}</p>
+                            </td>
+                            <td class="v-align-middle ">
+                                <p>{{ $item->username }}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>{{ $item->updated_at }}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>{{ $item->created_at }}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <div class="btn-group">
+                                    <a href="{{ url('/dealer/verification/request/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endscopedslot
+
+                    {{-- @scopedslot('head', ($item))
                         @if($item->name === 'id')
                             <th style="width: 3%">{{ $item->name }}</th>
                         @elseif ($item->name === 'action')
@@ -92,7 +114,7 @@
                                 </div>
                             </td>
                         </tr>
-                    @endscopedslot
+                    @endscopedslot--}}
                 @endcomponent
             </div>
         </div>

@@ -22,10 +22,10 @@
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])
                     @scopedslot('head', ($item))
-                        @if($item->name === 'id')
+                        @if($item->name === 'ID')
                             <th style="width: 3%">{{ $item->name }}</th>
-                        @elseif ($item->name === 'action')
-                            <th style="width: 10%">{{ $item->name }}</th>
+                        @elseif ($item->name === 'ACTION')
+                            <th style="width: 112px">{{ $item->name }}</th>
                         @else
                             <th>{{ $item->name }}</th>
                         @endif
@@ -33,15 +33,29 @@
                     @scopedslot('record', ($item, $props))
                         <tr>
                             <td class="v-align-middle ">
+                                {{ $item->DATE_REQUEST }}
                             </td>
                             <td class="v-align-middle ">
+                                {{ $item->DEALER_NAME }}
                             </td>
                             <td class="v-align-middle">
+                                {{ $item->NAMA_USER }}
                             </td>
                             <td class="v-align-middle">
+                                {{ $item->EMAIL }}
+                            </td>
+                            <td class="v-align-middle">
+                                {{ $item->NO_HP }}
+                            </td>
+                            <td class="v-align-middle">
+                                {{ $item->JABATAN }}
+                            </td>
+                            <td class="v-align-middle">
+                                {{ $item->STATUS_USER }}
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
+                                    <a href="{{ url('/dealer/verification/request/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
                                 </div>
                             </td>
                         </tr>
