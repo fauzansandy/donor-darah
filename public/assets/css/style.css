@@ -108,3 +108,8 @@
 .page-sidebar .sidebar-menu .menu-items li > a {
     width: 78%;
 }
+
+.btn-table-action {
+    margin-left: 3px;
+    margin-right: 3px;
+}

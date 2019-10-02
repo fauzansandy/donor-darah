@@ -1,4 +1,4 @@
-<select class="full-width"{!! isset($placeholder) ? 'data-placeholder="'.$placeholder.'"' : '' !!} name="{{ isset($name) ? $name : 'unknown' }}" data-init-plugin="select2" {{ isset($multiple) && $multiple ? 'multiple' : '' }}>
+<select class="full-width"{!! isset($placeholder) ? 'data-placeholder="'.$placeholder.'"' : '' !!} name="{{ isset($name) ? $name : 'unknown' }}" data-init-plugin="select2" {{ isset($multiple) && $multiple ? 'multiple' : '' }} {!! isset($search) && $search ? '' : "data-minimum-results-for-search=\"Infinity\"" !!}>
     @if (isset($items))
         @if (isset($placeholder))
             <option value="">{{ $placeholder }}</option>

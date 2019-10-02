@@ -38,7 +38,6 @@
     <script src="/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
     <script src="/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.8.0/qs.min.js" type="text/javascript"></script>
-    <script src="/assets/js/pusher.min.js"></script>
 
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
@@ -75,7 +74,6 @@
             timeout: 600000,
             headers: {}
         })
-        @if(config('app.debug'))Pusher.logToConsole = true;@endif
 
         axios.interceptors.response.use(
             response => response,
@@ -114,12 +112,6 @@
                 return Promise.reject(error)
             }
         )
-
-        const pusher = new Pusher('{{ App\Support\Realtime\Realtime::GetPusherKey() }}', {
-            cluster: 'ap1',
-            forceTLS: true
-        })
-        window.pusher
 
         if (getCookie('TokenType') != "" && getCookie('AccessToken')) {
             window.axios.defaults.headers['Authorization'] = `${getCookie('TokenType')} ${getCookie('AccessToken')}`

@@ -252,3 +252,12 @@ if ( ! function_exists('BrowseData'))
         return $Browse->original['data'];
     }
 }
+
+// Satellite Helper
+if ( ! function_exists('BrowseData'))
+{
+    function SatelliteClient()
+    {
+        return App\Support\Satellite\Client::class;
+    }
+}

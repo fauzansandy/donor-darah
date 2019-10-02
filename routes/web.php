@@ -20,6 +20,7 @@ $router->get('/position', 'CMS\Position\PositionController@Home');
 $router->get('/user', 'CMS\User\UserController@Home');
 
 $router->get('/dealer/user', 'CMS\DealerManagement\DealerManagementController@User');
+$router->get('/dealer/user/{id}/edit', 'CMS\DealerManagement\DealerManagementController@UserEdit');
 $router->get('/dealer/verification/request', 'CMS\DealerManagement\DealerManagementController@VerificationRequest');
 
 $router->get('/application/verified', 'CMS\Application\ApplicationController@Verified');

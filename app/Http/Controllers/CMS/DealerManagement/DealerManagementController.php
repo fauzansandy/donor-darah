@@ -31,19 +31,21 @@ class DealerManagementController extends Controller
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'selected' => $selected,
             'heads' => [
-                (object)['name' => 'Dealer Name', 'label' => 'Dealer Name'],
-                (object)['name' => 'Username', 'label' => 'Username'],
-                (object)['name' => 'Nama user', 'label' => 'Nama user'],
-                (object)['name' => 'Email', 'label' => 'Email'],
-                (object)['name' => 'No hp', 'label' => 'No hp'],
-                (object)['name' => 'Jabatan', 'label' => 'Jabatan'],
-                (object)['name' => 'Status active', 'label' => 'Status active'],
-                (object)['name' => 'Status verified', 'label' => 'Status verified']
+                (object)['name' => 'DEALER_NAME', 'label' => 'Dealer Name'],
+                (object)['name' => 'USERNAME', 'label' => 'Username'],
+                (object)['name' => 'NAMA_USER', 'label' => 'Nama user'],
+                (object)['name' => 'EMAIL', 'label' => 'Email'],
+                (object)['name' => 'NO_HP', 'label' => 'No hp'],
+                (object)['name' => 'JABATAN', 'label' => 'Jabatan'],
+                (object)['name' => 'STATUS_ACTIVE', 'label' => 'Status active'],
+                (object)['name' => 'STATUS_VERIFIED', 'label' => 'Status verified'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION'],
             ],
-            'records' => []
+            'records' => [
+                (object)['DEALER_NAME' => 'WALDI', 'USERNAME' => 'waldiirawan', 'NAMA_USER' => 'Waldi Irawan', 'EMAIL' => 'waldirawan127@gmail.com', 'NO_HP' => '081311383560', 'JABATAN' => 'OWNER', 'STATUS_ACTIVE' => 'ACTIVE', 'STATUS_VERIFIED' => 'VERIFIED']
+            ]
         ];
 
-        $DataTable['records'] = [];
         $DataTable['total'] = 0;
         $DataTable['show'] = 0;
 
@@ -53,6 +55,11 @@ class DealerManagementController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.dealer.management.user.home.index', $ParseData);
+    }
+
+    public function UserEdit(Request $request)
+    {
+        return view('app.dealer.management.user.edit.index');
     }
 
     public function VerificationRequest(Request $request)
