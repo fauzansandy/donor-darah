@@ -112,10 +112,24 @@
                       <a href="{!! url('/content/master'); !!}">Master Content</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
-                  <li class="">
-                      <a href="{!! url('/content/feedback'); !!}">Feedback</a>
+                  <li>
+                      <a href="javascript:;">
+                          <span class="title">Feedback</span>
+                          <span class="arrow"></span>
+                      </a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                      <ul class="sub-menu">
+                          <li>
+                              <a href="{!! url('/content/feedback/critics'); !!}">Kritik</a>
+                              <span class="icon-thumbnail">Kr</span>
+                          </li>
+                          <li>
+                              <a href="{!! url('/content/feedback/suggestion'); !!}">Saran</a>
+                              <span class="icon-thumbnail">Sa</span>
+                          </li>
+                      </ul>
                   </li>
+
                   <li class="">
                       <a href="{!! url('/content/pushnotification'); !!}">Push notifikasi</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>

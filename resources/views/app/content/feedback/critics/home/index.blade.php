@@ -22,10 +22,10 @@
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])
                     @scopedslot('head', ($item))
-                        @if($item->name === 'id')
+                        @if($item->name === 'ID')
                             <th style="width: 3%">{{ $item->name }}</th>
-                        @elseif ($item->name === 'action')
-                            <th style="width: 10%">{{ $item->name }}</th>
+                        @elseif ($item->name === 'ACTION')
+                            <th style="width: 112px">{{ $item->name }}</th>
                         @else
                             <th>{{ $item->name }}</th>
                         @endif
@@ -33,15 +33,23 @@
                     @scopedslot('record', ($item, $props))
                         <tr>
                             <td class="v-align-middle ">
+                                {{ $item->USER_ID }}
                             </td>
                             <td class="v-align-middle ">
+                                {{ $item->CUSTOMER_NAME }}
                             </td>
                             <td class="v-align-middle">
+                                {{ $item->EMAIL }}
                             </td>
                             <td class="v-align-middle">
+                                {{ $item->REPORT }}
+                            </td>
+                            <td class="v-align-middle">
+                                {{ $item->SUBMIT_DATE }}
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
+                                    <a href="{{ url('/dealer/user/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
                                 </div>
                             </td>
                         </tr>

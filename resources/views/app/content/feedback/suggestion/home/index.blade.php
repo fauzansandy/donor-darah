@@ -9,7 +9,7 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Content Push Notification</li>
+                    <li class="breadcrumb-item active">Content FeedBack</li>
                 </ol>
             </div>
         </div>
@@ -17,7 +17,7 @@
     <div class="container-fluid container-fixed-lg p-t-10">
         <div class="card card-white">
             <div class="card-header ">
-                <div class="card-title">Content Push Notification Data</div><br>
+                <div class="card-title">Content FeedBack Data</div><br>
             </div>
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])
@@ -33,19 +33,19 @@
                     @scopedslot('record', ($item, $props))
                         <tr>
                             <td class="v-align-middle ">
-                                {{ $item->ID }}
+                                {{ $item->USER_ID }}
                             </td>
                             <td class="v-align-middle ">
-                                {{ $item->MESSAGE }}
+                                {{ $item->CUSTOMER_NAME }}
                             </td>
                             <td class="v-align-middle">
-                                {{ $item->USER }}
+                                {{ $item->EMAIL }}
                             </td>
                             <td class="v-align-middle">
-                                {{ $item->CREATED_DATE }}
+                                {{ $item->REPORT }}
                             </td>
                             <td class="v-align-middle">
-                                {{ $item->CODE_PUSH_NOTIF }}
+                                {{ $item->SUBMIT_DATE }}
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">

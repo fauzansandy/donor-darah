@@ -29,7 +29,8 @@ $router->get('/application/notverified', 'CMS\Application\ApplicationController@
 $router->get('/reward/dealer', 'CMS\Reward\RewardController@Dealer');
 
 $router->get('/content/master', 'CMS\ContentManagement\ContentManagementController@Master');
-$router->get('/content/feedback', 'CMS\ContentManagement\ContentManagementController@FeedBack');
+$router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
+$router->get('/content/feedback/suggestion', 'CMS\ContentManagement\ContentManagementController@FeedBackSuggestion');
 $router->get('/content/pushnotification', 'CMS\ContentManagement\ContentManagementController@PushNotification');
 
 $router->get('/content/news', 'CMS\ContentManagement\ContentManagementController@News');
