@@ -110,30 +110,31 @@ class ContentManagementController extends Controller
     public function News(Request $request)
     {
         $TableKey = 'news-table';
-        $filter_search = $request->input('filter_search');
-
+        $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
-                (object)['name' => 'ID news', 'name' => 'ID news'],
-                (object)['name' => 'Title', 'name' => 'Title'],
-                (object)['name' => 'Role', 'name' => 'Role'],
-                (object)['name' => 'Tgl Update', 'name' => 'Tgl Update'],
-                (object)['name' => 'Edit', 'name' => 'Edit'],
-                (object)['name' => 'Status', 'name' => 'Status'],
-                (object)['name' => 'Order By', 'name' => 'Order By']
+                (object)['name' => 'ID_NEWS', 'name' => 'ID news'],
+                (object)['name' => 'TITLE', 'name' => 'Title'],
+                (object)['name' => 'ROLE', 'name' => 'Role'],
+                (object)['name' => 'TGL_UPDATE', 'name' => 'Tgl Update'],
+                (object)['name' => 'EDIT', 'name' => 'Edit'],
+                (object)['name' => 'STATUS', 'name' => 'Status'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
-            'records' => []
+            'records' => [
+                (object)['ID_NEWS' => 1, 'TITLE' => 'BERITA NEWS ONE', 'ROLE' => 'CONTENT', 'TGL_UPDATE' => '2019-09-10 00:00:00', 'STATUS' => 'publish']
+            ]
         ];
 
-        $DataTable['records'] = [];
         $DataTable['total'] = 0;
         $DataTable['show'] = 0;
 
         $ParseData = [
-            'filter_search' => $filter_search,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];

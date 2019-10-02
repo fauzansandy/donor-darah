@@ -7,7 +7,7 @@
                         <p>Show</p>
                         <div class="dropdown dropdown-default">
                             <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ $data['take'] }}
+                                {{ isset($data['take']) ? $data['take'] : 10 }}
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ fullUri([$data['key']."-take" => 10]) }}">10</a>
@@ -22,9 +22,9 @@
                 <div class="col-4">
                     <form action="{{ fullUri() }}">
                         <div class="input-group">
-                            <input name="{{ $data['key'] }}-filter_search" value="{{ $data['filter_search'] }}" class="form-control" type="text">
+                            <input name="{{ $data['key'] }}-filter_search" placeholder="Search..." value="{{ isset($data['filter_search']) ? $data['filter_search'] : '' }}" class="form-control" type="text">
                             <div class="input-group-append">
-                                <button type="submit" class="input-group-text info"><i class="fa fa-search"></i></button>
+                                <button type="submit" class="input-group-text info pointer"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </from>

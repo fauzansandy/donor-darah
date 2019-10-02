@@ -18,12 +18,6 @@ class DealerManagementController extends Controller
     public function User(Request $request)
     {
         $TableKey = 'dealer-user-table';
-        $filter_search = $request->input('filter_search');
-        if ($request->input('user-table-show')) {
-            $selected = $request->input('user-table-show');
-        } else {
-            $selected = 5;
-        }
 
         $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
@@ -32,7 +26,6 @@ class DealerManagementController extends Controller
             'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
-            'selected' => $selected,
             'heads' => [
                 (object)['name' => 'DEALER_NAME', 'label' => 'Dealer Name'],
                 (object)['name' => 'USERNAME', 'label' => 'Username'],
@@ -53,7 +46,6 @@ class DealerManagementController extends Controller
         $DataTable['show'] = 0;
 
         $ParseData = [
-            'filter_search' => $filter_search,
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];

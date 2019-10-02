@@ -58,8 +58,7 @@
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
-                                    <a href="{{ url('/dealer/user/1/edit') }}" class="btn btn-xs btn-success btn-table-action">EDIT</a>
-                                    <a href="#modalDelete" class="btn btn-xs btn-danger btn-table-action">DELETE</a>
+                                    <a href="{{ url('/dealer/user/1/edit') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
                                 </div>
                             </td>
                         </tr>
