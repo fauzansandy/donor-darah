@@ -49,6 +49,11 @@ class ApplicationController extends Controller
         return view('app.application.verified.home.index', $ParseData);
     }
 
+    public function VerifiedDetail(Request $request)
+    {
+        return view('app.application.notverified.detail.index');
+    }
+
     public function NotVerified(Request $request)
     {
         $TableKey = 'application-notverified-table';
@@ -82,5 +87,10 @@ class ApplicationController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.application.notverified.home.index', $ParseData);
+    }
+
+    public function NotVerifiedDetail(Request $request)
+    {
+        return view('app.application.notverified.detail.index');
     }
 }

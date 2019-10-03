@@ -109,30 +109,33 @@
               <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
               <ul class="sub-menu">
                   <li class="@yield('contentManagementMasterContentMenuClass')">
-                      <a href="{!! url('/content/master'); !!}">Master Content</a>
+                      <a href="javascript:;">
+                          <span class="title">Master Content</span>
+                          <span class="arrow"></span>
+                      </a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                       <ul class="sub-menu">
-                          <li>
+                          <li class="@yield('contentManagementMasterContentMenuContactUsClass')">
                               <a href="{!! url('/content/master/contact'); !!}">Contact Us</a>
                               <span class="icon-thumbnail">CU</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentMenuTANDCClass')">
                               <a href="{!! url('/content/master/termco'); !!}">Term & Conditions</a>
                               <span class="icon-thumbnail">TC</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentMenuFAQClass')">
                               <a href="{!! url('/content/master/faq'); !!}">Resolution Center (FAQ)</a>
                               <span class="icon-thumbnail">FAQ</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentTermPeriodMenuClass')">
                               <a href="{!! url('/content/master/provision'); !!}">Term Period</a>
                               <span class="icon-thumbnail">TP</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentCashRewardsMenuClass')">
                               <a href="{!! url('/content/master/cash-rewards'); !!}">Cash Rewards</a>
                               <span class="icon-thumbnail">CR</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentInfoMenuClass')">
                               <a href="{!! url('/content/master/info'); !!}">Info</a>
                               <span class="icon-thumbnail">IN</span>
                           </li>

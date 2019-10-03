@@ -55,7 +55,7 @@
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
-                                    <a href="{{ url('/dealer/verification/request/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                    <a href="{{ url('/application/verified/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
                                 </div>
                             </td>
                         </tr>
