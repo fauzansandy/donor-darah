@@ -44,7 +44,7 @@ class ContentManagementController extends Controller
         ];
         return view('app.content.master.home.index', $ParseData);
     }
-    
+
     public function MasterContact(Request $request)
     {
         $TableKey = 'content-master-contact-table';
@@ -107,7 +107,7 @@ class ContentManagementController extends Controller
         ];
         return view('app.content.master.termco.home.index', $ParseData);
     }
-    
+
     public function MasterContactTermCoDetail(Request $request)
     {
         return view('app.content.master.termco.detail.index');
@@ -154,7 +154,7 @@ class ContentManagementController extends Controller
     {
         return view('app.content.master.faq.new.index');
     }
-    
+
     public function MasterContactFAQDetail(Request $request)
     {
         return view('app.content.master.faq.detail.index');
@@ -195,7 +195,7 @@ class ContentManagementController extends Controller
     {
         return view('app.content.master.period.new.index');
     }
-    
+
     public function MasterContactPeriodProvisionDetail(Request $request)
     {
         return view('app.content.master.period.detail.index');
@@ -236,7 +236,7 @@ class ContentManagementController extends Controller
     {
         return view('app.content.master.rewards.new.index');
     }
-    
+
     public function MasterContactCashRewardsDetail(Request $request)
     {
         return view('app.content.master.rewards.detail.index');
@@ -278,7 +278,7 @@ class ContentManagementController extends Controller
     {
         return view('app.content.master.info.new.index');
     }
-    
+
     public function MasterContactInfoDetail(Request $request)
     {
         return view('app.content.master.info.detail.index');
@@ -402,7 +402,7 @@ class ContentManagementController extends Controller
                 (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
             'records' => [
-                (object)['ID_NEWS' => 1, 'TITLE' => 'BERITA NEWS ONE', 'ROLE' => 'CONTENT', 'TGL_UPDATE' => '2019-09-10 00:00:00', 'STATUS' => 'publish']
+                (object)['ID_NEWS' => 1, 'TITLE' => 'BERITA NEWS ONE', 'ROLE' => 'OWNER', 'TGL_UPDATE' => '2019-09-10 00:00:00', 'STATUS' => 'publish']
             ]
         ];
 

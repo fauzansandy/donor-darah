@@ -9,5 +9,19 @@ $(document).ready(function() {
             $('body').removeClass('overlay-disabled')
         }
     })
+    const myDropzone = $('div#news-content-master-upload-banner').dropzone({
+        url: window.apiUrl+'/upload/excel',
+        uploadMultiple: false,
+        maxFiles: 1,
+        headers: {
+            'Authorization': window.axios.defaults.headers['Authorization']
+        },
+        init: function() {
+            this.on('addedfile', function() {
+            })
+            this.on('success', function(file, response) {
+            })
+        }
+    })
 })
 </script>

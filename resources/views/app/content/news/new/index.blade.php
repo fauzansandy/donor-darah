@@ -30,10 +30,35 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-6">
                                     <div class="form-group form-group-default required">
                                         <label>title</label>
                                         <input name="title" value="dummy_title" class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group form-group-default form-group-default-select2 required">
+                                        <label class="">role</label>
+                                        @component('components.form.awesomeSelect', [
+                                            'name' => 'role',
+                                            'items' => [['value' => 'owner', 'label' => 'Owner'], ['value' => 'manager', 'label' => 'Manager'], ['value' => 'sales', 'label' => 'Sales']],
+                                            'selected' => ''
+                                        ])
+                                        @endcomponent
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group form-group-default required">
+                                        <label>tgl_update</label>
+                                        <input name="tgl_update" value="dummy_tgl_update" class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group form-group-default required">
+                                        <label>status</label>
+                                        <input name="status" value="dummy_status" class="form-control" type="text" required>
                                     </div>
                                 </div>
                             </div>
@@ -41,6 +66,18 @@
                     </div>
                     <div class="card card-default">
                         <div class="card-body">
+                            <label class="">Banner</label>
+                            @component('components.form.dropzone', [
+                                'id' => 'news-content-master-upload-banner',
+                                'value' => 'Drop files here to upload',
+                                'style' => 'min-height: 100px;'
+                            ])
+                            @endcomponent
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-body">
+                            <label class="">Deskripsi</label>
                             @component('components.form.summernote', [
                                 'id' => 'news-content-master-new',
                                 'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
