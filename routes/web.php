@@ -34,7 +34,11 @@ $router->get('/reward/dealer', 'CMS\Reward\RewardController@Dealer');
 
 $router->get('/content/master', 'CMS\ContentManagement\ContentManagementController@Master');
 $router->get('/content/master/contact', 'CMS\ContentManagement\ContentManagementController@MasterContact');
+
 $router->get('/content/master/termco', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCo');
+$router->get('/content/master/termco/new', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCoNew');
+$router->get('/content/master/termco/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCoDetail');
+
 $router->get('/content/master/faq', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQ');
 $router->get('/content/master/provision', 'CMS\ContentManagement\ContentManagementController@MasterContactProvision');
 $router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewards');
