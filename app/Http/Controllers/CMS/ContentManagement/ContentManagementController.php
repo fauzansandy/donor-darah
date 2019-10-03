@@ -150,6 +150,16 @@ class ContentManagementController extends Controller
         return view('app.content.master.faq.home.index', $ParseData);
     }
 
+    public function MasterContactFAQNew(Request $request)
+    {
+        return view('app.content.master.faq.new.index');
+    }
+    
+    public function MasterContactFAQDetail(Request $request)
+    {
+        return view('app.content.master.faq.detail.index');
+    }
+
     public function MasterContactProvision(Request $request)
     {
         $TableKey = 'content-master-contact-table';

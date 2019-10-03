@@ -123,7 +123,7 @@
                               <a href="{!! url('/content/master/termco'); !!}">Term & Conditions</a>
                               <span class="icon-thumbnail">TC</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentFAQMenuClass')">
                               <a href="{!! url('/content/master/faq'); !!}">Resolution Center (FAQ)</a>
                               <span class="icon-thumbnail">FAQ</span>
                           </li>

@@ -40,6 +40,9 @@ $router->get('/content/master/termco/new', 'CMS\ContentManagement\ContentManagem
 $router->get('/content/master/termco/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCoDetail');
 
 $router->get('/content/master/faq', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQ');
+$router->get('/content/master/faq/new', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQNew');
+$router->get('/content/master/faq/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQDetail');
+
 $router->get('/content/master/provision', 'CMS\ContentManagement\ContentManagementController@MasterContactProvision');
 $router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewards');
 $router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterContactInfo');

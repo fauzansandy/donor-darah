@@ -3,6 +3,11 @@
 @section('title', 'Dashboard')
 @section('bodyClass', 'fixed-header dashboard menu-pin menu-behind')
 
+@section('contentManagementMenuClass', 'active')
+@section('contentManagementMasterContentMenuClass', 'active')
+@section('contentManagementMasterContentTreeMenuClass', 'sub-menu block')
+@section('contentManagementMasterContentContactMenuClass', 'active')
+
 @section('content')
     <div class="jumbotron jumbotron m-b-0" data-pages="parallax">
         <div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
@@ -43,11 +48,6 @@
                             </td>
                             <td class="v-align-middle">
                                 {{ $item->keterangan }}
-                            </td>
-                            <td class="v-align-middle">
-                                <div class="btn-group">
-                                    <a href="{{ url('/dealer/user/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
-                                </div>
                             </td>
                         </tr>
                     @endscopedslot
