@@ -131,7 +131,7 @@
                               <a href="{!! url('/content/master/period-provision'); !!}">Period Provision</a>
                               <span class="icon-thumbnail">TP</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentCashRewardMenuClass')">
                               <a href="{!! url('/content/master/cash-rewards'); !!}">Cash Rewards</a>
                               <span class="icon-thumbnail">CR</span>
                           </li>

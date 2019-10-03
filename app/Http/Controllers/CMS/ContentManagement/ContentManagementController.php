@@ -232,6 +232,16 @@ class ContentManagementController extends Controller
         return view('app.content.master.rewards.home.index', $ParseData);
     }
 
+    public function MasterContactCashRewardsNew(Request $request)
+    {
+        return view('app.content.master.rewards.new.index');
+    }
+    
+    public function MasterContactCashRewardsDetail(Request $request)
+    {
+        return view('app.content.master.rewards.detail.index');
+    }
+
     public function MasterContactInfo(Request $request)
     {
         $TableKey = 'content-master-contact-table';

@@ -49,6 +49,9 @@ $router->get('/content/master/period-provision/{id}', 'CMS\ContentManagement\Con
 
 
 $router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewards');
+$router->get('/content/master/cash-rewards/new', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewardsNew');
+$router->get('/content/master/cash-rewards/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewardsDetail');
+
 $router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterContactInfo');
 
 $router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
