@@ -43,7 +43,11 @@ $router->get('/content/master/faq', 'CMS\ContentManagement\ContentManagementCont
 $router->get('/content/master/faq/new', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQNew');
 $router->get('/content/master/faq/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQDetail');
 
-$router->get('/content/master/provision', 'CMS\ContentManagement\ContentManagementController@MasterContactProvision');
+$router->get('/content/master/period-provision', 'CMS\ContentManagement\ContentManagementController@MasterContactPeriodProvision');
+$router->get('/content/master/period-provision/new', 'CMS\ContentManagement\ContentManagementController@MasterContactPeriodProvisionNew');
+$router->get('/content/master/period-provision/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactPeriodProvisionDetail');
+
+
 $router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewards');
 $router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterContactInfo');
 

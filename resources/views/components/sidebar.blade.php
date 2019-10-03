@@ -127,8 +127,8 @@
                               <a href="{!! url('/content/master/faq'); !!}">Resolution Center (FAQ)</a>
                               <span class="icon-thumbnail">FAQ</span>
                           </li>
-                          <li>
-                              <a href="{!! url('/content/master/provision'); !!}">Term Period</a>
+                          <li class="@yield('contentManagementMasterContentPeriodProvisionMenuClass')">
+                              <a href="{!! url('/content/master/period-provision'); !!}">Period Provision</a>
                               <span class="icon-thumbnail">TP</span>
                           </li>
                           <li>

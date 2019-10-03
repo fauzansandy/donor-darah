@@ -160,7 +160,7 @@ class ContentManagementController extends Controller
         return view('app.content.master.faq.detail.index');
     }
 
-    public function MasterContactProvision(Request $request)
+    public function MasterContactPeriodProvision(Request $request)
     {
         $TableKey = 'content-master-contact-table';
         $filter_search = $request->input('filter_search');
@@ -188,7 +188,17 @@ class ContentManagementController extends Controller
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
-        return view('app.content.master.provision.home.index', $ParseData);
+        return view('app.content.master.period.home.index', $ParseData);
+    }
+
+    public function MasterContactPeriodProvisionNew(Request $request)
+    {
+        return view('app.content.master.period.new.index');
+    }
+    
+    public function MasterContactPeriodProvisionDetail(Request $request)
+    {
+        return view('app.content.master.period.detail.index');
     }
 
     public function MasterContactCashRewards(Request $request)
