@@ -4,7 +4,9 @@
 @section('bodyClass', 'fixed-header dashboard menu-pin menu-behind')
 
 @section('contentManagementMenuClass', 'active')
-@section('contentManagementNewsMenuClass', 'active')
+@section('contentManagementMasterContentMenuClass', 'active')
+@section('contentManagementMasterContentTreeMenuClass', 'sub-menu block')
+@section('contentManagementMasterContentInfoMenuClass', 'active')
 
 @section('content')
     <div class="jumbotron" data-pages="parallax">
@@ -12,8 +14,8 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/content/news') }}">Content News</a></li>
-                    <li class="breadcrumb-item active">DUMMY_NEWS</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/content/news') }}">Info</a></li>
+                    <li class="breadcrumb-item active">New</li>
                 </ol>
             </div>
         </div>
@@ -25,10 +27,23 @@
                     <div class="card card-default">
                         <div class="card-header ">
                             <div class="card-title">
-                                Edit #dummy_id - Last updated at dummy_updated_at
+                                New
                             </div>
                         </div>
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group form-group-default form-group-default-select2">
+                                        <label class="">content type</label>
+                                        @component('components.form.awesomeSelect', [
+                                            'name' => 'content_type',
+                                            'items' => [['value' => 'faq', 'label' => 'Info']],
+                                            'selected' => ''
+                                        ])
+                                        @endcomponent
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group form-group-default required">
@@ -53,18 +68,26 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group form-group-default">
-                                        <label>upload Banner</label>
-                                        <input name="banner" value="dummy_banner" class="form-control" type="file">
+                                        <label>upload Thumbnail</label>
+                                        <input name="thumbnail" value="dummy_thumbnail" class="form-control" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group form-group-default">
+                                        <label>upload Photo</label>
+                                        <input name="photo" value="dummy_photo" class="form-control" type="file">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group form-group-default form-group-default-select2 required">
-                                        <label class="">Role</label>
+                                        <label class="">status_active</label>
                                         @component('components.form.awesomeSelect', [
-                                            'name' => 'role',
-                                            'items' => [['value' => 'owner', 'label' => 'Owner'],['value' => 'manager', 'label' => 'Manager'],['value' => 'sales', 'label' => 'Sales']],
+                                            'name' => 'status_active',
+                                            'items' => [['value' => 'active', 'label' => 'Active'], ['value' => 'notactive', 'label' => 'Not Active']],
                                             'selected' => ''
                                         ])
                                         @endcomponent
@@ -73,21 +96,11 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="card card-default">
                         <div class="card-body">
-                            <label class="">Syarat & Ketentuan</label>
                             @component('components.form.summernote', [
-                                'id' => 'news-content-master-detail-syarat',
-                                'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
-                            ])
-                            @endcomponent
-                        </div>
-                    </div>
-                    <div class="card card-default">
-                        <div class="card-body">
-                            <label class="">Deskripsi</label>
-                            @component('components.form.summernote', [
-                                'id' => 'news-content-master-detail-deskripsi',
+                                'id' => 'faq-content-master-new',
                                 'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
                             ])
                             @endcomponent
@@ -101,10 +114,7 @@
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
                         <div class="row row-button-action">
                             <div class="col-6 act-left">
-                                <a href="{{ UrlPrevious(url('/content/news')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
-                            </div>
-                            <div class="col-6 act-right">
-                                <button id="deleteOpenModal" class="btn btn-block btn-danger btn-cons m-b-10"><i class="fas fa-trash"></i> Delete</button>
+                                <a href="{{ UrlPrevious(url('/content/master/info')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -115,9 +125,9 @@
 @endsection
 
 @section('script')
-    @include('app.content.news.detail.scripts.index')
+    @include('app.content.master.faq.new.scripts.index')
 @endsection
 
 @section('formValidationScript')
-    @include('app.content.news.detail.scripts.form')
+    @include('app.content.master.faq.new.scripts.form')
 @endsection

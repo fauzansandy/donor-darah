@@ -36,11 +36,27 @@ $router->get('/reward/dealer', 'CMS\Reward\RewardController@Dealer');
 
 $router->get('/content/master', 'CMS\ContentManagement\ContentManagementController@Master');
 $router->get('/content/master/contact', 'CMS\ContentManagement\ContentManagementController@MasterContact');
+
 $router->get('/content/master/termco', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCo');
+$router->get('/content/master/termco/new', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCoNew');
+$router->get('/content/master/termco/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCoDetail');
+
 $router->get('/content/master/faq', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQ');
-$router->get('/content/master/provision', 'CMS\ContentManagement\ContentManagementController@MasterContactProvision');
+$router->get('/content/master/faq/new', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQNew');
+$router->get('/content/master/faq/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQDetail');
+
+$router->get('/content/master/period-provision', 'CMS\ContentManagement\ContentManagementController@MasterContactPeriodProvision');
+$router->get('/content/master/period-provision/new', 'CMS\ContentManagement\ContentManagementController@MasterContactPeriodProvisionNew');
+$router->get('/content/master/period-provision/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactPeriodProvisionDetail');
+
+
 $router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewards');
+$router->get('/content/master/cash-rewards/new', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewardsNew');
+$router->get('/content/master/cash-rewards/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewardsDetail');
+
 $router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterContactInfo');
+$router->get('/content/master/info/new', 'CMS\ContentManagement\ContentManagementController@MasterContactInfoNew');
+$router->get('/content/master/info/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactInfoDetail');
 
 $router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
 $router->get('/content/feedback/suggestion', 'CMS\ContentManagement\ContentManagementController@FeedBackSuggestion');

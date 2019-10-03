@@ -107,6 +107,16 @@ class ContentManagementController extends Controller
         ];
         return view('app.content.master.termco.home.index', $ParseData);
     }
+    
+    public function MasterContactTermCoDetail(Request $request)
+    {
+        return view('app.content.master.termco.detail.index');
+    }
+
+    public function MasterContactTermCoNew(Request $request)
+    {
+        return view('app.content.master.termco.new.index');
+    }
 
     public function MasterContactFAQ(Request $request)
     {
@@ -140,7 +150,17 @@ class ContentManagementController extends Controller
         return view('app.content.master.faq.home.index', $ParseData);
     }
 
-    public function MasterContactProvision(Request $request)
+    public function MasterContactFAQNew(Request $request)
+    {
+        return view('app.content.master.faq.new.index');
+    }
+    
+    public function MasterContactFAQDetail(Request $request)
+    {
+        return view('app.content.master.faq.detail.index');
+    }
+
+    public function MasterContactPeriodProvision(Request $request)
     {
         $TableKey = 'content-master-contact-table';
         $filter_search = $request->input('filter_search');
@@ -168,7 +188,17 @@ class ContentManagementController extends Controller
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
-        return view('app.content.master.provision.home.index', $ParseData);
+        return view('app.content.master.period.home.index', $ParseData);
+    }
+
+    public function MasterContactPeriodProvisionNew(Request $request)
+    {
+        return view('app.content.master.period.new.index');
+    }
+    
+    public function MasterContactPeriodProvisionDetail(Request $request)
+    {
+        return view('app.content.master.period.detail.index');
     }
 
     public function MasterContactCashRewards(Request $request)
@@ -202,6 +232,16 @@ class ContentManagementController extends Controller
         return view('app.content.master.rewards.home.index', $ParseData);
     }
 
+    public function MasterContactCashRewardsNew(Request $request)
+    {
+        return view('app.content.master.rewards.new.index');
+    }
+    
+    public function MasterContactCashRewardsDetail(Request $request)
+    {
+        return view('app.content.master.rewards.detail.index');
+    }
+
     public function MasterContactInfo(Request $request)
     {
         $TableKey = 'content-master-contact-table';
@@ -232,6 +272,16 @@ class ContentManagementController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.content.master.info.home.index', $ParseData);
+    }
+
+    public function MasterContactInfoNew(Request $request)
+    {
+        return view('app.content.master.info.new.index');
+    }
+    
+    public function MasterContactInfoDetail(Request $request)
+    {
+        return view('app.content.master.info.detail.index');
     }
 
     public function FeedBackCritics(Request $request)

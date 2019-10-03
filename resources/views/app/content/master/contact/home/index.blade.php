@@ -5,7 +5,8 @@
 
 @section('contentManagementMenuClass', 'active')
 @section('contentManagementMasterContentMenuClass', 'active')
-@section('contentManagementMasterContentMenuContactUsClass', 'active')
+@section('contentManagementMasterContentTreeMenuClass', 'sub-menu block')
+@section('contentManagementMasterContentContactMenuClass', 'active')
 
 @section('content')
     <div class="jumbotron jumbotron m-b-0" data-pages="parallax">
