@@ -3,6 +3,9 @@
 @section('title', 'Dashboard')
 @section('bodyClass', 'fixed-header dashboard menu-pin menu-behind')
 
+@section('contentManagementMenuClass', 'active')
+@section('contentManagementNewsMenuClass', 'active')
+
 @section('content')
     <div class="jumbotron jumbotron m-b-0" data-pages="parallax">
         <div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">

@@ -3,16 +3,19 @@
 @section('title', 'Dashboard')
 @section('bodyClass', 'fixed-header dashboard menu-pin menu-behind')
 
-@section('contentManagementMenuClass', 'active')
-@section('contentManagementPushNotificationMenuClass', 'active')
+@section('dealerManagementMenuClass', 'active')
+@section('dealerManagementVerificationRequestMenuClass', 'active')
 
 @section('content')
-    <div class="jumbotron jumbotron m-b-0" data-pages="parallax">
+    <div class="jumbotron" data-pages="parallax">
         <div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Content Push Notification</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/dealer/verification/request') }}">Verification User</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/dealer/verification/request/1') }}">DUMMY_VERIFICATION_USER</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/dealer/verification/request/1/grab/masterinsentifscheme') }}">>MASTER SKEMA INSENTIF</a></li>
+                    <li class="breadcrumb-item active">SELECT SALES</li>
                 </ol>
             </div>
         </div>
@@ -20,7 +23,7 @@
     <div class="container-fluid container-fixed-lg p-t-10">
         <div class="card card-white">
             <div class="card-header ">
-                <div class="card-title">Content Push Notification Data</div><br>
+                <div class="card-title">Master Skema Insentif Sales Data</div><br>
             </div>
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])
@@ -36,23 +39,20 @@
                     @scopedslot('record', ($item, $props))
                         <tr>
                             <td class="v-align-middle ">
-                                {{ $item->ID }}
+                                {{ $item->NAMA_SALES }}
                             </td>
                             <td class="v-align-middle ">
-                                {{ $item->MESSAGE }}
+                                {{ $item->NOMOR_HP }}
                             </td>
                             <td class="v-align-middle">
-                                {{ $item->USER }}
+                                {{ $item->EMAIL }}
                             </td>
                             <td class="v-align-middle">
-                                {{ $item->CREATED_DATE }}
-                            </td>
-                            <td class="v-align-middle">
-                                {{ $item->CODE_PUSH_NOTIF }}
+                                {{ $item->JABATAN }}
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
-                                    <a href="{{ url('/dealer/user/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                    <a href="{{ url('/dealer/verification/request/1') }}" class="btn btn-xs btn-success btn-table-action">Pilih Sales</a>
                                 </div>
                             </td>
                         </tr>

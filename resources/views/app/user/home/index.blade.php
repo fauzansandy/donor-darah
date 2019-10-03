@@ -3,6 +3,9 @@
 @section('title', 'WhatsApp User')
 @section('bodyClass', 'fixed-header menu-pin menu-behind')
 
+@section('userManagementMenuClass', 'active')
+@section('userManagementUserCMSMenuClass', 'active')
+
 @section('content')
     <div class="jumbotron jumbotron m-b-0" data-pages="parallax">
         <div class="container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
