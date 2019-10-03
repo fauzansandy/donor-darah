@@ -60,7 +60,7 @@
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
-                                    <a href="{{ url('/dealer/verification/request/1/grab/masterinsentifscheme/1/salesselect') }}" class="btn btn-xs btn-success btn-table-action">Pilih DETAIL</a>
+                                    <a href="{{ url('/dealer/verification/request/1/grab/masterinsentifscheme/1/salesselect') }}" class="btn btn-xs btn-success btn-table-action">Pilih Dealer</a>
                                 </div>
                             </td>
                         </tr>
