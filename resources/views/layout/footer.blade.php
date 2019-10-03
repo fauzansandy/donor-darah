@@ -31,6 +31,7 @@
     <script src="/assets/plugins/jquery-inputmask/jquery.inputmask.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
     <script src="/assets/plugins/axios/dist/axios.min.js"></script>
+    <script src="/assets/plugins/summernote/js/summernote.min.js" type="text/javascript"></script>
     <script src="/assets/plugins/formvalidation/dist/js/FormValidation.min.js"></script>
     <script src="/assets/plugins/formvalidation/dist/js/plugins/J.min.js"></script>
     <script src="/assets/plugins/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>

@@ -179,11 +179,11 @@ class ContentManagementController extends Controller
 
     public function NewsNew(Request $request)
     {
-        return view('app.content.news.home.index');
+        return view('app.content.news.new.index');
     }
 
     public function NewsDetail(Request $request)
     {
-        return view('app.content.news.home.index');
+        return view('app.content.news.detail.index');
     }
 }

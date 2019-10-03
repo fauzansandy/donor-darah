@@ -20,8 +20,9 @@ $router->get('/position', 'CMS\Position\PositionController@Home');
 $router->get('/user', 'CMS\User\UserController@Home');
 
 $router->get('/dealer/user', 'CMS\DealerManagement\DealerManagementController@User');
-$router->get('/dealer/user/{id}', 'CMS\DealerManagement\DealerManagementController@UserEdit');
+$router->get('/dealer/user/{id}', 'CMS\DealerManagement\DealerManagementController@UserDetail');
 $router->get('/dealer/verification/request', 'CMS\DealerManagement\DealerManagementController@VerificationRequest');
+$router->get('/dealer/verification/request/{id}', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetail');
 
 $router->get('/application/verified', 'CMS\Application\ApplicationController@Verified');
 $router->get('/application/notverified', 'CMS\Application\ApplicationController@NotVerified');

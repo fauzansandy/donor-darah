@@ -52,9 +52,9 @@ class DealerManagementController extends Controller
         return view('app.dealer.management.user.home.index', $ParseData);
     }
 
-    public function UserEdit(Request $request)
+    public function UserDetail(Request $request)
     {
-        return view('app.dealer.management.user.edit.index');
+        return view('app.dealer.management.user.detail.index');
     }
 
     public function VerificationRequest(Request $request)
@@ -75,7 +75,8 @@ class DealerManagementController extends Controller
                 (object)['name' => 'EMAIL', 'name' => 'Email'],
                 (object)['name' => 'NO_HP', 'name' => 'No hp'],
                 (object)['name' => 'JABATAN', 'name' => 'Jabatan'],
-                (object)['name' => 'STATUS_USER', 'name' => 'Status User']
+                (object)['name' => 'STATUS_USER', 'name' => 'Status User'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
             'records' => [
                 (object)['DATE_REQUEST' => '2019-09-01', 'DEALER_NAME' => 'WALDI', 'NAMA_USER' => 'Waldi Irawan', 'EMAIL' => 'waldirawan127@gmail.com', 'NO_HP' => '081311383560', 'JABATAN' => 'OWNER', 'STATUS_USER' => 'ACTIVE']
@@ -90,5 +91,10 @@ class DealerManagementController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.dealer.management.verification.home.index', $ParseData);
+    }
+
+    public function VerificationRequestDetail(Request $request)
+    {
+        return view('app.dealer.management.verification.detail.index');
     }
 }
