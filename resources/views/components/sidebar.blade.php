@@ -111,6 +111,32 @@
                   <li class="@yield('contentManagementMasterContentMenuClass')">
                       <a href="{!! url('/content/master'); !!}">Master Content</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+                      <ul class="sub-menu">
+                          <li>
+                              <a href="{!! url('/content/master/contact'); !!}">Contact Us</a>
+                              <span class="icon-thumbnail">CU</span>
+                          </li>
+                          <li>
+                              <a href="{!! url('/content/master/termco'); !!}">Term & Conditions</a>
+                              <span class="icon-thumbnail">TC</span>
+                          </li>
+                          <li>
+                              <a href="{!! url('/content/master/faq'); !!}">Resolution Center (FAQ)</a>
+                              <span class="icon-thumbnail">FAQ</span>
+                          </li>
+                          <li>
+                              <a href="{!! url('/content/master/provision'); !!}">Term Period</a>
+                              <span class="icon-thumbnail">TP</span>
+                          </li>
+                          <li>
+                              <a href="{!! url('/content/master/cash-rewards'); !!}">Cash Rewards</a>
+                              <span class="icon-thumbnail">CR</span>
+                          </li>
+                          <li>
+                              <a href="{!! url('/content/master/info'); !!}">Info</a>
+                              <span class="icon-thumbnail">IN</span>
+                          </li>
+                      </ul>
                   </li>
                   <li class="@yield('contentManagementFeedbackMenuClass')">
                       <a href="javascript:;">

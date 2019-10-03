@@ -44,6 +44,195 @@ class ContentManagementController extends Controller
         ];
         return view('app.content.master.home.index', $ParseData);
     }
+    
+    public function MasterContact(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'email', 'label' => 'EMAIL'],
+                (object)['name' => 'alamat', 'label' => 'ALAMAT'],
+                (object)['name' => 'keterangan', 'label' => 'KETERANGAN'],
+                (object)['name' => 'ACTION', 'label' => 'Action']
+            ],
+            'records' => [
+                (object)['title' => 'kantor pusat', 'email' => 'kantorpusat@gmail.com', 'alamat' => 'Jalanan Jakarta', 'keterangan' => 'Lorem Ipsum is simply dummy text of the printing and typesetting']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.contact.home.index', $ParseData);
+    }
+
+    public function MasterContactTermCo(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'status', 'label' => 'STATUS'],
+                (object)['name' => 'upload_date', 'label' => 'UPLOAD DATE'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['title' => 'Term 1', 'status' => 'active', 'upload_date' => '2019-09-10 00:00:00']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.termco.home.index', $ParseData);
+    }
+
+    public function MasterContactFAQ(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'order_by', 'label' => 'ORDER BY'],
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'status', 'label' => 'STATUS'],
+                (object)['name' => 'created_date', 'label' => 'CREATED DATE'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['order_by' => 'Ascending', 'title' => 'FAQ 1', 'status' => 'active', 'created_date' => '2019-09-10 00:00:00']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.faq.home.index', $ParseData);
+    }
+
+    public function MasterContactProvision(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'status', 'label' => 'STATUS'],
+                (object)['name' => 'upload_date', 'label' => 'UPLOAD DATE'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['title' => 'Ketentuan periode 1', 'status' => 'inactive', 'upload_date' => '2019-09-10 00:00:00']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.provision.home.index', $ParseData);
+    }
+
+    public function MasterContactCashRewards(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'status', 'label' => 'STATUS'],
+                (object)['name' => 'upload_date', 'label' => 'UPLOAD DATE'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['title' => 'Reward periode 1', 'status' => 'active', 'upload_date' => '2019-09-10 00:00:00']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.rewards.home.index', $ParseData);
+    }
+
+    public function MasterContactInfo(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'order_by', 'label' => 'ORDER BY'],
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'status', 'label' => 'STATUS'],
+                (object)['name' => 'created_date', 'label' => 'CREATED AT'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['order_by' => 'Ascending', 'title' => 'Info periode 1', 'status' => 'active', 'created_date' => '2019-09-10 00:00:00']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.info.home.index', $ParseData);
+    }
 
     public function FeedBackCritics(Request $request)
     {
