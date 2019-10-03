@@ -37,12 +37,57 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group form-group-default form-group-default-select2 required">
+                                        <label class="">order by</label>
+                                        @component('components.form.awesomeSelect', [
+                                            'name' => 'content_type',
+                                            'items' => [['value' => 'asc', 'label' => 'Ascending'],['value' => 'desc', 'label' => 'Descending']],
+                                            'selected' => ''
+                                        ])
+                                        @endcomponent
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group form-group-default">
+                                        <label>upload Banner</label>
+                                        <input name="banner" value="dummy_banner" class="form-control" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group form-group-default form-group-default-select2 required">
+                                        <label class="">Role</label>
+                                        @component('components.form.awesomeSelect', [
+                                            'name' => 'role',
+                                            'items' => [['value' => 'owner', 'label' => 'Owner'],['value' => 'manager', 'label' => 'Manager'],['value' => 'sales', 'label' => 'Sales']],
+                                            'selected' => ''
+                                        ])
+                                        @endcomponent
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card card-default">
                         <div class="card-body">
+                            <label class="">Syarat & Ketentuan</label>
                             @component('components.form.summernote', [
-                                'id' => 'news-content-master-detail',
+                                'id' => 'news-content-master-detail-syarat',
+                                'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+                            ])
+                            @endcomponent
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-body">
+                            <label class="">Deskripsi</label>
+                            @component('components.form.summernote', [
+                                'id' => 'news-content-master-detail-deskripsi',
                                 'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
                             ])
                             @endcomponent
@@ -62,7 +107,6 @@
                                 <button id="deleteOpenModal" class="btn btn-block btn-danger btn-cons m-b-10"><i class="fas fa-trash"></i> Delete</button>
                             </div>
                         </div>
-                        <button id="saveAction" class="btn btn-block btn-info btn-cons m-b-10"><i class="fas fa-envelope"></i> RESEND EMAIL</button>
                     </div>
                 </div>
             </div>
@@ -71,9 +115,9 @@
 @endsection
 
 @section('script')
-    @include('app.content.news.new.scripts.index')
+    @include('app.content.news.detail.scripts.index')
 @endsection
 
 @section('formValidationScript')
-    @include('app.content.news.new.scripts.form')
+    @include('app.content.news.detail.scripts.form')
 @endsection
