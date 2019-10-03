@@ -6,7 +6,7 @@
 @section('contentManagementMenuClass', 'active')
 @section('contentManagementMasterContentMenuClass', 'active')
 @section('contentManagementMasterContentTreeMenuClass', 'sub-menu block')
-@section('contentManagementMasterContentTermCoMenuClass', 'active')
+@section('contentManagementMasterContentFAQMenuClass', 'active')
 
 @section('content')
     <div class="jumbotron" data-pages="parallax">

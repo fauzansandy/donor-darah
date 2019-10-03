@@ -3,8 +3,10 @@
 @section('title', 'Dashboard')
 @section('bodyClass', 'fixed-header dashboard menu-pin menu-behind')
 
-@section('dealerManagementMenuClass', 'active')
-@section('dealerManagementUserDealerMenuClass', 'active')
+@section('contentManagementMenuClass', 'active')
+@section('contentManagementMasterContentMenuClass', 'active')
+@section('contentManagementMasterContentTreeMenuClass', 'sub-menu block')
+@section('contentManagementMasterContentTermCoMenuClass', 'active')
 
 @section('content')
     <div class="jumbotron" data-pages="parallax">
