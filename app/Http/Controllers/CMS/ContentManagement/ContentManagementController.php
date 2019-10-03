@@ -107,6 +107,16 @@ class ContentManagementController extends Controller
         ];
         return view('app.content.master.termco.home.index', $ParseData);
     }
+    
+    public function MasterContactTermCoDetail(Request $request)
+    {
+        return view('app.content.master.termco.detail.index');
+    }
+
+    public function MasterContactTermCoNew(Request $request)
+    {
+        return view('app.content.master.termco.new.index');
+    }
 
     public function MasterContactFAQ(Request $request)
     {

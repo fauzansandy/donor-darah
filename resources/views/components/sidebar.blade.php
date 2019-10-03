@@ -108,15 +108,18 @@
               </a>
               <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
               <ul class="sub-menu">
-                  <li class="@yield('contentManagementMasterContentMenuClass')">
-                      <a href="{!! url('/content/master'); !!}">Master Content</a>
+                    <li class="@yield('contentManagementMasterContentMenuClass')">
+                      <a href="javascript:;">
+                          <span class="title">Master Content</span>
+                          <span class="arrow"></span>
+                      </a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
-                      <ul class="sub-menu">
-                          <li>
+                      <ul class="@yield('contentManagementMasterContentTreeMenuClass', 'sub-menu')">
+                          <li class="@yield('contentManagementMasterContentContactMenuClass')">
                               <a href="{!! url('/content/master/contact'); !!}">Contact Us</a>
                               <span class="icon-thumbnail">CU</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentTermCoMenuClass')">
                               <a href="{!! url('/content/master/termco'); !!}">Term & Conditions</a>
                               <span class="icon-thumbnail">TC</span>
                           </li>
@@ -137,7 +140,7 @@
                               <span class="icon-thumbnail">IN</span>
                           </li>
                       </ul>
-                  </li>
+                    </li>
                   <li class="@yield('contentManagementFeedbackMenuClass')">
                       <a href="javascript:;">
                           <span class="title">Feedback</span>
