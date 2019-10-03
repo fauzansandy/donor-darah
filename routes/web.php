@@ -53,6 +53,8 @@ $router->get('/content/master/cash-rewards/new', 'CMS\ContentManagement\ContentM
 $router->get('/content/master/cash-rewards/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewardsDetail');
 
 $router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterContactInfo');
+$router->get('/content/master/info/new', 'CMS\ContentManagement\ContentManagementController@MasterContactInfoNew');
+$router->get('/content/master/info/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactInfoDetail');
 
 $router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
 $router->get('/content/feedback/suggestion', 'CMS\ContentManagement\ContentManagementController@FeedBackSuggestion');

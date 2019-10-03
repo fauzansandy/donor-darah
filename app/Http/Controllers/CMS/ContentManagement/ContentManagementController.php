@@ -274,6 +274,16 @@ class ContentManagementController extends Controller
         return view('app.content.master.info.home.index', $ParseData);
     }
 
+    public function MasterContactInfoNew(Request $request)
+    {
+        return view('app.content.master.info.new.index');
+    }
+    
+    public function MasterContactInfoDetail(Request $request)
+    {
+        return view('app.content.master.info.detail.index');
+    }
+
     public function FeedBackCritics(Request $request)
     {
         $TableKey = 'feedback-critics-table';

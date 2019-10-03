@@ -135,7 +135,7 @@
                               <a href="{!! url('/content/master/cash-rewards'); !!}">Cash Rewards</a>
                               <span class="icon-thumbnail">CR</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementMasterContentInfoMenuClass')">
                               <a href="{!! url('/content/master/info'); !!}">Info</a>
                               <span class="icon-thumbnail">IN</span>
                           </li>
