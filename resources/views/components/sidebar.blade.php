@@ -42,99 +42,98 @@
               </a>
               <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
           </li>
-          <li>
+          <li class="@yield('userManagementMenuClass')">
               <a href="javascript:;">
-                  <span class="title">User Management</span>
+                  <span class="titleac">User Management</span>
               </a>
               <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
               <ul class="sub-menu">
-                  <li class="">
+                  <li class="@yield('userManagementUserCMSMenuClass')">
                       <a href="{!! url('/user'); !!}">User CMS</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
-                  <li class="">
+                  <li class="@yield('userManagementRoleUserMenuClass')">
                       <a href="{!! url('/position'); !!}">Role User</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
               </ul>
           </li>
-          <li>
+          <li class="@yield('dealerManagementMenuClass')">
               <a href="javascript:;">
                   <span class="title">Dealer Management</span>
               </a>
               <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
               <ul class="sub-menu">
-                  <li class="">
+                  <li class="@yield('dealerManagementUserDealerMenuClass')">
                       <a href="{!! url('/dealer/user'); !!}">User Dealer</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
-                  <li class="">
+                  <li class="@yield('dealerManagementVerificationRequestMenuClass')">
                       <a href="{!! url('/dealer/verification/request'); !!}">Verification Request</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
               </ul>
           </li>
-          <li>
+          <li class="@yield('ringkasanPengajuanMenuClass')">
               <a href="javascript:;">
                   <span class="title">Ringkasan Pengajuan</span>
               </a>
               <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
               <ul class="sub-menu">
-                  <li class="">
+                  <li class="@yield('ringkasanPengajuanVerifyMenuClass')">
                       <a href="{!! url('/application/verified'); !!}">Verify</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
-                  <li class="">
+                  <li class="@yield('ringkasanPengajuanNotVerifyMenuClass')">
                       <a href="{!! url('/application/notverified'); !!}">Not verify</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
               </ul>
           </li>
-          <li>
+          <li class="@yield('rewardDealerMenuClass')">
               <a href="javascript:;">
                   <span class="title">Reward Dealer</span>
               </a>
               <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
               <ul class="sub-menu">
-                  <li class="">
+                  <li class="@yield('rewardDealerCashRewardMenuClass')">
                       <a href="{!! url('/reward/dealer'); !!}">Cash reward ,  total unit valid & level dealer</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
               </ul>
           </li>
-          <li>
+          <li class="@yield('contentManagementMenuClass')">
               <a href="javascript:;">
                   <span class="title">Content Management</span>
               </a>
               <span class="icon-thumbnail"><i class="fas fa-chevron-right"></i></span>
               <ul class="sub-menu">
-                  <li class="">
+                  <li class="@yield('contentManagementMasterContentMenuClass')">
                       <a href="{!! url('/content/master'); !!}">Master Content</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
-                  <li>
+                  <li class="@yield('contentManagementFeedbackMenuClass')">
                       <a href="javascript:;">
                           <span class="title">Feedback</span>
                           <span class="arrow"></span>
                       </a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                       <ul class="sub-menu">
-                          <li>
+                          <li class="@yield('contentManagementFeedbackKritikMenuClass')">
                               <a href="{!! url('/content/feedback/critics'); !!}">Kritik</a>
                               <span class="icon-thumbnail">Kr</span>
                           </li>
-                          <li>
+                          <li class="@yield('contentManagementFeedbackSaranMenuClass')">
                               <a href="{!! url('/content/feedback/suggestion'); !!}">Saran</a>
                               <span class="icon-thumbnail">Sa</span>
                           </li>
                       </ul>
                   </li>
-
-                  <li class="">
+                  <li class="@yield('contentManagementPushNotificationMenuClass')">
                       <a href="{!! url('/content/pushnotification'); !!}">Push notifikasi</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
-                  <li class="">
+                  <li class="@yield('contentManagementNewsMenuClass')">
                       <a href="{!! url('/content/news'); !!}">Berita</a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                   </li>
