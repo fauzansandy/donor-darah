@@ -23,6 +23,9 @@ $router->get('/dealer/user', 'CMS\DealerManagement\DealerManagementController@Us
 $router->get('/dealer/user/{id}', 'CMS\DealerManagement\DealerManagementController@UserDetail');
 $router->get('/dealer/verification/request', 'CMS\DealerManagement\DealerManagementController@VerificationRequest');
 $router->get('/dealer/verification/request/{id}', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetail');
+$router->get('/dealer/verification/request/{id}/grab/masterdealer', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetailGrabMasterDealer');
+$router->get('/dealer/verification/request/{id}/grab/masterinsentifscheme', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetailGrabMasterInsentifScheme');
+$router->get('/dealer/verification/request/{id}/grab/masterinsentifscheme/{idmaster}/salesselect', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetailGrabMasterInsentifSchemeSalesSelect');
 
 $router->get('/application/verified', 'CMS\Application\ApplicationController@Verified');
 $router->get('/application/notverified', 'CMS\Application\ApplicationController@NotVerified');
