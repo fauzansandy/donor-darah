@@ -30,6 +30,13 @@ $router->get('/application/notverified', 'CMS\Application\ApplicationController@
 $router->get('/reward/dealer', 'CMS\Reward\RewardController@Dealer');
 
 $router->get('/content/master', 'CMS\ContentManagement\ContentManagementController@Master');
+$router->get('/content/master/contact', 'CMS\ContentManagement\ContentManagementController@MasterContact');
+$router->get('/content/master/termco', 'CMS\ContentManagement\ContentManagementController@MasterContactTermCo');
+$router->get('/content/master/faq', 'CMS\ContentManagement\ContentManagementController@MasterContactFAQ');
+$router->get('/content/master/provision', 'CMS\ContentManagement\ContentManagementController@MasterContactProvision');
+$router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterContactCashRewards');
+$router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterContactInfo');
+
 $router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
 $router->get('/content/feedback/suggestion', 'CMS\ContentManagement\ContentManagementController@FeedBackSuggestion');
 $router->get('/content/pushnotification', 'CMS\ContentManagement\ContentManagementController@PushNotification');
