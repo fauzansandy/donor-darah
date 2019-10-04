@@ -20,6 +20,10 @@ $router->get('/position', 'CMS\Position\PositionController@Home');
 $router->get('/user', 'CMS\User\UserController@Home');
 
 $router->get('/dealer/user', 'CMS\DealerManagement\DealerManagementController@User');
+$router->get('/dealer/user/new', 'CMS\DealerManagement\DealerManagementController@UserDetailNew');
+$router->get('/dealer/user/new/grab/masterdealer', 'CMS\DealerManagement\DealerManagementController@GrabMasterDealer');
+$router->get('/dealer/user/new/grab/masterinsentifscheme', 'CMS\DealerManagement\DealerManagementController@GrabMasterInsentifScheme');
+$router->get('/dealer/user/new/grab/masterinsentifscheme/{idmaster}/salesselect', 'CMS\DealerManagement\DealerManagementController@GrabMasterInsentifSchemeSalesSelect');
 $router->get('/dealer/user/{id}', 'CMS\DealerManagement\DealerManagementController@UserDetail');
 $router->get('/dealer/verification/request', 'CMS\DealerManagement\DealerManagementController@VerificationRequest');
 $router->get('/dealer/verification/request/{id}', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetail');

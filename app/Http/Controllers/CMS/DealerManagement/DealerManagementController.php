@@ -57,6 +57,11 @@ class DealerManagementController extends Controller
         return view('app.dealer.management.user.detail.index');
     }
 
+    public function UserDetailNew(Request $request)
+    {
+        return view('app.dealer.management.user.new.index');
+    }
+
     public function VerificationRequest(Request $request)
     {
         $TableKey = 'user-verification-request-table';
@@ -135,6 +140,43 @@ class DealerManagementController extends Controller
         return view('app.dealer.management.verification.detail.masterdealer.index', $ParseData);
     }
 
+    public function GrabMasterDealer(Request $request)
+    {
+        $TableKey = 'user-verification-request-detail-masterinsentifscheme-table';
+
+        $Take = ___TableGetTake($request, $TableKey);
+        $DataTable = [
+            'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'NAMA', 'name' => 'Date Request'],
+                (object)['name' => 'DEALER', 'name' => 'Dealer Name'],
+                (object)['name' => 'NAMA_OWNER', 'name' => 'Nama user'],
+                (object)['name' => 'ALAMAT', 'name' => 'Email'],
+                (object)['name' => 'KELURAHAN', 'name' => 'No hp'],
+                (object)['name' => 'KOTA', 'name' => 'Jabatan'],
+                (object)['name' => 'PROVINSI', 'name' => 'Status User'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['NAMA' => 'Waldi Irawan', 'DEALER' => 'WALDI', 'NAMA_OWNER' => 'WALDI', 'ALAMAT' => 'Jalan Mawar', 'KELURAHAN' => 'CIRACAS', 'KOTA' => 'Jakarta Tiur', 'PROVINSI' => 'Jakarta']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+
+        return view('app.dealer.management.user.detail.masterdealer.index', $ParseData);
+    }
+
     public function VerificationRequestDetailGrabMasterInsentifScheme(Request $request)
     {
         $TableKey = 'user-verification-request-detail-masterinsentifscheme-table';
@@ -171,6 +213,42 @@ class DealerManagementController extends Controller
         return view('app.dealer.management.verification.detail.masterinsentifscheme.home.index', $ParseData);
     }
 
+    public function GrabMasterInsentifScheme(Request $request)
+    {
+        $TableKey = 'user-verification-request-detail-masterinsentifscheme-table';
+
+        $Take = ___TableGetTake($request, $TableKey);
+        $DataTable = [
+            'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'NAMA', 'name' => 'Date Request'],
+                (object)['name' => 'DEALER', 'name' => 'Dealer Name'],
+                (object)['name' => 'NAMA_OWNER', 'name' => 'Nama user'],
+                (object)['name' => 'ALAMAT', 'name' => 'Email'],
+                (object)['name' => 'KELURAHAN', 'name' => 'No hp'],
+                (object)['name' => 'KOTA', 'name' => 'Jabatan'],
+                (object)['name' => 'PROVINSI', 'name' => 'Status User'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['NAMA' => 'Waldi Irawan', 'DEALER' => 'WALDI', 'NAMA_OWNER' => 'WALDI', 'ALAMAT' => 'Jalan Mawar', 'KELURAHAN' => 'CIRACAS', 'KOTA' => 'Jakarta Tiur', 'PROVINSI' => 'Jakarta']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.dealer.management.user.detail.masterinsentifscheme.home.index', $ParseData);
+    }
+
     public function VerificationRequestDetailGrabMasterInsentifSchemeSalesSelect(Request $request)
     {
         $TableKey = 'user-verification-request-detail-masterinsentifscheme-salesselect-table';
@@ -202,5 +280,38 @@ class DealerManagementController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.dealer.management.verification.detail.masterinsentifscheme.salesselect.index', $ParseData);
+    }
+
+    public function GrabMasterInsentifSchemeSalesSelect(Request $request)
+    {
+        $TableKey = 'user-verification-request-detail-masterinsentifscheme-salesselect-table';
+
+        $Take = ___TableGetTake($request, $TableKey);
+        $DataTable = [
+            'key' => $TableKey,
+            'take' => $Take,
+            'filter_search' => ___TableGetFilterSearch($request, $TableKey),
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'NAMA_SALES', 'name' => 'Date Request'],
+                (object)['name' => 'NOMOR_HP', 'name' => 'Dealer Name'],
+                (object)['name' => 'EMAIL', 'name' => 'Email'],
+                (object)['name' => 'JABATAN', 'name' => 'Jabatan'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['NAMA_SALES' => 'WALDI', 'NOMOR_HP' => '081311383560', 'EMAIL' => 'waldirawan127@gmail.com', 'JABATAN' => 'SALES']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.dealer.management.user.detail.masterinsentifscheme.salesselect.index', $ParseData);
     }
 }
