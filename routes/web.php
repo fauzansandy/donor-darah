@@ -64,7 +64,10 @@ $router->get('/content/master/info/{id}', 'CMS\ContentManagement\ContentManageme
 
 $router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
 $router->get('/content/feedback/suggestion', 'CMS\ContentManagement\ContentManagementController@FeedBackSuggestion');
+
 $router->get('/content/pushnotification', 'CMS\ContentManagement\ContentManagementController@PushNotification');
+$router->get('/content/pushnotification/new', 'CMS\ContentManagement\ContentManagementController@PushNotificationNew');
+$router->get('/content/pushnotification/{id}', 'CMS\ContentManagement\ContentManagementController@PushNotificationDetail');
 
 $router->get('/content/news', 'CMS\ContentManagement\ContentManagementController@News');
 $router->get('/content/news/new', 'CMS\ContentManagement\ContentManagementController@NewsNew');

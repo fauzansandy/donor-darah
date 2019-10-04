@@ -361,11 +361,11 @@ class ContentManagementController extends Controller
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
-                (object)['name' => 'ID', 'name' => 'ID news'],
-                (object)['name' => 'MESSAGE', 'name' => 'Title'],
-                (object)['name' => 'USER', 'name' => 'Role'],
-                (object)['name' => 'CREATED_DATE', 'name' => 'Tgl Update'],
-                (object)['name' => 'CODE_PUSH_NOTIF', 'name' => 'Status'],
+                (object)['name' => 'ID', 'name' => 'ID'],
+                (object)['name' => 'MESSAGE', 'name' => 'Message'],
+                (object)['name' => 'USER', 'name' => 'User'],
+                (object)['name' => 'CREATED_DATE', 'name' => 'Created At'],
+                (object)['name' => 'CODE_PUSH_NOTIF', 'name' => 'Code Push Notif'],
                 (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
             'records' => [
@@ -381,6 +381,16 @@ class ContentManagementController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.content.pushnotification.home.index', $ParseData);
+    }
+
+    public function PushNotificationNew(Request $request)
+    {
+        return view('app.content.pushnotification.new.index');
+    }
+
+    public function PushNotificationDetail(Request $request)
+    {
+        return view('app.content.pushnotification.detail.index');
     }
 
     public function News(Request $request)
