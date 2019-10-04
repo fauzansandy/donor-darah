@@ -114,8 +114,7 @@
                           <span class="arrow"></span>
                       </a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
-                      <ul class="sub-menu">
-                      {{-- <ul class="@yield('contentManagementMasterContentTreeMenuClass', 'sub-menu')"> --}}
+                      <ul class="@yield('contentManagementMasterContentTreeMenuClass', 'sub-menu')">
                           <li class="@yield('contentManagementMasterContentContactMenuClass')">
                               <a href="{!! url('/content/master/contact'); !!}">Contact Us</a>
                               <span class="icon-thumbnail">CU</span>

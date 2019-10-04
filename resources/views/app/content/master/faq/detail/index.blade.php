@@ -15,7 +15,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('/content/master/termco') }}">Content FAQ</a></li>
-                    <li class="breadcrumb-item active">DUMMY_TERM_TITLE</li>
+                    <li class="breadcrumb-item active">DUMMY_FAQ_TITLE</li>
                 </ol>
             </div>
         </div>
@@ -56,7 +56,12 @@
                                 <div class="col-12">
                                     <div class="form-group form-group-default">
                                         <label>upload Photo</label>
-                                        <input name="photo" value="dummy_photo" class="form-control" type="file">
+                                        @component('components.form.dropzone', [
+                                            'id' => 'faq-content-master-upload-photo',
+                                            'value' => 'Drop files here to upload photo',
+                                            'style' => 'min-height: 100px;'
+                                        ])
+                                        @endcomponent
                                     </div>
                                 </div>
                             </div>

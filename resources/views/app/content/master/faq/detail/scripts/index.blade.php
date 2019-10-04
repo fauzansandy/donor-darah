@@ -9,5 +9,19 @@ $(document).ready(function() {
             $('body').removeClass('overlay-disabled')
         }
     })
+    const myDropzone = $('div#faq-content-master-upload-photo').dropzone({
+        url: window.apiUrl+'/upload/photo',
+        uploadMultiple: false,
+        maxFiles: 1,
+        headers: {
+            'Authorization': window.axios.defaults.headers['Authorization']
+        },
+        init: function() {
+            this.on('addedfile', function() {
+            })
+            this.on('success', function(file, response) {
+            })
+        }
+    })
 })
 </script>
