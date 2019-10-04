@@ -54,7 +54,12 @@
                                 <div class="col-12">
                                     <div class="form-group form-group-default required">
                                         <label>upload PDF</label>
-                                        <input name="nama_dealer" value="dummy_nama_dealer" class="form-control" type="file" required>
+                                        @component('components.form.dropzone', [
+                                            'id' => 'term-co-content-master-upload-pdf',
+                                            'value' => 'Drop files here to upload pdf',
+                                            'style' => 'min-height: 100px;'
+                                        ])
+                                        @endcomponent
                                     </div>
                                 </div>
                             </div>
@@ -76,4 +81,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('script')
+    @include('app.content.master.termco.detail.scripts.index')
+@endsection
+
+@section('formValidationScript')
+    @include('app.content.master.faq.detail.scripts.form')
 @endsection

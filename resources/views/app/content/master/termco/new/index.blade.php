@@ -54,9 +54,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group form-group-default">
+                                    <div class="form-group form-group-default required">
                                         <label>upload PDF</label>
-                                        <input name="nama_dealer" value="dummy_nama_dealer" class="form-control" type="file">
+                                        @component('components.form.dropzone', [
+                                            'id' => 'term-co-content-master-upload-pdf',
+                                            'value' => 'Drop files here to upload pdf',
+                                            'style' => 'min-height: 100px;'
+                                        ])
+                                        @endcomponent
                                     </div>
                                 </div>
                             </div>
@@ -83,10 +88,7 @@
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
                         <div class="row row-button-action">
                             <div class="col-6 act-left">
-                                <a href="{{ UrlPrevious(url('/content/news')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
-                            </div>
-                            <div class="col-6 act-right">
-                                <button id="deleteOpenModal" class="btn btn-block btn-danger btn-cons m-b-10"><i class="fas fa-trash"></i> Delete</button>
+                                <a href="{{ UrlPrevious(url('/content/master/termco')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -97,9 +99,9 @@
 @endsection
 
 @section('script')
-    @include('app.content.news.new.scripts.index')
+    @include('app.content.master.termco.new.scripts.index')
 @endsection
 
 @section('formValidationScript')
-    @include('app.content.news.new.scripts.form')
+    @include('app.content.master.termco.new.scripts.form')
 @endsection
