@@ -469,19 +469,19 @@ class ContentManagementController extends Controller
         $DataTable = [
             'key' => $TableKey,
             'take' => $Take,
+            'placeholder_filter_search' => 'Search By Code Push Notifikasi ...',
             'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
             'heads' => [
                 (object)['name' => 'ID', 'name' => 'ID'],
                 (object)['name' => 'MESSAGE', 'name' => 'Message'],
-                (object)['name' => 'USER', 'name' => 'User'],
-                (object)['name' => 'CREATED_DATE', 'name' => 'Created At'],
+                (object)['name' => 'CREATED_DATE', 'name' => 'Created Date'],
                 (object)['name' => 'CODE_PUSH_NOTIF', 'name' => 'Code Push Notif'],
                 (object)['name' => 'ACTION', 'label' => 'ACTION']
             ],
             'records' => [
-                (object)['ID' => 1, 'MESSAGE' => 'BERITA NEWS ONE', 'USER' => 'WALDI IRAWAN', 'CREATED_DATE' => '2019-09-10 00:00:00', 'CODE_PUSH_NOTIF' => '11111']
+                (object)['ID' => 1, 'MESSAGE' => 'BERITA NEWS ONE', 'CREATED_DATE' => '2019-09-10 00:00:00', 'CODE_PUSH_NOTIF' => '11111']
             ]
         ];
 

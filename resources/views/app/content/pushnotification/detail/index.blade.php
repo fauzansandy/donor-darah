@@ -12,7 +12,7 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/content/master/termco') }}">Content Push Notification</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/content/master/termco') }}">Detail Push Notifikasi</a></li>
                     <li class="breadcrumb-item active">DUMMY_PUSH_NOTIFICATION_TITLE</li>
                 </ol>
             </div>
@@ -55,9 +55,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group form-group-default required">
+                                    <div class="form-group form-group-default">
                                         <label>Code Push Notif</label>
-                                        <input name="code_push_notif" value="code_push_notif" class="form-control" type="text" required>
+                                        <input name="code_push_notif" value="111221" class="form-control" type="text" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -69,8 +69,8 @@
                 <div class="card card-default card-action">
                     <div class="card-body">
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
-                        <div class="row row-button-action">
-                            <div class="col-6 act-left">
+                        <div class="row">
+                            <div class="col-12 act-left">
                                 <a href="{{ UrlPrevious(url('/content/pushnotification')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </div>
