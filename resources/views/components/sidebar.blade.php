@@ -116,19 +116,19 @@
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
                       <ul class="@yield('contentManagementMasterContentTreeMenuClass', 'sub-menu')">
                           <li class="@yield('contentManagementMasterContentContactMenuClass')">
-                              <a href="{!! url('/content/master/contact'); !!}">Contact Us</a>
+                              <a href="{!! url('/content/master/contact'); !!}">Hubungi Kami</a>
                               <span class="icon-thumbnail">CU</span>
                           </li>
                           <li class="@yield('contentManagementMasterContentTermCoMenuClass')">
-                              <a href="{!! url('/content/master/termco'); !!}">Term & Conditions</a>
+                              <a href="{!! url('/content/master/termco'); !!}">Syarat & Ketentuan</a>
                               <span class="icon-thumbnail">TC</span>
                           </li>
                           <li class="@yield('contentManagementMasterContentFAQMenuClass')">
-                              <a href="{!! url('/content/master/faq'); !!}">Resolution Center (FAQ)</a>
+                              <a href="{!! url('/content/master/faq'); !!}">Pusat Bantuan (FAQ)</a>
                               <span class="icon-thumbnail">FAQ</span>
                           </li>
                           <li class="@yield('contentManagementMasterContentPeriodProvisionMenuClass')">
-                              <a href="{!! url('/content/master/period-provision'); !!}">Period Provision</a>
+                              <a href="{!! url('/content/master/period-provision'); !!}">Ketentuan Periode</a>
                               <span class="icon-thumbnail">TP</span>
                           </li>
                           <li class="@yield('contentManagementMasterContentCashRewardMenuClass')">

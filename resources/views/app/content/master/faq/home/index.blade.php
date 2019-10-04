@@ -14,7 +14,7 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Content Master FAQ</li>
+                    <li class="breadcrumb-item active">Content Master Pusat Bantuan (FAQ)</li>
                 </ol>
             </div>
         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-sm-4">
                             <ul class="navbar-nav d-flex flex-row justify-content-sm-end">
-                                <li class="nav-item"><a href="#" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i></a></li>
+                                <li class="nav-item"><a href="#" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i> Fullscreen</a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
         </nav>
         <div class="card card-white">
             <div class="card-header ">
-                <div class="card-title">Content Master FAQ Data</div><br>
+                <div class="card-title">Content Master Pusat Bantuan (FAQ) Data</div><br>
             </div>
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])
@@ -81,6 +81,7 @@
                             <td class="v-align-middle">
                                 <div class="btn-group">
                                     <a href="{{ url('/content/master/faq/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                    <a href="#" class="btn btn-xs btn-danger btn-table-action">DELETE</a>
                                 </div>
                             </td>
                         </tr>

@@ -14,7 +14,7 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Content Master Contact</li>
+                    <li class="breadcrumb-item active">Content Master Hubungi Kami</li>
                 </ol>
             </div>
         </div>
@@ -32,7 +32,7 @@
                         <div class="col-sm-4">
                             <ul class="navbar-nav d-flex flex-row">
                                 <li class="nav-item">
-                                    <a href="{{ url('/content/master/contact/new') }}"><i class="fas fa-plus"></i> Create</a>
+                                    <a href="{{ url('/content/master/contact/1') }}"><i class="fas fa-eye"></i> Detail</a>
                                 </li>
                             </ul>
                         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-sm-4">
                             <ul class="navbar-nav d-flex flex-row justify-content-sm-end">
-                                <li class="nav-item"><a href="#" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i></a></li>
+                                <li class="nav-item"><a href="#" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i> Fullscreen</a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,41 +51,43 @@
         </nav>
         <div class="card card-white">
             <div class="card-header ">
-                <div class="card-title">Content Master Contact Data</div><br>
+                <div class="card-title">Content Master Hubungi Kami Data</div><br>
             </div>
-            <div class="card-body">
-                @component('components.table', ['data' => $data, 'props' => []])
-                    @scopedslot('head', ($item))
-                        @if($item->name === 'ID')
-                            <th style="width: 3%">{{ $item->name }}</th>
-                        @elseif ($item->name === 'ACTION')
-                            <th style="width: 112px">{{ $item->name }}</th>
-                        @else
-                            <th>{{ $item->name }}</th>
-                        @endif
-                    @endscopedslot
-                    @scopedslot('record', ($item, $props))
-                        <tr>
-                            <td class="v-align-middle ">
-                                {{ $item->title }}
-                            </td>
-                            <td class="v-align-middle ">
-                                {{ $item->email }}
-                            </td>
-                            <td class="v-align-middle">
-                                {{ $item->alamat }}
-                            </td>
-                            <td class="v-align-middle">
-                                {{ $item->keterangan }}
-                            </td>
-                            <td class="v-align-middle">
-                                <div class="btn-group">
-                                    <a href="{{ url('/content/master/contact/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
-                                </div>
-                            </td>
-                        </tr>
-                    @endscopedslot
-                @endcomponent
+            <div class="card card-default">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group form-group-default">
+                                <label>title</label>
+                                <span>Hubungi Kami</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group form-group-default">
+                                <label>email</label>
+                                <span>emailkantor@mail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group form-group-default">
+                                <label>alamat</label>
+                                <span>Jakarta</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group form-group-default">
+                                <label>keterangan</label>
+                                <span>Ini adalah halaman hubungi kami</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

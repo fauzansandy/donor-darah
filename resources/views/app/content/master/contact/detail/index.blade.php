@@ -15,7 +15,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="#">Master Content</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/content/master/contact') }}">Content Master Contact Us</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/content/master/contact') }}">Content Master Hubungi Kami</a></li>
                     <li class="breadcrumb-item active">TITLE_DUMMY</li>
                 </ol>
             </div>
@@ -71,13 +71,10 @@
             <div class="col-3">
                 <div class="card card-default card-action">
                     <div class="card-body">
-                        <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
-                        <div class="row row-button-action">
-                            <div class="col-6 act-left">
+                        <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Submit</button>
+                        <div class="row">
+                            <div class="col-12 act-left">
                                 <a href="{{ UrlPrevious(url('/content/news')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
-                            </div>
-                            <div class="col-6 act-right">
-                                <button id="deleteOpenModal" class="btn btn-block btn-danger btn-cons m-b-10"><i class="fas fa-trash"></i> Delete</button>
                             </div>
                         </div>
                     </div>

@@ -15,8 +15,8 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="#">Master Content</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/content/master/termco') }}">Term & Condition</a></li>
-                    <li class="breadcrumb-item active">DUMMY_TERM_TITLE</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/content/master/termco') }}">Syarat & Ketentuan</a></li>
+                    <li class="breadcrumb-item active">DUMMY_SYARAT_&_KETENTUAN_TITLE</li>
                 </ol>
             </div>
         </div>
@@ -72,8 +72,8 @@
                 <div class="card card-default card-action">
                     <div class="card-body">
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
-                        <div class="row row-button-action">
-                            <div class="col-6 act-left">
+                        <div class="row">
+                            <div class="col-12 act-left">
                                 <a href="{{ UrlPrevious(url('/content/master/termco')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </div>
