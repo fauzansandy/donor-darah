@@ -12,7 +12,7 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Content News</li>
+                    <li class="breadcrumb-item active">Berita</li>
                 </ol>
             </div>
         </div>
@@ -49,7 +49,7 @@
         </nav>
         <div class="card card-white">
             <div class="card-header ">
-                <div class="card-title">Content News Data</div><br>
+                <div class="card-title">Berita Data</div><br>
             </div>
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])

@@ -512,6 +512,7 @@ class ContentManagementController extends Controller
         $DataTable = [
             'key' => $TableKey,
             'take' => $Take,
+            'placeholder_filter_search' => 'Search By Title dan Role ...',
             'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
