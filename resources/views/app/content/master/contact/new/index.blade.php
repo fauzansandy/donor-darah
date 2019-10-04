@@ -15,8 +15,8 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="#">Master Content</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/content/master/contact') }}">Content Master Contact Us</a></li>
-                    <li class="breadcrumb-item active">TITLE_DUMMY</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/content/master/contact') }}">Contact Us</a></li>
+                    <li class="breadcrumb-item active">New</li>
                 </ol>
             </div>
         </div>
@@ -28,11 +28,12 @@
                     <div class="card card-default">
                         <div class="card-header ">
                             <div class="card-title">
-                                Edit #dummy_id - Last updated at dummy_updated_at
+                                New
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row">
+                            
+                        <div class="row">
                                 <div class="col-12">
                                     <div class="form-group form-group-default required">
                                         <label>title</label>
@@ -74,10 +75,7 @@
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
                         <div class="row row-button-action">
                             <div class="col-6 act-left">
-                                <a href="{{ UrlPrevious(url('/content/news')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
-                            </div>
-                            <div class="col-6 act-right">
-                                <button id="deleteOpenModal" class="btn btn-block btn-danger btn-cons m-b-10"><i class="fas fa-trash"></i> Delete</button>
+                                <a href="{{ UrlPrevious(url('/content/master/contact')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -88,9 +86,9 @@
 @endsection
 
 @section('script')
-    @include('app.content.news.new.scripts.index')
+    @include('app.content.master.info.new.scripts.index')
 @endsection
 
 @section('formValidationScript')
-    @include('app.content.news.new.scripts.form')
+    @include('app.content.master.info.new.scripts.form')
 @endsection

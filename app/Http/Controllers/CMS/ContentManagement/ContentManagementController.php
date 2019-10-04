@@ -77,7 +77,17 @@ class ContentManagementController extends Controller
         return view('app.content.master.contact.home.index', $ParseData);
     }
 
-    public function MasterContactTermCo(Request $request)
+    public function MasterContactNew(Request $request)
+    {
+        return view('app.content.master.contact.new.index');
+    }
+
+    public function MasterContactDetail(Request $request)
+    {
+        return view('app.content.master.contact.detail.index');
+    }
+
+    public function MasterTermCo(Request $request)
     {
         $TableKey = 'content-master-contact-table';
         $filter_search = $request->input('filter_search');
@@ -108,17 +118,17 @@ class ContentManagementController extends Controller
         return view('app.content.master.termco.home.index', $ParseData);
     }
 
-    public function MasterContactTermCoDetail(Request $request)
+    public function MasterTermCoDetail(Request $request)
     {
         return view('app.content.master.termco.detail.index');
     }
 
-    public function MasterContactTermCoNew(Request $request)
+    public function MasterTermCoNew(Request $request)
     {
         return view('app.content.master.termco.new.index');
     }
 
-    public function MasterContactFAQ(Request $request)
+    public function MasterFAQ(Request $request)
     {
         $TableKey = 'content-master-contact-table';
         $filter_search = $request->input('filter_search');
@@ -150,17 +160,17 @@ class ContentManagementController extends Controller
         return view('app.content.master.faq.home.index', $ParseData);
     }
 
-    public function MasterContactFAQNew(Request $request)
+    public function MasterFAQNew(Request $request)
     {
         return view('app.content.master.faq.new.index');
     }
 
-    public function MasterContactFAQDetail(Request $request)
+    public function MasterFAQDetail(Request $request)
     {
         return view('app.content.master.faq.detail.index');
     }
 
-    public function MasterContactPeriodProvision(Request $request)
+    public function MasterPeriodProvision(Request $request)
     {
         $TableKey = 'content-master-contact-table';
         $filter_search = $request->input('filter_search');
@@ -191,17 +201,17 @@ class ContentManagementController extends Controller
         return view('app.content.master.period.home.index', $ParseData);
     }
 
-    public function MasterContactPeriodProvisionNew(Request $request)
+    public function MasterPeriodProvisionNew(Request $request)
     {
         return view('app.content.master.period.new.index');
     }
 
-    public function MasterContactPeriodProvisionDetail(Request $request)
+    public function MasterPeriodProvisionDetail(Request $request)
     {
         return view('app.content.master.period.detail.index');
     }
 
-    public function MasterContactCashRewards(Request $request)
+    public function MasterCashRewards(Request $request)
     {
         $TableKey = 'content-master-contact-table';
         $filter_search = $request->input('filter_search');
@@ -232,17 +242,17 @@ class ContentManagementController extends Controller
         return view('app.content.master.rewards.home.index', $ParseData);
     }
 
-    public function MasterContactCashRewardsNew(Request $request)
+    public function MasterCashRewardsNew(Request $request)
     {
         return view('app.content.master.rewards.new.index');
     }
 
-    public function MasterContactCashRewardsDetail(Request $request)
+    public function MasterCashRewardsDetail(Request $request)
     {
         return view('app.content.master.rewards.detail.index');
     }
 
-    public function MasterContactInfo(Request $request)
+    public function MasterInfo(Request $request)
     {
         $TableKey = 'content-master-contact-table';
         $filter_search = $request->input('filter_search');
@@ -274,12 +284,12 @@ class ContentManagementController extends Controller
         return view('app.content.master.info.home.index', $ParseData);
     }
 
-    public function MasterContactInfoNew(Request $request)
+    public function MasterInfoNew(Request $request)
     {
         return view('app.content.master.info.new.index');
     }
 
-    public function MasterContactInfoDetail(Request $request)
+    public function MasterInfoDetail(Request $request)
     {
         return view('app.content.master.info.detail.index');
     }
