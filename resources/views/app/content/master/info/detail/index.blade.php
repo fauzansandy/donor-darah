@@ -54,17 +54,27 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group form-group-default">
+                                    <div class="form-group form-group-default required">
                                         <label>upload Thumbnail</label>
-                                        <input name="thumbnail" value="dummy_thumbnail" class="form-control" type="file">
+                                        @component('components.form.dropzone', [
+                                            'id' => 'info-content-master-upload-thumbnail',
+                                            'value' => 'Drop files here to upload thumbnail',
+                                            'style' => 'min-height: 100px;'
+                                        ])
+                                        @endcomponent
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group form-group-default">
+                                    <div class="form-group form-group-default required">
                                         <label>upload Photo</label>
-                                        <input name="photo" value="dummy_photo" class="form-control" type="file">
+                                        @component('components.form.dropzone', [
+                                            'id' => 'info-content-master-upload-photo',
+                                            'value' => 'Drop files here to upload photo',
+                                            'style' => 'min-height: 100px;'
+                                        ])
+                                        @endcomponent
                                     </div>
                                 </div>
                             </div>
@@ -125,9 +135,9 @@
 
 
 @section('script')
-    @include('app.content.master.faq.detail.scripts.index')
+    @include('app.content.master.info.detail.scripts.index')
 @endsection
 
 @section('formValidationScript')
-    @include('app.content.master.faq.detail.scripts.form')
+    @include('app.content.master.info.detail.scripts.form')
 @endsection
