@@ -74,8 +74,8 @@
                 <div class="card card-default card-action">
                     <div class="card-body">
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
-                        <div class="row row-button-action">
-                            <div class="col-6 act-left">
+                        <div class="row">
+                            <div class="col-12 act-left">
                                 <a href="{{ UrlPrevious(url('/content/master/cash-rewards')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </div>

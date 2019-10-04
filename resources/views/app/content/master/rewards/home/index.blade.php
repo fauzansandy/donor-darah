@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-sm-4">
                             <ul class="navbar-nav d-flex flex-row justify-content-sm-end">
-                                <li class="nav-item"><a href="#" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i></a></li>
+                                <li class="nav-item"><a href="#" class="p-r-10" onclick="$.Pages.setFullScreen(document.querySelector('html'));"><i class="fa fa-expand"></i> Fullscreen</a></li>
                             </ul>
                         </div>
                     </div>

@@ -22,12 +22,12 @@
                 <div class="col-4">
                     <form action="{{ fullUri() }}">
                         <div class="input-group">
-                            <input name="{{ $data['key'] }}-filter_search" placeholder="Search..." value="{{ isset($data['filter_search']) ? $data['filter_search'] : '' }}" class="form-control" type="text">
+                            <input name="{{ $data['key'] }}-filter_search" placeholder="{{ isset($data['placeholder_filter_search']) ? $data['placeholder_filter_search'] : 'Search ...' }}" value="{{ isset($data['filter_search']) ? $data['filter_search'] : '' }}" class="form-control" type="text">
                             <div class="input-group-append">
                                 <button type="submit" class="input-group-text info pointer"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
-                    </from>
+                    </form>
                 </div>
             </div>
         </div>
