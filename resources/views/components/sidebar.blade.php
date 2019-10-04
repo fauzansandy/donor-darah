@@ -139,6 +139,14 @@
                               <a href="{!! url('/content/master/info'); !!}">Info</a>
                               <span class="icon-thumbnail">IN</span>
                           </li>
+                          <li class="@yield('contentManagementMasterContentLevelDealerMenuClass')">
+                              <a href="{!! url('/content/master/level-dealer'); !!}">Level Dealer</a>
+                              <span class="icon-thumbnail">LD</span>
+                          </li>
+                          <li class="@yield('contentManagementMasterContentDisclaimerMenuClass')">
+                              <a href="{!! url('/content/master/disclaimer'); !!}">Disclaimer</a>
+                              <span class="icon-thumbnail">DC</span>
+                          </li>
                       </ul>
                   </li>
                   <li class="@yield('contentManagementFeedbackMenuClass')">

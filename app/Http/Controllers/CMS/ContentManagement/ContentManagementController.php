@@ -298,6 +298,90 @@ class ContentManagementController extends Controller
         return view('app.content.master.info.detail.index');
     }
 
+    public function MasterLevelDealer(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'placeholder_filter_search' => 'Search By Title ...',
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'status', 'label' => 'STATUS'],
+                (object)['name' => 'upload_date', 'label' => 'UPLOAD DATE'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['title' => 'Term 1', 'status' => 'active', 'upload_date' => '2019-09-10 00:00:00']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.leveldealer.home.index', $ParseData);
+    }
+
+    public function MasterLevelDealerDetail(Request $request)
+    {
+        return view('app.content.master.leveldealer.detail.index');
+    }
+
+    public function MasterLevelDealerNew(Request $request)
+    {
+        return view('app.content.master.leveldealer.new.index');
+    }
+
+    public function MasterDisclaimer(Request $request)
+    {
+        $TableKey = 'content-master-contact-table';
+        $filter_search = $request->input('filter_search');
+
+        $DataTable = [
+            'key' => $TableKey,
+            'placeholder_filter_search' => 'Search By Title ...',
+            'pageNow' => ___TableGetCurrentPage($request, $TableKey),
+            'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
+            'heads' => [
+                (object)['name' => 'title', 'label' => 'TITLE'],
+                (object)['name' => 'status', 'label' => 'STATUS'],
+                (object)['name' => 'upload_date', 'label' => 'UPLOAD DATE'],
+                (object)['name' => 'ACTION', 'label' => 'ACTION']
+            ],
+            'records' => [
+                (object)['title' => 'Term 1', 'status' => 'active', 'upload_date' => '2019-09-10 00:00:00']
+            ]
+        ];
+
+        $DataTable['total'] = 0;
+        $DataTable['show'] = 0;
+
+        $ParseData = [
+            'filter_search' => $filter_search,
+            'data' => $DataTable,
+            'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
+        ];
+        return view('app.content.master.disclaimer.home.index', $ParseData);
+    }
+
+    public function MasterDisclaimerDetail(Request $request)
+    {
+        return view('app.content.master.disclaimer.detail.index');
+    }
+
+    public function MasterDisclaimerNew(Request $request)
+    {
+        return view('app.content.master.disclaimer.new.index');
+    }
+
     public function FeedBackCritics(Request $request)
     {
         $TableKey = 'feedback-critics-table';

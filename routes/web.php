@@ -56,7 +56,6 @@ $router->get('/content/master/period-provision', 'CMS\ContentManagement\ContentM
 $router->get('/content/master/period-provision/new', 'CMS\ContentManagement\ContentManagementController@MasterPeriodProvisionNew');
 $router->get('/content/master/period-provision/{id}', 'CMS\ContentManagement\ContentManagementController@MasterPeriodProvisionDetail');
 
-
 $router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterCashRewards');
 $router->get('/content/master/cash-rewards/new', 'CMS\ContentManagement\ContentManagementController@MasterCashRewardsNew');
 $router->get('/content/master/cash-rewards/{id}', 'CMS\ContentManagement\ContentManagementController@MasterCashRewardsDetail');
@@ -64,6 +63,14 @@ $router->get('/content/master/cash-rewards/{id}', 'CMS\ContentManagement\Content
 $router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterInfo');
 $router->get('/content/master/info/new', 'CMS\ContentManagement\ContentManagementController@MasterInfoNew');
 $router->get('/content/master/info/{id}', 'CMS\ContentManagement\ContentManagementController@MasterInfoDetail');
+
+$router->get('/content/master/level-dealer', 'CMS\ContentManagement\ContentManagementController@MasterLevelDealer');
+$router->get('/content/master/level-dealer/new', 'CMS\ContentManagement\ContentManagementController@MasterLevelDealerNew');
+$router->get('/content/master/level-dealer/{id}', 'CMS\ContentManagement\ContentManagementController@MasterLevelDealerDetail');
+
+$router->get('/content/master/disclaimer', 'CMS\ContentManagement\ContentManagementController@MasterDisclaimer');
+$router->get('/content/master/disclaimer/new', 'CMS\ContentManagement\ContentManagementController@MasterDisclaimerNew');
+$router->get('/content/master/disclaimer/{id}', 'CMS\ContentManagement\ContentManagementController@MasterDisclaimerDetail');
 
 $router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
 $router->get('/content/feedback/critics/{id}', 'CMS\ContentManagement\ContentManagementController@FeedBackCriticsDetail');
