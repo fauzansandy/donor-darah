@@ -147,7 +147,7 @@
                           <span class="arrow"></span>
                       </a>
                       <span class="icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
-                      <ul class="sub-menu">
+                      <ul class="@yield('contentManagementFeedbackTreeMenuClass', 'sub-menu')">
                           <li class="@yield('contentManagementFeedbackKritikMenuClass')">
                               <a href="{!! url('/content/feedback/critics'); !!}">Kritik</a>
                               <span class="icon-thumbnail">Kr</span>

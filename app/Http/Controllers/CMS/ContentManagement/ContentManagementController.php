@@ -327,6 +327,11 @@ class ContentManagementController extends Controller
         return view('app.content.feedback.critics.home.index', $ParseData);
     }
 
+    public function FeedBackCriticsDetail(Request $request)
+    {
+        return view('app.content.feedback.critics.detail.index');
+    }
+
     public function FeedBackSuggestion(Request $request)
     {
         $TableKey = 'feedback-suggestion-table';
@@ -358,6 +363,11 @@ class ContentManagementController extends Controller
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
         ];
         return view('app.content.feedback.suggestion.home.index', $ParseData);
+    }
+
+    public function FeedBackSuggestionDetail(Request $request)
+    {
+        return view('app.content.feedback.suggestion.detail.index');
     }
 
     public function PushNotification(Request $request)

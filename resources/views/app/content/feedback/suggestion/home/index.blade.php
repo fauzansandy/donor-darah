@@ -5,6 +5,7 @@
 
 @section('contentManagementMenuClass', 'active')
 @section('contentManagementFeedbackMenuClass', 'active')
+@section('contentManagementFeedbackTreeMenuClass', 'sub-menu block')
 @section('contentManagementFeedbackSaranMenuClass', 'active')
 
 @section('content')
@@ -53,7 +54,7 @@
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
-                                    <a href="#" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                    <a href="{{ url('/content/feedback/suggestion/1') }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
                                 </div>
                             </td>
                         </tr>
