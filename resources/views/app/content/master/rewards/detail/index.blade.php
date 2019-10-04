@@ -14,7 +14,8 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/content/master/termco') }}">Content Master Cash Rewards</a></li>
+                    <li class="breadcrumb-item"><a href="#">Master Content</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/content/master/cash-rewards') }}">Cash Rewards</a></li>
                     <li class="breadcrumb-item active">DUMMY_CASH_REWARDS_TITLE</li>
                 </ol>
             </div>
