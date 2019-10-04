@@ -56,7 +56,12 @@
                                 <div class="col-12">
                                     <div class="form-group form-group-default required">
                                         <label>upload PDF</label>
-                                        <input name="upload_pdf" value="dummy_upload_pdf" class="form-control" type="file" required>
+                                        @component('components.form.dropzone', [
+                                            'id' => 'cash-rewards-content-master-upload-pdf',
+                                            'value' => 'Drop files here to upload pdf',
+                                            'style' => 'min-height: 100px;'
+                                        ])
+                                        @endcomponent
                                     </div>
                                 </div>
                             </div>
@@ -78,4 +83,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    @include('app.content.master.rewards.detail.scripts.index')
+@endsection
+
+@section('formValidationScript')
+    @include('app.content.master.rewards.detail.scripts.form')
 @endsection
