@@ -14,7 +14,8 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/content/news') }}">Period Provision</a></li>
+                    <li class="breadcrumb-item"><a href="#">Master Content</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/content/master/period-provision') }}">Period Provision</a></li>
                     <li class="breadcrumb-item active">New</li>
                 </ol>
             </div>
