@@ -46,7 +46,7 @@
                                         <label class="">order by</label>
                                         @component('components.form.awesomeSelect', [
                                             'name' => 'content_type',
-                                            'items' => [['value' => 'asc', 'label' => 'Ascending'],['value' => 'desc', 'label' => 'Descending']],
+                                            'items' => [['value' => '1', 'label' => '1'],['value' => '2', 'label' => '2'],['value' => '3', 'label' => '3'],['value' => '4', 'label' => '4'],['value' => '5', 'label' => '5']],
                                             'selected' => ''
                                         ])
                                         @endcomponent
@@ -122,9 +122,14 @@
                 <div class="card card-default card-action">
                     <div class="card-body">
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
-                        <div class="row row-button-action">
-                            <div class="col-6 act-left">
+                        <div class="row">
+                            <div class="col-12 act-left">
                                 <a href="{{ UrlPrevious(url('/content/master/info')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 act-right">
+                                <button id="deleteOpenModal" class="btn btn-block btn-danger btn-cons m-b-10"><i class="fas fa-trash"></i> Delete</button>
                             </div>
                         </div>
                     </div>
