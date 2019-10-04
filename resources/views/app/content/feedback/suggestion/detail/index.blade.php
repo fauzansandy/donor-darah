@@ -52,7 +52,7 @@
                                 <div class="col-12">
                                     <div class="form-group form-group-default required">
                                         <label>report</label>
-                                        <input name="report" value="report" class="form-control" type="text" required>
+                                        <textarea name="report" class="form-control" required style="height: 100px;">Report Saran</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -72,8 +72,8 @@
                 <div class="card card-default card-action">
                     <div class="card-body">
                         <button id="saveAction" class="btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
-                        <div class="row row-button-action">
-                            <div class="col-6 act-left">
+                        <div class="row">
+                            <div class="col-12 act-left">
                                 <a href="{{ UrlPrevious(url('/content/feedback/suggestion')) }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                             </div>
                         </div>

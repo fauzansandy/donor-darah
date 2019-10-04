@@ -2,7 +2,7 @@
     <div class="row blade-datatable-header">
         <div class="col-12 blade-datatable-header-panel">
             <div class="row">
-                <div class="col-8">
+                <div class="{{ isset($data['filter_date']) ? 'col-4' : 'col-8' }}">
                     <div class="blade-datatable-sort">
                         <p>Show</p>
                         <div class="dropdown dropdown-default">
@@ -19,6 +19,15 @@
                         <p>Entries</p>
                     </div>
                 </div>
+                @if (isset($data['filter_date']))
+                    <div class="col-4">
+                        <form action="{{ fullUri() }}">
+                            <div class="input-group">
+                                <input name="{{ $data['key'] }}-filter_date" value="{{ isset($data['filter_date']) ? $data['filter_date'] : '' }}" class="form-control" type="date">
+                            </div>
+                        </form>
+                    </div>
+                @endif
                 <div class="col-4">
                     <form action="{{ fullUri() }}">
                         <div class="input-group">

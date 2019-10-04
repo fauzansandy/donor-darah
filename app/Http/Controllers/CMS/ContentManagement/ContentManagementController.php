@@ -389,6 +389,8 @@ class ContentManagementController extends Controller
         $DataTable = [
             'key' => $TableKey,
             'take' => $Take,
+            'filter_date' => 'true',
+            'placeholder_filter_search' => 'Search By Customer Name ...',
             'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
@@ -427,6 +429,8 @@ class ContentManagementController extends Controller
         $DataTable = [
             'key' => $TableKey,
             'take' => $Take,
+            'filter_date' => 'true',
+            'placeholder_filter_search' => 'Search By Customer Name ...',
             'filter_search' => ___TableGetFilterSearch($request, $TableKey),
             'pageNow' => ___TableGetCurrentPage($request, $TableKey),
             'paginate' => ___TablePaginate((int)0, 30, ___TableGetCurrentPage($request, $TableKey)),
