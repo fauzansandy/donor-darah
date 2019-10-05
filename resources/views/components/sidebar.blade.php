@@ -35,12 +35,17 @@
   <div class="sidebar-menu">
       <!-- BEGIN SIDEBAR MENU ITEMS-->
       <ul class="menu-items">
-          <li class="m-t-30 ">
-              <a href="{!! url('/'); !!}" class="detailed">
-                  <span class="title">Dashboard</span>
-                  <span class="details">12 New Updates</span>
-              </a>
-              <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
+          <li class="@yield('checklistCMSMenuClass')">
+              <a href="{!! url('/checklist'); !!}" class="detailed">Checklist Transfusi</a>
+              <span class="bg-success icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+          </li>
+          <li class="@yield('monitoringCMSMenuClass')">
+              <a href="{!! url('/monitoring'); !!}" class="detailed">Monitoring Transfusi</a>
+              <span class="bg-success icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
+          </li>
+          <li class="@yield('reaksiCMSMenuClass')">
+              <a href="{!! url('/reaksi'); !!}" class="detailed">Reaksi Transfusi</a>
+              <span class="bg-success icon-thumbnail"><i class="fas fa-bezier-curve"></i></span>
           </li>
           <li class="@yield('userManagementMenuClass')">
               <a href="javascript:;">
@@ -58,7 +63,7 @@
                   </li>
               </ul>
           </li>
-          <li class="@yield('dealerManagementMenuClass')">
+          <!-- <li class="@yield('dealerManagementMenuClass')">
               <a href="javascript:;">
                   <span class="title">Dealer Management</span>
               </a>
@@ -176,7 +181,7 @@
                   </li>
 
               </ul>
-          </li>
+          </li> -->
           <li class="">
               <a href="{!! url('/logout'); !!}" class="detailed">
                   <span class="title">Logout</span>

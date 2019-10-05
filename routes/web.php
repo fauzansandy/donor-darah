@@ -18,65 +18,14 @@ $router->get('/', 'CMS\Home\HomeController@Home');
 $router->get('/position', 'CMS\Position\PositionController@Home');
 
 $router->get('/user', 'CMS\User\UserController@Home');
+$router->get('/user/new', 'CMS\User\UserController@New');
+$router->get('/user/{id}', 'CMS\User\UserController@Detail');
 
-$router->get('/dealer/user', 'CMS\DealerManagement\DealerManagementController@User');
-$router->get('/dealer/user/new', 'CMS\DealerManagement\DealerManagementController@UserDetailNew');
-$router->get('/dealer/user/new/grab/masterdealer', 'CMS\DealerManagement\DealerManagementController@GrabMasterDealer');
-$router->get('/dealer/user/new/grab/masterinsentifscheme', 'CMS\DealerManagement\DealerManagementController@GrabMasterInsentifScheme');
-$router->get('/dealer/user/new/grab/masterinsentifscheme/{idmaster}/salesselect', 'CMS\DealerManagement\DealerManagementController@GrabMasterInsentifSchemeSalesSelect');
-$router->get('/dealer/user/{id}', 'CMS\DealerManagement\DealerManagementController@UserDetail');
-$router->get('/dealer/verification/request', 'CMS\DealerManagement\DealerManagementController@VerificationRequest');
-$router->get('/dealer/verification/request/{id}', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetail');
-$router->get('/dealer/verification/request/{id}/grab/masterdealer', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetailGrabMasterDealer');
-$router->get('/dealer/verification/request/{id}/grab/masterinsentifscheme', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetailGrabMasterInsentifScheme');
-$router->get('/dealer/verification/request/{id}/grab/masterinsentifscheme/{idmaster}/salesselect', 'CMS\DealerManagement\DealerManagementController@VerificationRequestDetailGrabMasterInsentifSchemeSalesSelect');
+$router->get('/checklist', 'CMS\Checklist\ChecklistController@Home');
 
-$router->get('/application/verified', 'CMS\Application\ApplicationController@Verified');
-$router->get('/application/verified/{id}', 'CMS\Application\ApplicationController@VerifiedDetail');
-$router->get('/application/notverified', 'CMS\Application\ApplicationController@NotVerified');
-$router->get('/application/notverified/{id}', 'CMS\Application\ApplicationController@NotVerifiedDetail');
+$router->get('/monitoring', 'CMS\Monitoring\MonitoringController@Home');
 
-$router->get('/reward/dealer', 'CMS\Reward\RewardController@Dealer');
-
-$router->get('/content/master', 'CMS\ContentManagement\ContentManagementController@Master');
-
-$router->get('/content/master/contact', 'CMS\ContentManagement\ContentManagementController@MasterContact');
-$router->get('/content/master/contact/new', 'CMS\ContentManagement\ContentManagementController@MasterContactNew');
-$router->get('/content/master/contact/{id}', 'CMS\ContentManagement\ContentManagementController@MasterContactDetail');
-
-$router->get('/content/master/termco', 'CMS\ContentManagement\ContentManagementController@MasterTermCo');
-$router->get('/content/master/termco/new', 'CMS\ContentManagement\ContentManagementController@MasterTermCoNew');
-$router->get('/content/master/termco/{id}', 'CMS\ContentManagement\ContentManagementController@MasterTermCoDetail');
-
-$router->get('/content/master/faq', 'CMS\ContentManagement\ContentManagementController@MasterFAQ');
-$router->get('/content/master/faq/new', 'CMS\ContentManagement\ContentManagementController@MasterFAQNew');
-$router->get('/content/master/faq/{id}', 'CMS\ContentManagement\ContentManagementController@MasterFAQDetail');
-
-$router->get('/content/master/period-provision', 'CMS\ContentManagement\ContentManagementController@MasterPeriodProvision');
-$router->get('/content/master/period-provision/new', 'CMS\ContentManagement\ContentManagementController@MasterPeriodProvisionNew');
-$router->get('/content/master/period-provision/{id}', 'CMS\ContentManagement\ContentManagementController@MasterPeriodProvisionDetail');
-
-$router->get('/content/master/cash-rewards', 'CMS\ContentManagement\ContentManagementController@MasterCashRewards');
-$router->get('/content/master/cash-rewards/new', 'CMS\ContentManagement\ContentManagementController@MasterCashRewardsNew');
-$router->get('/content/master/cash-rewards/{id}', 'CMS\ContentManagement\ContentManagementController@MasterCashRewardsDetail');
-
-$router->get('/content/master/info', 'CMS\ContentManagement\ContentManagementController@MasterInfo');
-$router->get('/content/master/info/new', 'CMS\ContentManagement\ContentManagementController@MasterInfoNew');
-$router->get('/content/master/info/{id}', 'CMS\ContentManagement\ContentManagementController@MasterInfoDetail');
-
-$router->get('/content/master/level-dealer', 'CMS\ContentManagement\ContentManagementController@MasterLevelDealer');
-$router->get('/content/master/level-dealer/new', 'CMS\ContentManagement\ContentManagementController@MasterLevelDealerNew');
-$router->get('/content/master/level-dealer/{id}', 'CMS\ContentManagement\ContentManagementController@MasterLevelDealerDetail');
-
-$router->get('/content/master/disclaimer', 'CMS\ContentManagement\ContentManagementController@MasterDisclaimer');
-$router->get('/content/master/disclaimer/new', 'CMS\ContentManagement\ContentManagementController@MasterDisclaimerNew');
-$router->get('/content/master/disclaimer/{id}', 'CMS\ContentManagement\ContentManagementController@MasterDisclaimerDetail');
-
-$router->get('/content/feedback/critics', 'CMS\ContentManagement\ContentManagementController@FeedBackCritics');
-$router->get('/content/feedback/critics/{id}', 'CMS\ContentManagement\ContentManagementController@FeedBackCriticsDetail');
-
-$router->get('/content/feedback/suggestion', 'CMS\ContentManagement\ContentManagementController@FeedBackSuggestion');
-$router->get('/content/feedback/suggestion/{id}', 'CMS\ContentManagement\ContentManagementController@FeedBackSuggestionDetail');
+$router->get('/reaksi', 'CMS\Reaksi\ReaksiController@Home');
 
 $router->get('/content/pushnotification', 'CMS\ContentManagement\ContentManagementController@PushNotification');
 $router->get('/content/pushnotification/new', 'CMS\ContentManagement\ContentManagementController@PushNotificationNew');
