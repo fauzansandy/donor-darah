@@ -1,81 +1,30 @@
 <script>
 $(document).ready(function() {
-    const form = document.getElementById('newUserForm')
-    const newUserForm = $('#newUserForm').formValidation({
+    const form = document.getElementById('newMonitoringForm')
+    const newUserForm = $('#newMonitoringForm').formValidation({
         fields: {
-            // name: {
-            //     validators: {
-            //         notEmpty: {
-            //             message: 'The user name is required'
-            //         },
-            //         stringLength: {
-            //             min: 3,
-            //             max: 191,
-            //             message: 'The user name must be more than 3 and less than 131 characters long',
-            //         }
-            //     }
-            // },
-            username: {
+            name: {
                 validators: {
                     notEmpty: {
-                        message: 'The username is required'
-                    },
-                    stringLength: {
-                        min: 3,
-                        max: 191,
-                        message: 'The username must be more than 3 and less than 131 characters long',
+                        message: 'Nama Wajib'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9_]+$/,
-                        message: 'The username can only consist of alphabetical, number and underscore',
+                        message: 'The name can only consist of alphabetical, number and underscore',
                     }
                 }
             },
-            // email: {
-            //     validators: {
-            //         notEmpty: {
-            //             message: 'The email is required'
-            //         },
-            //         emailAddress: {
-            //             message: 'The email is not a valid email address'
-            //         }
-            //     }
-            // },
-            password: {
+            no_rm: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required'
-                    },
-                    stringLength: {
-                        min: 6,
-                        message: 'The password must have at least 6 characters',
-                    },
-                }
-            },
-            confirmPassword: {
-                validators: {
-                    notEmpty: {
-                        message: 'The password is required'
-                    },
-                    identical: {
-                        compare: function() {
-                            return form.querySelector('input[name="password"]').value
-                        },
-                        message: 'The password and its confirm are not the same'
+                        message: 'No Rekam Medis Wajib'
                     }
                 }
             },
-            position: {
+            transfusion: {
                 validators: {
                     notEmpty: {
-                        message: 'The position name is required'
-                    }
-                }
-            },
-            gender: {
-                validators: {
-                    notEmpty: {
-                        message: 'The gender name is required'
+                        message: 'Type Transfusi wajib diisi'
                     }
                 }
             }
@@ -92,28 +41,18 @@ $(document).ready(function() {
         }
     }).data('formValidation')
 
-    form.querySelector('input[name="password"]').addEventListener('input', function() {
-        newUserForm.revalidateField('confirmPassword')
-    })
-
     $('.saveAction').click(function() {
         const { urlNext, isRecreate } = $(this).data()
         newUserForm.validate().then(function(status) {
             if (status === 'Valid') {
                 const name = $('input[name="name"]')
-                const username = $('input[name="username"]')
-                const email = $('input[name="email"]')
-                const password = $('input[name="password"]')
-                const position = $('select[name="position"]')
-                const gender = $('select[name="gender"]')
+                const no_rm = $('input[name="no_rm"]')
+                const transfusion = $('select[name="transfusion"]')
 
-                axios.post('/user', {
+                axios.post('/patient', {
                     name: name.val(),
-                    username: username.val(),
-                    email: email.val(),
-                    password: password.val(),
-                    position_id: position.val(),
-                    gender: gender.val()
+                    no_rm: no_rm.val(),
+                    transfusion_id: transfusion.val()
                 }).then((response) => {
                     const { data } = response.data
                     if (!isRecreate) {

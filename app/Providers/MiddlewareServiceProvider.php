@@ -28,6 +28,8 @@ class MiddlewareServiceProvider extends ServiceProvider
 
         'Account.SignUp' => \App\Http\Middleware\Account\SignUp::class,
 
+        'Patient.Insert' => \App\Http\Middleware\Patient\Insert::class,
+
         'User.Insert' => \App\Http\Middleware\User\Insert::class,
         'User.Update' => \App\Http\Middleware\User\Update::class,
         'User.Password' => \App\Http\Middleware\User\Password::class,

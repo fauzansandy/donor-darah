@@ -1,6 +1,5 @@
 @extends('layout.app')
 
-@section('title', 'WhatsApp User')
 @section('bodyClass', 'fixed-header menu-pin menu-behind')
 
 @section('content')
@@ -9,7 +8,7 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/user') }}">User</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/monitoring') }}">Monitoring</a></li>
                     <li class="breadcrumb-item active">New</li>
                 </ol>
             </div>
@@ -21,38 +20,25 @@
                 <div class="card card-default">
                     <div class="card-header ">
                         <div class="card-title">
-                            New #user
+                            Pasien Baru
                         </div>
                     </div>
                     <div class="card-body">
-                        <form autocomplete="off" id="newUserForm">
+                        <form autocomplete="off" id="newMonitoringForm">
                             <div class="form-group form-group-default required ">
-                                <label>Username</label>
-                                <input name="username" class="form-control" type="text" required>
+                                <label>Nama Pasien</label>
+                                <input name="name" class="form-control" type="text" required>
                             </div>
                             <div class="form-group form-group-default required ">
-                                <label>Password</label>
-                                <input autocomplete="new-password" name="password" class="form-control" type="password" required>
-                            </div>
-                            <div class="form-group form-group-default required ">
-                                <label>Confirmation Password</label>
-                                <input name="confirmPassword" class="form-control" type="password" required>
+                                <label>No Rm</label>
+                                <input name="no_rm" class="form-control" type="text" required>
                             </div>
                             <div class="form-group form-group-default form-group-default-select2 required">
-                                <label class="">Position</label>
+                                <label class="">Jenis Transfusi</label>
                                 @component('components.form.awesomeSelect', [
-                                    'name' => 'position',
-                                    'items' => $select['positions'],
+                                    'name' => 'transfusion',
+                                    'items' => $select['transfusions'],
                                     'selected' => '5'
-                                ])
-                                @endcomponent
-                            </div>
-                            <div class="form-group form-group-default form-group-default-select2 required">
-                                <label class="">Gender</label>
-                                @component('components.form.awesomeSelect', [
-                                    'name' => 'gender',
-                                    'items' => [['value' => 'male', 'label' => 'Male'], ['value' => 'female', 'label' => 'Female']],
-                                    'selected' => null
                                 ])
                                 @endcomponent
                             </div>
@@ -64,14 +50,9 @@
                 <div class="card card-default card-action">
                     <div class="card-body">
                         <div class="row row-button-action">
-                            <div class="col-6 act-left">
-                                <button data-url-next="{{ UrlPrevious(url('/user')) }}" class="saveAction btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
-                            </div>
-                            <div class="col-6 act-right">
-                                <button data-is-recreate="true" class="saveAction btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save & New</button>
-                            </div>
+                            <button data-url-next="{{ UrlPrevious(url('/monitoring')) }}" class="saveAction btn btn-block btn-success btn-cons m-b-10"><i class="fas fa-save"></i> Save</button>
+                            <a href="{{ url('/monitoring') }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                         </div>
-                        <a href="{{ url('/user') }}" class="btn btn-block btn-primary btn-cons m-b-10"><i class="fas fa-arrow-left"></i> Cancel</a>
                     </div>
                 </div>
             </div>
@@ -80,9 +61,9 @@
 @endsection
 
 @section('script')
-    @include('app.user.new.scripts.index')
+    @include('app.monitoring.new.scripts.index')
 @endsection
 
 @section('formValidationScript')
-    @include('app.user.new.scripts.form')
+    @include('app.monitoring.new.scripts.form')
 @endsection

@@ -24,6 +24,8 @@ $router->get('/user/{id}', 'CMS\User\UserController@Detail');
 $router->get('/checklist', 'CMS\Checklist\ChecklistController@Home');
 
 $router->get('/monitoring', 'CMS\Monitoring\MonitoringController@Home');
+$router->get('/monitoring/new', 'CMS\Monitoring\MonitoringController@New');
+$router->get('/monitoring/{id}', 'CMS\Monitoring\MonitoringController@Detail');
 
 $router->get('/reaksi', 'CMS\Reaksi\ReaksiController@Home');
 

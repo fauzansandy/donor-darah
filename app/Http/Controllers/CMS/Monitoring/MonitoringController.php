@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\CMS\Monitoring;
 
 use App\Http\Controllers\Patient\PatientBrowseController;
+use App\Http\Controllers\TransfusionType\TransfusionTypeBrowseController;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -62,16 +63,16 @@ class MonitoringController extends Controller
 
     public function New(Request $request)
     {
-        $PositionQueryRoute = QueryRoute($request);
-        $PositionQueryRoute->ArrQuery->status = 'all';
-        $PositionQueryRoute->ArrQuery->set = 'fetch';
-        $PositionQueryRoute->ArrQuery->{'with.total'} = 'true';
-        $PositionBrowseController = new PositionBrowseController($PositionQueryRoute);
-        $PositionData = $PositionBrowseController->get($PositionQueryRoute);
-        $PositionSelect = FormSelect($PositionData->original['data']['records'], true);
+        $TransfusionTypeQueryRoute = QueryRoute($request);
+        $TransfusionTypeQueryRoute->ArrQuery->status = 'all';
+        $TransfusionTypeQueryRoute->ArrQuery->set = 'fetch';
+        $TransfusionTypeQueryRoute->ArrQuery->{'with.total'} = 'true';
+        $TransfusionTypeBrowseController = new TransfusionTypeBrowseController($TransfusionTypeQueryRoute);
+        $TransfusionTypeData = $TransfusionTypeBrowseController->get($TransfusionTypeQueryRoute);
+        $TransfusionTypeSelect = FormSelect($TransfusionTypeData->original['data']['records'], true);
 
-        return view('app.user.new.index', [
-            'select' => ['positions' => $PositionSelect],
+        return view('app.monitoring.new.index', [
+            'select' => ['transfusions' => $TransfusionTypeSelect],
         ]);
     }
 
@@ -89,14 +90,14 @@ class MonitoringController extends Controller
 
     public function Edit(Request $request, $id)
     {
-        $PositionQueryRoute = QueryRoute($request);
-        $PositionQueryRoute->ArrQuery->status = 'all';
-        $PositionQueryRoute->ArrQuery->set = 'fetch';
-        $PositionQueryRoute->ArrQuery->take = 'all';
-        $PositionQueryRoute->ArrQuery->{'with.total'} = 'true';
-        $PositionBrowseController = new PositionBrowseController($PositionQueryRoute);
-        $PositionData = $PositionBrowseController->get($PositionQueryRoute);
-        $PositionSelect = FormSelect($PositionData->original['data']['records'], true);
+        $TransfusionTypeQueryRoute = QueryRoute($request);
+        $TransfusionTypeQueryRoute->ArrQuery->status = 'all';
+        $TransfusionTypeQueryRoute->ArrQuery->set = 'fetch';
+        $TransfusionTypeQueryRoute->ArrQuery->take = 'all';
+        $TransfusionTypeQueryRoute->ArrQuery->{'with.total'} = 'true';
+        $TransfusionTypeBrowseController = new TransfusionTypeBrowseController($TransfusionTypeQueryRoute);
+        $TransfusionTypeData = $TransfusionTypeBrowseController->get($TransfusionTypeQueryRoute);
+        $TransfusionTypeSelect = FormSelect($TransfusionTypeData->original['data']['records'], true);
 
         $Category = CategoryBrowseController::FetchBrowse($request)
             ->equal('status', 'all')->equal('take', 'all')->equal('with.total', true)->get();
@@ -117,7 +118,7 @@ class MonitoringController extends Controller
             throw new ModelNotFoundException('Not Found Batch');
         }
         return view('app.user.edit.index', [
-            'select' => ['positions' => $PositionSelect, 'categories' => $CategorySelect],
+            'select' => ['transfusions' => $TransfusionTypeSelect, 'categories' => $CategorySelect],
             'categoryIds' => $CategoryIds,
             'data' => $Patient['records']
         ]);

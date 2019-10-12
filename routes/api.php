@@ -5,6 +5,8 @@
 $router->get('/user', ['uses' => 'User\UserBrowseController@get', 'middleware' => ['ArrQuery']]);
 $router->get('/user/{query:.+}', ['uses' => 'User\UserBrowseController@get', 'middleware' => ['ArrQuery']]);
 // actions
+$router->post('/patient', ['uses' => 'Patient\PatientController@Insert', 'middleware' => ['Patient.Insert']]);
+
 $router->post('/user', ['uses' => 'User\UserController@Insert', 'middleware' => ['User.Insert']]);
 $router->put('/user/{id}', ['uses' => 'User\UserController@Update', 'middleware' => ['User.Update']]);
 $router->delete('/user/{id}', ['uses' => 'User\UserController@Delete', 'middleware' => ['User.Delete']]);
