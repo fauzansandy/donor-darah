@@ -1,6 +1,5 @@
 @extends('layout.app')
 
-@section('title', 'WhatsApp User')
 @section('bodyClass', 'fixed-header menu-pin menu-behind')
 
 @section('monitoringCMSMenuClass', 'active')
@@ -11,7 +10,7 @@
             <div class="inner">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">User</li>
+                    <li class="breadcrumb-item active">Monitoring</li>
                 </ol>
             </div>
         </div>
@@ -29,7 +28,7 @@
                         <div class="col-sm-4">
                             <ul class="navbar-nav d-flex flex-row">
                                 <li class="nav-item">
-                                    <a href="{{ url('/user/new') }}"><i class="fas fa-plus"></i> Create</a>
+                                    <a href="{{ url('/monitoring/new') }}"><i class="fas fa-plus"></i> Create</a>
                                 </li>
                             </ul>
                         </div>
@@ -48,7 +47,7 @@
         </nav>
         <div class="card card-white">
             <div class="card-header ">
-                <div class="card-title">User Data</div><br>
+                <div class="card-title">Data Pasien</div><br>
             </div>
             <div class="card-body">
                 @component('components.table', ['data' => $data, 'props' => []])
@@ -67,10 +66,7 @@
                                 <p>{{ $item->id }}</p>
                             </td>
                             <td class="v-align-middle ">
-                                <p>{{ $item->username }}</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <p>{{ $item->updated_at }}</p>
+                                <p>{{ $item->name }}</p>
                             </td>
                             <td class="v-align-middle">
                                 <p>{{ $item->created_at }}</p>
@@ -94,7 +90,7 @@
                     <div class="modal-header clearfix text-left">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                         </button>
-                        <h5>Delete <span class="semi-bold">User</span></h5>
+                        <h5>Delete <span class="semi-bold">Monitoring</span></h5>
                         <p class="p-b-10">Are you sure you want to delete this entries?</p>
                     </div>
                     <div class="modal-body">
