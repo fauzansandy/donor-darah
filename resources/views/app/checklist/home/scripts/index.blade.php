@@ -32,7 +32,7 @@ $('#filterAction').click(function() {
     console.log(queryString);
 })
 
-// show entries    
+// show entries
 // var selected = localStorage.getItem('selected');
 //     if (selected) {
 //         $("#filterEntries").val(selected);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\ChecklistType;
 
 use App\Models\User;
 
@@ -14,7 +14,7 @@ use App\Support\Response\Json;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
-class UserBrowseController extends Controller
+class ChecklistTypeBrowseController extends Controller
 {
     use Browse, UserCollection {
         UserCollection::__construct as private __UserCollectionConstruct;

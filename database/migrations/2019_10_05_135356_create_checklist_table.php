@@ -13,7 +13,7 @@ class CreateChecklistTable extends Migration
      */
     public function up()
     {
-        Schema::create('checklist', function (Blueprint $table) {
+        Schema::create('checklists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('checklist_type_id')->nullable()->default(NULL);
             $table->String('number')->nullable()->default(NULL);

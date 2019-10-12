@@ -18,7 +18,7 @@ class PatientTableSeeder extends Seeder
             ]
         );
         foreach($datas as $data){
-            DB::table('patient')->insert($data);
+            DB::table('patients')->insert($data);
         }
     }
 }

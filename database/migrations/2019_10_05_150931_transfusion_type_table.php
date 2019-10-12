@@ -13,7 +13,7 @@ class TransfusionTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('transfusion_type', function (Blueprint $table) {
+        Schema::create('transfusion_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable()->default(NULL);
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

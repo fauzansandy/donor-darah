@@ -37,7 +37,7 @@ class TransfusionTypeTableSeeder extends Seeder
             ]
         );
         foreach($datas as $data){
-            DB::table('transfusion_type')->insert($data);
+            DB::table('transfusion_types')->insert($data);
         }
     }
 }

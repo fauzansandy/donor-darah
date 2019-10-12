@@ -28,7 +28,7 @@ class ChecklistTypeTableSeeder extends Seeder
             ]
         );
         foreach($datas as $data){
-            DB::table('positions')->insert($data);
+            DB::table('checklist_types')->insert($data);
         }
     }
 }

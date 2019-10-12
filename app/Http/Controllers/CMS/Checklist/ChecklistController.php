@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\CMS\Checklist;
 
-use App\Http\Controllers\User\UserBrowseController;
+use App\Http\Controllers\Checklist\ChecklistBrowseController;
 use App\Http\Controllers\Position\PositionBrowseController;
-use App\Http\Controllers\Blast\UserPhoneNumber\UserPhoneNumberBrowseController;
+use App\Http\Controllers\Blast\ChecklistPhoneNumber\ChecklistPhoneNumberBrowseController;
 use App\Http\Controllers\Blast\Category\CategoryBrowseController;
-use App\Http\Controllers\Blast\UserPhoneNumber\View\NotesBrowseController;
+use App\Http\Controllers\Blast\ChecklistPhoneNumber\View\NotesBrowseController;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -26,15 +26,14 @@ class ChecklistController extends Controller
     {
         $TableKey = 'user-table';
 
-        $User = UserBrowseController::FetchBrowse($request)
-            ->where('orderBy.blast_users.created_at', 'desc')
+        $Checklist = ChecklistBrowseController::FetchBrowse($request)
+            ->where('orderBy.id', 'asc')
             ->where('with.total', 'true')
             ->middleware(function($fetch) use($request, $TableKey) {
                 $fetch->equal('skip', ___TableGetSkip($request, $TableKey, $fetch->QueryRoute->ArrQuery->take));
                 return $fetch;
             })
             ->get('fetch');
-
         $Take = ___TableGetTake($request, $TableKey);
         $DataTable = [
             'key' => $TableKey,
@@ -52,12 +51,11 @@ class ChecklistController extends Controller
             'records' => []
         ];
 
-        if ($User['records']) {
-            $DataTable['records'] = $User['records'];
-            $DataTable['total'] = $User['total'];
-            $DataTable['show'] = $User['show'];
+        if ($Checklist['records']) {
+            $DataTable['records'] = $Checklist['records'];
+            $DataTable['total'] = $Checklist['total'];
+            $DataTable['show'] = $Checklist['show'];
         }
-
         $ParseData = [
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0
@@ -86,8 +84,8 @@ class ChecklistController extends Controller
     //     $QueryRoute->ArrQuery->id = $id;
     //     $QueryRoute->ArrQuery->set = 'first';
     //     $QueryRoute->ArrQuery->{'with.total'} = 'true';
-    //     $UserBrowseController = new UserBrowseController($QueryRoute);
-    //     $data = $UserBrowseController->get($QueryRoute);
+    //     $ChecklistBrowseController = new ChecklistBrowseController($QueryRoute);
+    //     $data = $ChecklistBrowseController->get($QueryRoute);
     //
     //     return view('app.user.detail.home.index', [ 'data' => $data->original['data']['records'] ]);
     // }
@@ -107,24 +105,24 @@ class ChecklistController extends Controller
     //         ->equal('status', 'all')->equal('take', 'all')->equal('with.total', true)->get();
     //     $CategorySelect = FormSelect($Category['records'], true);
     //
-    //     $User = UserBrowseController::FetchBrowse($request)
+    //     $Checklist = ChecklistBrowseController::FetchBrowse($request)
     //         ->equal('id', $id)->get('first');
     //
     //     $CategoryIds = [];
     //     try {
-    //         foreach (explode(',', str_replace(' ', '', $User['records']->category_id)) as $key => $value) {
+    //         foreach (explode(',', str_replace(' ', '', $Checklist['records']->category_id)) as $key => $value) {
     //             $CategoryIds[] = $value;
     //         }
     //     } catch (\Exception $e) {
     //     }
     //
-    //     if (!isset($User['records']->id)) {
+    //     if (!isset($Checklist['records']->id)) {
     //         throw new ModelNotFoundException('Not Found Batch');
     //     }
     //     return view('app.user.edit.index', [
     //         'select' => ['positions' => $PositionSelect, 'categories' => $CategorySelect],
     //         'categoryIds' => $CategoryIds,
-    //         'data' => $User['records']
+    //         'data' => $Checklist['records']
     //     ]);
     // }
 

@@ -13,7 +13,7 @@ class CreatePatientTable extends Migration
      */
     public function up()
     {
-        Schema::create('patient', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable()->default(NULL);
             $table->string('no_rm')->nullable()->default(NULL);

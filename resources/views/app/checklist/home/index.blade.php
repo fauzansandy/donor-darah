@@ -18,7 +18,26 @@
     <div class="container-fluid container-fixed-lg">
         <div class="card card-white">
             <div class="card-body">
-                tes
+                <div class="tab">
+                    @foreach ($data['records'] as $item)
+                        <?php
+                            $a = $item->toArray();
+                            echo '<button class="tablinks" onclick="openTab(event, \''.$a['number'].'\')">'.$a['number'].'. '.$a['name'].'</button>';
+                        ?>
+                    @endforeach
+                </div>
+                <!-- Tab content -->
+                @foreach ($data['records'] as $item)
+                    <?php
+                        $a = $item->toArray();
+                        echo '<div id="'.$a['number'].'" class="tabcontent">';
+                        foreach ($a['checklist'] as $key => $value) {
+                            echo '<input type="checkbox" name="vehicle1" value="Bike"> '.$value['number'].'. '.$value['name'].'<br>';
+                        }
+                        echo '</div>';
+
+                    ?>
+                @endforeach
             </div>
         </div>
     </div>

@@ -20,9 +20,6 @@ class DatabaseSeeder extends Seeder
             config('app.env') === 'local') {
             // Only for testing
             $this->call('UserSeeder');
-            $this->call('ChecklistSeeder');
-            $this->call('ChecklistTypeSeeder');
-            $this->call('PatientChecklistSeeder');
         } else {
             // Live
         }

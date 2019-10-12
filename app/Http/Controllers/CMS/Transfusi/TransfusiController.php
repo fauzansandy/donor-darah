@@ -27,8 +27,8 @@ class UserController extends Controller
         $TableKey = 'user-table';
 
         $User = UserBrowseController::FetchBrowse($request)
-            ->where('orderBy.blast_users.created_at', 'desc')
-            ->where('with.total', 'true')
+            // ->where('orderBy.blast_users.created_at', 'desc')
+            // ->where('with.total', 'true')
             ->middleware(function($fetch) use($request, $TableKey) {
                 $fetch->equal('skip', ___TableGetSkip($request, $TableKey, $fetch->QueryRoute->ArrQuery->take));
                 return $fetch;
@@ -57,7 +57,6 @@ class UserController extends Controller
             $DataTable['total'] = $User['total'];
             $DataTable['show'] = $User['show'];
         }
-
         $ParseData = [
             'data' => $DataTable,
             'result_total' => isset($DataTable['total']) ? $DataTable['total'] : 0

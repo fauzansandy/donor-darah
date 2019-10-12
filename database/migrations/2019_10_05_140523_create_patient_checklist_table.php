@@ -13,7 +13,7 @@ class CreatePatientChecklistTable extends Migration
      */
     public function up()
     {
-        Schema::create('patient_checklist', function (Blueprint $table) {
+        Schema::create('patient_checklists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('checklist_id')->nullable()->default(NULL);
             $table->integer('patient_id')->nullable()->default(NULL);

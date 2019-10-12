@@ -141,7 +141,7 @@ class ChecklistTableSeeder extends Seeder
             ],
         );
         foreach($datas as $data){
-            DB::table('positions')->insert($data);
+            DB::table('checklists')->insert($data);
         }
     }
 }
