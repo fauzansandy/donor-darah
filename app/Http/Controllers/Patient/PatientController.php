@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Patient;
 
-use App\Models\User;
+use App\Models\Patient;
+use App\Models\PatientTransfusion;
 
 use App\Traits\Browse;
 
@@ -14,20 +15,20 @@ use App\Support\Generate\Hash as KeyGenerator;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class PatientController extends Controller
 {
     use Browse;
 
     protected $search = [
         'id',
-        'username',
-        'email',
+        'name',
+        'no_rm',
         'updated_at',
         'created_at'
     ];
     public function get(Request $request)
     {
-        $User = User::where(function ($query) use($request) {
+        $Patient = Patient::where(function ($query) use($request) {
             if (isset($request->ArrQuery->id)) {
                 if ($request->ArrQuery->id === 'my') {
                     $query->where('id', $request->user()->id);
@@ -37,16 +38,16 @@ class UserController extends Controller
             }
             if (isset($request->ArrQuery->username)) {
                 if ($request->ArrQuery->username === 'my') {
-                    $query->where('username', $request->user()->username);
+                    $query->where('name', $request->user()->name);
                 } else {
-                    $query->where('username', $request->ArrQuery->username);
+                    $query->where('name', $request->ArrQuery->name);
                 }
             }
             if (isset($request->ArrQuery->search)) {
                $search = '%' . $request->ArrQuery->search . '%';
                if (isset($request->ArrQuery->for) && ($request->ArrQuery->for === 'select')) {
-                  $query->where('username', 'like', $search);
-                  $query->orWhere('email', 'like', $search);
+                  $query->where('name', 'like', $search);
+                  $query->orWhere('no_rm', 'like', $search);
                } else {
                    $query->where(function ($query) use($search) {
                        foreach ($this->search as $key => $value) {
@@ -56,17 +57,17 @@ class UserController extends Controller
                }
            }
         });
-        $Browse = $this->Browse($request, $User, function ($data) use($request) {
+        $Browse = $this->Browse($request, $Patient, function ($data) use($request) {
             if (isset($request->ArrQuery->for) && ($request->ArrQuery->for === 'select')) {
-                return $data->map(function($User) {
-                    return [ 'value' => $User->id, 'label' => $User->name ];
+                return $data->map(function($Patient) {
+                    return [ 'value' => $Patient->id, 'label' => $Patient->name ];
                 });
             } else {
-                $data->map(function($User) {
-                    if (isset($User->point->balance)) {
-                        $User->point->balance = (double)$User->point->balance;
+                $data->map(function($Patient) {
+                    if (isset($Patient->point->balance)) {
+                        $Patient->point->balance = (double)$Patient->point->balance;
                     }
-                    return $User;
+                    return $Patient;
                 });
             }
             return $data;
@@ -78,26 +79,32 @@ class UserController extends Controller
     public function Insert(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
-        $Model->User->password = Hash::make($Model->User->password);
-        $Model->User->save();
+        $transfusion_type_id = $Model->Patient->transfusion_type_id;
+        unset($Model->Patient->transfusion_type_id);
+        $Model->Patient->save();
 
-        Json::set('data', $this->SyncData($request, $Model->User->id));
+        $patientTransfusion = new PatientTransfusion();
+        $patientTransfusion->patient_id = $Model->Patient->id;
+        $patientTransfusion->transfusion_type_id = $transfusion_type_id;
+        $patientTransfusion->save();
+
+        Json::set('data', $this->SyncData($request, $Model->Patient->id));
         return response()->json(Json::get(), 201);
     }
 
     public function Update(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
-        $Model->User->save();
+        $Model->Patient->save();
 
-        Json::set('data', $this->SyncData($request, $Model->User->id));
+        Json::set('data', $this->SyncData($request, $Model->Patient->id));
         return response()->json(Json::get(), 202);
     }
 
     public function Delete(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
-        $Model->User->delete();
+        $Model->Patient->delete();
         return response()->json(Json::get(), 202);
     }
 
@@ -107,7 +114,7 @@ class UserController extends Controller
 
         Json::set('data', [
             'token_type' => 'Bearer',
-            'access_token' => $Model->User->createToken('ServiceAccessToken', ['blast'])->accessToken
+            'access_token' => $Model->Patient->createToken('ServiceAccessToken', ['blast'])->accessToken
         ]);
         return response()->json(Json::get(), 202);
     }

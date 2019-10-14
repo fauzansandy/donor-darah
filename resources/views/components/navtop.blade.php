@@ -7,7 +7,7 @@
         <!-- END MOBILE SIDEBAR TOGGLE -->
         <div class="">
             <div class="brand inline  m-l-10 ">
-                <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo_2x.png" width="78" height="22">
+                <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo_2x.png" width="150" height="50">
             </div>
         </div>
         <div class="d-flex align-items-center">

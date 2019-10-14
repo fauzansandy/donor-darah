@@ -141,7 +141,7 @@
                     <br>
                     <hr>
                     <div>
-                        <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo_2x.png" width="78" height="22">
+                        <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo_2x.png" width="150" height="50">
                         <span class="m-l-70 text-black sm-pull-right">+34 346 4546 445</span>
                         <span class="m-l-40 text-black sm-pull-right">support@revox.io</span>
                     </div> --}}
