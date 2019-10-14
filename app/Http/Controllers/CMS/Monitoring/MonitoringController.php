@@ -84,7 +84,7 @@ class MonitoringController extends Controller
         $PatientBrowseController = new PatientBrowseController($QueryRoute);
         $data = $PatientBrowseController->get($QueryRoute);
 
-        return view('app.user.detail.home.index', [ 'data' => $data->original['data']['records'] ]);
+        return view('app.monitoring.detail.home.index', [ 'data' => $data->original['data']['records'] ]);
     }
 
     public function Edit(Request $request, $id)

@@ -7,10 +7,6 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'Nama Wajib'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_]+$/,
-                        message: 'The name can only consist of alphabetical, number and underscore',
                     }
                 }
             },
