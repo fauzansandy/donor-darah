@@ -26,7 +26,6 @@ class MonitoringController extends Controller
         $Patient = PatientBrowseController::FetchBrowse($request)
             ->where('orderBy.blast_users.created_at', 'desc')
             ->where('with.total', 'true')
-            ->where('id','!=', '1')
             ->middleware(function($fetch) use($request, $TableKey) {
                 $fetch->equal('skip', ___TableGetSkip($request, $TableKey, $fetch->QueryRoute->ArrQuery->take));
                 return $fetch;
