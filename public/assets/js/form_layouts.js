@@ -14,7 +14,7 @@
             return this.optional(element) || /^(\$?)(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/.test(value);
         }, "Please specify a valid dollar amount");
 
-        $('#start-date, #end-date').datepicker();
+        $('#start-date, #end-date, #transfusion_time').datepicker();
 
         $('#form-personal').validate();
         $("#form-project").validate();

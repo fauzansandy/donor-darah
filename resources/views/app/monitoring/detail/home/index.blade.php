@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>30 menit pre Transfusi</td>
-                            <td><input style="width:50px" type="text"/></td>
+                            <td><input name="myInput" style="width:50px" type="text"/></td>
                             <td><input style="width:40px" type="text"/></td>
                             <td><input style="width:40px" type="text"/></td>
                             <td><input style="width:40px" type="text"/></td>
@@ -174,5 +174,5 @@
 @endsection
 
 @section('script')
-    @include('app.user.detail.home.scripts.index')
+    @include('app.monitoring.detail.home.scripts.index')
 @endsection
