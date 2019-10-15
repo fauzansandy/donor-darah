@@ -1,6 +1,6 @@
 <script>
 $(document).ready(function() {
-	$('#date').datepicker();
-	$('#time').timepicker();
+	$('body #date_picker').datepicker();
+	$('body #time_picker').timepicker();
 });
 </script>

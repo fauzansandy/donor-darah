@@ -44,11 +44,11 @@
                             </div>
                             <div class="form-group form-group-default required ">
                                 <label>Transfusion Date</label>
-                                <input name="transfusion_time" class="form-control" type="text" id="date" required>
+                                <input name="transfusion_time" class="form-control" type="text" id="date_picker" required>
                             </div>
                             <div class="form-group form-group-default required ">
                                 <label>Transfusion Time</label>
-                                <input name="transfusion_time" class="form-control" type="text" id="time" required>
+                                <input name="transfusion_time" class="form-control" type="text" id="time_picker" required>
                             </div>
                             
                         </form>
