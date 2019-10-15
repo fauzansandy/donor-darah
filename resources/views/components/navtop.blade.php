@@ -10,6 +10,11 @@
                 <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo_2x.png" width="150" height="50">
             </div>
         </div>
+        <div id="refresh">
+          <div id="time">
+            <?php echo date('H:i:s');?>
+          </div>
+        </div>
         <div class="d-flex align-items-center">
             <!-- START User Info-->
             <div class="pull-left p-r-10 fs-14 font-heading d-lg-block d-none">
@@ -37,3 +42,10 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+setInterval("my_function();",100);
+function my_function(){
+    $('#refresh').load(location.href + ' #time');
+}
+</script>
