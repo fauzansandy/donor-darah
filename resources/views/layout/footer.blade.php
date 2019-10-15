@@ -38,6 +38,7 @@
     <script src="/assets/plugins/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
     <script src="/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
     <script src="/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap-timepicker/bootstrap-timepicker.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.8.0/qs.min.js" type="text/javascript"></script>
 
     <!-- END VENDOR JS -->
