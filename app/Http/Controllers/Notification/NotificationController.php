@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Patient;
+namespace App\Http\Controllers\Notification;
 
-use App\Models\Patient;
-use App\Models\PatientTransfusion;
 use App\Models\NotificationTransfusion;
 
 use App\Traits\Browse;
@@ -16,20 +14,16 @@ use App\Support\Generate\Hash as KeyGenerator;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
-class PatientController extends Controller
+class NotificationController extends Controller
 {
     use Browse;
 
     protected $search = [
-        'id',
-        'name',
-        'no_rm',
-        'updated_at',
-        'created_at'
+        'id'
     ];
     public function get(Request $request)
     {
-        $Patient = Patient::where(function ($query) use($request) {
+        $Notification = NotificationTransfusion::where(function ($query) use($request) {
             if (isset($request->ArrQuery->id)) {
                 if ($request->ArrQuery->id === 'my') {
                     $query->where('id', $request->user()->id);
@@ -44,6 +38,14 @@ class PatientController extends Controller
                     $query->where('name', $request->ArrQuery->name);
                 }
             }
+            if (isset($request->ArrQuery->time_notification)) {
+                $query->where('time_notification <=', $request->ArrQuery->time_notification);
+            }
+
+            if (isset($request->ArrQuery->is_read)) {
+                $query->where('is_read', $request->ArrQuery->is_read);
+            }
+
             if (isset($request->ArrQuery->search)) {
                $search = '%' . $request->ArrQuery->search . '%';
                if (isset($request->ArrQuery->for) && ($request->ArrQuery->for === 'select')) {
@@ -58,17 +60,17 @@ class PatientController extends Controller
                }
            }
         });
-        $Browse = $this->Browse($request, $Patient, function ($data) use($request) {
+        $Browse = $this->Browse($request, $Notification, function ($data) use($request) {
             if (isset($request->ArrQuery->for) && ($request->ArrQuery->for === 'select')) {
-                return $data->map(function($Patient) {
-                    return [ 'value' => $Patient->id, 'label' => $Patient->name ];
+                return $data->map(function($Notification) {
+                    return [ 'value' => $Notification->id, 'label' => $Notification->name ];
                 });
             } else {
-                $data->map(function($Patient) {
-                    if (isset($Patient->point->balance)) {
-                        $Patient->point->balance = (double)$Patient->point->balance;
+                $data->map(function($Notification) {
+                    if (isset($Notification->point->balance)) {
+                        $Notification->point->balance = (double)$Notification->point->balance;
                     }
-                    return $Patient;
+                    return $Notification;
                 });
             }
             return $data;
@@ -80,15 +82,14 @@ class PatientController extends Controller
     public function Insert(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
-        $transfusion_type_id = $Model->Patient->transfusion_type_id;
-        $transfusion_date = $Model->Patient->transfusion_date;
-        $transfusion_time = $Model->Patient->transfusion_time;
+        $transfusion_type_id = $Model->NotificationTransfusion->transfusion_type_id;
+        $transfusion_date = $Model->NotificationTransfusion->transfusion_date;
+        $transfusion_time = $Model->NotificationTransfusion->transfusion_time;
         $datetime = $transfusion_date.' '.date("G:i", strtotime($transfusion_time));
-        unset($Model->Patient->transfusion_type_id);
-        unset($Model->Patient->transfusion_date);
-        unset($Model->Patient->transfusion_time);
-        $patientTransfusion = new PatientTransfusion();
-        $notification = new NotificationTransfusion();
+        unset($Model->NotificationTransfusion->transfusion_type_id);
+        unset($Model->NotificationTransfusion->transfusion_date);
+        unset($Model->NotificationTransfusion->transfusion_time);
+        $patientTransfusion = new NotificationTransfusion();
 
         $patientTransfusion->b30m_tgl_pemberian = date("Y-m-d", strtotime($datetime)-(30*60));
         $patientTransfusion->tgl_pemberian = date("Y-m-d", strtotime($datetime));
@@ -104,73 +105,33 @@ class PatientController extends Controller
         $patientTransfusion->a2h_jam_pemberian = date("H:i", strtotime($datetime)+(2*60*60));
         $patientTransfusion->a3h_jam_pemberian = date("H:i", strtotime($datetime)+(3*60*60));
 
-        $Model->Patient->save();
+        $Model->NotificationTransfusion->save();
 
-        $patientTransfusion->patient_id = $Model->Patient->id;
+        $patientTransfusion->patient_id = $Model->NotificationTransfusion->id;
         $patientTransfusion->transfusion_type_id = $transfusion_type_id;
+
+
 
         $patientTransfusion->transfusion_time = $datetime;
         $patientTransfusion->save();
-        $transfusionId = $patientTransfusion->id;
-        $notification = new NotificationTransfusion();
-        $notification->patient_transfusion_id = $transfusionId;
-        $notification->name = 'Pasien '.$Model->Patient->name.' 30 Menit Sebelum transfusi';
-        $notification->time_notification = $patientTransfusion->b30m_tgl_pemberian.' '.$patientTransfusion->b30m_jam_pemberian;
-        $notification->is_read = 0;
-        $notification->save();
 
-        $notification = new NotificationTransfusion();
-        $notification->patient_transfusion_id = $transfusionId;
-        $notification->name = 'Pasien '.$Model->Patient->name.' Transfusi';
-        $notification->time_notification = $patientTransfusion->tgl_pemberian.' '.$patientTransfusion->jam_pemberian;
-        $notification->is_read = 0;
-        $notification->save();
-
-        $notification = new NotificationTransfusion();
-        $notification->patient_transfusion_id = $transfusionId;
-        $notification->name = 'Pasien '.$Model->Patient->name.' 15 Menit Setelah transfusi';
-        $notification->time_notification = $patientTransfusion->a15m_tgl_pemberian.' '.$patientTransfusion->a15m_jam_pemberian;
-        $notification->is_read = 0;
-        $notification->save();
-
-        $notification = new NotificationTransfusion();
-        $notification->patient_transfusion_id = $transfusionId;
-        $notification->name = 'Pasien '.$Model->Patient->name.' 1 Jam Setelah transfusi';
-        $notification->time_notification = $patientTransfusion->a1h_tgl_pemberian.' '.$patientTransfusion->a1h_jam_pemberian;
-        $notification->is_read = 0;
-        $notification->save();
-
-        $notification = new NotificationTransfusion();
-        $notification->patient_transfusion_id = $transfusionId;
-        $notification->name = 'Pasien '.$Model->Patient->name.' 2 Jam Setelah transfusi';
-        $notification->time_notification = $patientTransfusion->a2h_tgl_pemberian.' '.$patientTransfusion->a2h_jam_pemberian;
-        $notification->is_read = 0;
-        $notification->save();
-
-        $notification = new NotificationTransfusion();
-        $notification->patient_transfusion_id = $transfusionId;
-        $notification->name = 'Pasien '.$Model->Patient->name.' 3 Jam Setelah transfusi';
-        $notification->time_notification = $patientTransfusion->a3h_tgl_pemberian.' '.$patientTransfusion->a3h_jam_pemberian;
-        $notification->is_read = 0;
-        $notification->save();
-
-        Json::set('data', $this->SyncData($request, $Model->Patient->id));
+        Json::set('data', $this->SyncData($request, $Model->NotificationTransfusion->id));
         return response()->json(Json::get(), 201);
     }
 
     public function Update(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
-        $Model->Patient->save();
+        $Model->NotificationTransfusion->save();
 
-        Json::set('data', $this->SyncData($request, $Model->Patient->id));
+        Json::set('data', $this->SyncData($request, $Model->NotificationTransfusion->id));
         return response()->json(Json::get(), 202);
     }
 
     public function UpdateTransfusion(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
-        $Model->PatientTransfusion->save();
+        $Model->NotificationTransfusion->save();
 
         return response()->json(Json::get(), 202);
     }
@@ -178,7 +139,7 @@ class PatientController extends Controller
     public function Delete(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
-        $Model->Patient->delete();
+        $Model->NotificationTransfusion->delete();
         return response()->json(Json::get(), 202);
     }
 
@@ -188,7 +149,7 @@ class PatientController extends Controller
 
         Json::set('data', [
             'token_type' => 'Bearer',
-            'access_token' => $Model->Patient->createToken('ServiceAccessToken', ['blast'])->accessToken
+            'access_token' => $Model->NotificationTransfusion->createToken('ServiceAccessToken', ['blast'])->accessToken
         ]);
         return response()->json(Json::get(), 202);
     }
