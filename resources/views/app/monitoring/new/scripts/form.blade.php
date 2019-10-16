@@ -24,6 +24,22 @@ $(document).ready(function() {
                     }
                 }
             }
+            ,
+            transfusion_date: {
+                validators: {
+                    notEmpty: {
+                        message: 'Tanggal Transfusi wajib diisi'
+                    }
+                }
+            }
+            ,
+            transfusion_time: {
+                validators: {
+                    notEmpty: {
+                        message: 'Jam Transfusi wajib diisi'
+                    }
+                }
+            }
         },
         plugins: {
             trigger: new FormValidation.plugins.Trigger(),
@@ -44,11 +60,15 @@ $(document).ready(function() {
                 const name = $('input[name="name"]')
                 const no_rm = $('input[name="no_rm"]')
                 const transfusion = $('select[name="transfusion"]')
+                const transfusion_date = $('input[name="transfusion_date"]')
+                const transfusion_time = $('input[name="transfusion_time"]')
 
                 axios.post('/patient', {
                     name: name.val(),
                     no_rm: no_rm.val(),
-                    transfusion_id: transfusion.val()
+                    transfusion_id: transfusion.val(),
+                    transfusion_date: transfusion_date.val(),
+                    transfusion_time: transfusion_time.val()
                 }).then((response) => {
                     const { data } = response.data
                     if (!isRecreate) {

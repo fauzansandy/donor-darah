@@ -30,6 +30,10 @@ class MiddlewareServiceProvider extends ServiceProvider
 
         'Patient.Insert' => \App\Http\Middleware\Patient\Insert::class,
 
+        'Patient.InsertTransfusion' => \App\Http\Middleware\Patient\InsertTransfusion::class,
+        'Patient.UpdateTransfusion' => \App\Http\Middleware\Patient\UpdateTransfusion::class,
+        'Patient.DeleteTransfusion' => \App\Http\Middleware\Patient\DeleteTransfusion::class,
+
         'User.Insert' => \App\Http\Middleware\User\Insert::class,
         'User.Update' => \App\Http\Middleware\User\Update::class,
         'User.Password' => \App\Http\Middleware\User\Password::class,

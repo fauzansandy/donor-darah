@@ -46,6 +46,6 @@
 <script type="text/javascript">
 setInterval("my_function();",100);
 function my_function(){
-    $('#refresh').load(location.href + ' #time');
+    // $('#refresh').load(location.href + ' #time');
 }
 </script>

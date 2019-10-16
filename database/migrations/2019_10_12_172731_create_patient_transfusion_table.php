@@ -29,16 +29,16 @@ class CreatePatientTransfusionTable extends Migration
             $table->string('b30m_ada_reaksi',50)->nullable()->default(NULL);
             $table->string('b30m_tidak_ada_reaksi',50)->nullable()->default(NULL);
 
-            $table->string('0_tgl_pemberian',50)->nullable()->default(NULL);
-            $table->string('0_jam_pemberian',50)->nullable()->default(NULL);
-            $table->string('0_td',50)->nullable()->default(NULL);
-            $table->string('0_nadi',50)->nullable()->default(NULL);
-            $table->string('0_suhu',50)->nullable()->default(NULL);
-            $table->string('0_respirasi',50)->nullable()->default(NULL);
-            $table->string('0_jml_cairan_masuk',50)->nullable()->default(NULL);
-            $table->string('0_jml_cairan_keluar',50)->nullable()->default(NULL);
-            $table->string('0_ada_reaksi',50)->nullable()->default(NULL);
-            $table->string('0_tidak_ada_reaksi',50)->nullable()->default(NULL);
+            $table->string('tgl_pemberian',50)->nullable()->default(NULL);
+            $table->string('jam_pemberian',50)->nullable()->default(NULL);
+            $table->string('td',50)->nullable()->default(NULL);
+            $table->string('nadi',50)->nullable()->default(NULL);
+            $table->string('suhu',50)->nullable()->default(NULL);
+            $table->string('respirasi',50)->nullable()->default(NULL);
+            $table->string('jml_cairan_masuk',50)->nullable()->default(NULL);
+            $table->string('jml_cairan_keluar',50)->nullable()->default(NULL);
+            $table->string('ada_reaksi',50)->nullable()->default(NULL);
+            $table->string('tidak_ada_reaksi',50)->nullable()->default(NULL);
 
             $table->string('a15m_tgl_pemberian',50)->nullable()->default(NULL);
             $table->string('a15m_jam_pemberian',50)->nullable()->default(NULL);
@@ -106,16 +106,16 @@ class CreatePatientTransfusionTable extends Migration
             $table->string('d_ada_reaksi',50)->nullable()->default(NULL);
             $table->string('d_tidak_ada_reaksi',50)->nullable()->default(NULL);
 
-            $table->string('4pt_tgl_pemberian',50)->nullable()->default(NULL);
-            $table->string('4pt_jam_pemberian',50)->nullable()->default(NULL);
-            $table->string('4pt_td',50)->nullable()->default(NULL);
-            $table->string('4pt_nadi',50)->nullable()->default(NULL);
-            $table->string('4pt_suhu',50)->nullable()->default(NULL);
-            $table->string('4pt_respirasi',50)->nullable()->default(NULL);
-            $table->string('4pt_jml_cairan_masuk',50)->nullable()->default(NULL);
-            $table->string('4pt_jml_cairan_keluar',50)->nullable()->default(NULL);
-            $table->string('4pt_ada_reaksi',50)->nullable()->default(NULL);
-            $table->string('4pt_tidak_ada_reaksi',50)->nullable()->default(NULL);
+            $table->string('pt4_tgl_pemberian',50)->nullable()->default(NULL);
+            $table->string('pt4_jam_pemberian',50)->nullable()->default(NULL);
+            $table->string('pt4_td',50)->nullable()->default(NULL);
+            $table->string('pt4_nadi',50)->nullable()->default(NULL);
+            $table->string('pt4_suhu',50)->nullable()->default(NULL);
+            $table->string('pt4_respirasi',50)->nullable()->default(NULL);
+            $table->string('pt4_jml_cairan_masuk',50)->nullable()->default(NULL);
+            $table->string('pt4_jml_cairan_keluar',50)->nullable()->default(NULL);
+            $table->string('pt4_ada_reaksi',50)->nullable()->default(NULL);
+            $table->string('pt4_tidak_ada_reaksi',50)->nullable()->default(NULL);
 
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->nullable();

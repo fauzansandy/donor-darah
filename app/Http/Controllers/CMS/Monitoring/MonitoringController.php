@@ -83,7 +83,7 @@ class MonitoringController extends Controller
         $QueryRoute->ArrQuery->{'with.total'} = 'true';
         $PatientBrowseController = new PatientBrowseController($QueryRoute);
         $data = $PatientBrowseController->get($QueryRoute);
-
+        // dd($data);
         return view('app.monitoring.detail.home.index', [ 'data' => $data->original['data']['records'] ]);
     }
 

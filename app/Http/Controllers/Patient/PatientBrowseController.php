@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Patient;
 
 use App\Models\Patient;
+use App\Models\PatientTransfusion;
 
 use App\Traits\Browse;
 
@@ -21,6 +22,9 @@ class PatientBrowseController extends Controller
 
     public function __construct(Request $request)
     {
+        $this->PatientTransfusionModel = PatientTransfusion::class;
+        $this->PatientTransfusionTable = getTable($this->PatientTransfusionModel);
+
         if ($request) {
             $this->_Request = $request;
         }
@@ -55,7 +59,7 @@ class PatientBrowseController extends Controller
             if (isset($request->ArrQuery->status)) {
                 $query->where("status", $request->ArrQuery->status);
             }
-       });
+       })->with('patient_transfusions');
 
        $Patient->orderBy("created_at", 'desc');
        $Browse = $this->Browse($request, $Patient, function ($data) use($request) {
@@ -66,6 +70,7 @@ class PatientBrowseController extends Controller
            }
            return $data;
        });
+
        Json::set('data', $Browse);
        return response()->json(Json::get(), 200);
     }

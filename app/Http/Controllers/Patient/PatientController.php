@@ -80,12 +80,36 @@ class PatientController extends Controller
     {
         $Model = $request->Payload->all()['Model'];
         $transfusion_type_id = $Model->Patient->transfusion_type_id;
+        $transfusion_date = $Model->Patient->transfusion_date;
+        $transfusion_time = $Model->Patient->transfusion_time;
+        $datetime = $transfusion_date.' '.date("G:i", strtotime($transfusion_time));
         unset($Model->Patient->transfusion_type_id);
+        unset($Model->Patient->transfusion_date);
+        unset($Model->Patient->transfusion_time);
+        $patientTransfusion = new PatientTransfusion();
+
+        $patientTransfusion->b30m_tgl_pemberian = date("Y-m-d", strtotime($datetime)-(30*60));
+        $patientTransfusion->tgl_pemberian = date("Y-m-d", strtotime($datetime));
+        $patientTransfusion->a15m_tgl_pemberian = date("Y-m-d", strtotime($datetime)+(15*60));
+        $patientTransfusion->a1h_tgl_pemberian = date("Y-m-d", strtotime($datetime)+(60*60));
+        $patientTransfusion->a2h_tgl_pemberian = date("Y-m-d", strtotime($datetime)+(2*60*60));
+        $patientTransfusion->a3h_tgl_pemberian = date("Y-m-d", strtotime($datetime)+(3*60*60));
+
+        $patientTransfusion->b30m_jam_pemberian = date("H:i", strtotime($datetime)-(30*60));
+        $patientTransfusion->jam_pemberian = date("H:i", strtotime($datetime));
+        $patientTransfusion->a15m_jam_pemberian = date("H:i", strtotime($datetime)+(15*60));
+        $patientTransfusion->a1h_jam_pemberian = date("H:i", strtotime($datetime)+(60*60));
+        $patientTransfusion->a2h_jam_pemberian = date("H:i", strtotime($datetime)+(2*60*60));
+        $patientTransfusion->a3h_jam_pemberian = date("H:i", strtotime($datetime)+(3*60*60));
+
         $Model->Patient->save();
 
-        $patientTransfusion = new PatientTransfusion();
         $patientTransfusion->patient_id = $Model->Patient->id;
         $patientTransfusion->transfusion_type_id = $transfusion_type_id;
+
+
+
+        $patientTransfusion->transfusion_time = $datetime;
         $patientTransfusion->save();
 
         Json::set('data', $this->SyncData($request, $Model->Patient->id));
@@ -93,6 +117,15 @@ class PatientController extends Controller
     }
 
     public function Update(Request $request)
+    {
+        $Model = $request->Payload->all()['Model'];
+        $Model->Patient->save();
+
+        Json::set('data', $this->SyncData($request, $Model->Patient->id));
+        return response()->json(Json::get(), 202);
+    }
+
+    public function UpdateTransfusion(Request $request)
     {
         $Model = $request->Payload->all()['Model'];
         $Model->Patient->save();

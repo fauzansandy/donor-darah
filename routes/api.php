@@ -10,6 +10,10 @@ $router->post('/patient', ['uses' => 'Patient\PatientController@Insert', 'middle
 $router->post('/user', ['uses' => 'User\UserController@Insert', 'middleware' => ['User.Insert']]);
 $router->put('/user/{id}', ['uses' => 'User\UserController@Update', 'middleware' => ['User.Update']]);
 $router->delete('/user/{id}', ['uses' => 'User\UserController@Delete', 'middleware' => ['User.Delete']]);
+
+$router->post('/patient_transfusions', ['uses' => 'User\PatientController@InsertTransfusion', 'middleware' => ['Patient.InsertTransfusion']]);
+$router->put('/patient_transfusions/{id}', ['uses' => 'Patient\PatientController@UpdateTransfusion', 'middleware' => ['Patient.UpdateTransfusion']]);
+$router->delete('/patient_transfusions/{id}', ['uses' => 'Patient\PatientController@DeleteTransfusion', 'middleware' => ['Patient.DeleteTransfusion']]);
 // Developer
 $router->post('/user/{id}/developer/token', ['uses' => 'User\UserController@DeveloperToken', 'middleware' => ['User.Developer.Token']]);
 

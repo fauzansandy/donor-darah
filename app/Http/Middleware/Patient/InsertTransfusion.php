@@ -9,7 +9,7 @@ use Validator;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Middleware\BaseMiddleware;
 
-class Insert extends BaseMiddleware
+class InsertTransfusion extends BaseMiddleware
 {
     private function Initiate()
     {

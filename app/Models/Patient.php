@@ -34,4 +34,9 @@ class Patient extends Model implements AuthenticatableContract, AuthorizableCont
     ];
 
     protected $dates = ['updated_at', 'created_at', 'deleted_at'];
+
+    public function patient_transfusions()
+    {
+        return $this->hasMany(PatientTransfusion::class, 'patient_id', 'id');
+    }
 }
