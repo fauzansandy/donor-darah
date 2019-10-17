@@ -38,14 +38,42 @@
 
     <div class="page-content-wrapper">
         <div class="content">
+            <div style="width: 100%; background-color: #cc4949; color: white; text-align: center;" >
+                <h3 class="alert-text" style="color: white"></h3>
+            </div>
             @yield('content')
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-setInterval("my_function();",100);
+setInterval("my_function();",1000);
 function my_function(){
-    // $('#refresh').load(location.href + ' #time');
+    axios.get('/notification/is_read/n/time_notification/1').then((response) => {
+        var alldata = ''
+        for (var i = 0; i < response.data.data.records.length; i++) {
+            alldata += '<br>'
+            alldata += '<button type="button" onclick="deleteNotif('+response.data.data.records[i].id+')">Hapus</button>'+response.data.data.records[i].name
+        }
+
+        $('.alert-text').html(alldata);
+    }).catch((error) => {
+        if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+            Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+        }
+    })
+    $('#refresh').load(location.href + ' #time');
+}
+function deleteNotif(a){
+    const data = {
+        is_read: '1'
+    }
+    axios.put('/notification/'+a, data).then((response) => {
+        my_function()
+    }).catch((error) => {
+        if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+            Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+        }
+    })
 }
 </script>

@@ -12,6 +12,7 @@ $router->put('/user/{id}', ['uses' => 'User\UserController@Update', 'middleware'
 $router->delete('/user/{id}', ['uses' => 'User\UserController@Delete', 'middleware' => ['User.Delete']]);
 
 $router->get('/notification', ['uses' => 'Notification\NotificationController@get', 'middleware' => ['ArrQuery']]);
+$router->get('/notification/{query:.+}', ['uses' => 'Notification\NotificationController@get', 'middleware' => ['ArrQuery']]);
 $router->post('/notification', ['uses' => 'Notification\NotificationController@Insert', 'middleware' => ['Notification.Insert']]);
 $router->put('/notification/{id}', ['uses' => 'Notification\NotificationController@Update', 'middleware' => ['Notification.Update']]);
 $router->delete('/notification/{id}', ['uses' => 'Notification\NotificationController@Delete', 'middleware' => ['Notification.Delete']]);

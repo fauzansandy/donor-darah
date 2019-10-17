@@ -39,7 +39,7 @@ class NotificationController extends Controller
                 }
             }
             if (isset($request->ArrQuery->time_notification)) {
-                $query->where('time_notification <=', $request->ArrQuery->time_notification);
+                $query->where('time_notification','<=', date('Y-m-d H:i:s'));
             }
 
             if (isset($request->ArrQuery->is_read)) {
