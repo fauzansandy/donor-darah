@@ -16,7 +16,8 @@
         "intervention/image": "^2.5",
         "barryvdh/laravel-cors": "^0.11.4",
         "zendframework/zend-diactoros": "1.*",
-        "laravel/passport": "6.*"
+        "laravel/passport": "6.*",
+        "barryvdh/laravel-dompdf": "^0.8.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

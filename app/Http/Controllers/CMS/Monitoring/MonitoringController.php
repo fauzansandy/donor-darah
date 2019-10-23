@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Support\Generate\Hash as KeyGenerator;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class MonitoringController extends Controller
 {
@@ -85,6 +86,20 @@ class MonitoringController extends Controller
         $data = $PatientBrowseController->get($QueryRoute);
         // dd($data);
         return view('app.monitoring.detail.home.index', [ 'data' => $data->original['data']['records'] ]);
+    }
+
+    public function Download(Request $request, $id)
+    {
+        $QueryRoute = QueryRoute($request);
+        $QueryRoute->ArrQuery->id = $id;
+        $QueryRoute->ArrQuery->set = 'first';
+        $QueryRoute->ArrQuery->{'with.total'} = 'true';
+        $PatientBrowseController = new PatientBrowseController($QueryRoute);
+        $data = $PatientBrowseController->get($QueryRoute);
+        // dd($data);
+        // return view('app.monitoring.detail.download.index', [ 'data' => $data->original['data']['records'] ]);
+        $pdf = PDF::loadView('app.monitoring.detail.download.index', [ 'data' => $data->original['data']['records'] ]);
+        return $pdf->download('invoice.pdf');
     }
 
     public function Edit(Request $request, $id)

@@ -129,5 +129,7 @@ return [
     'notification' => [
         'url' => env('APP_URL', 'http://satellite.loc'),
     ],
+    
+    'PDF' => Barryvdh\DomPDF\Facade::class,
 
 ];

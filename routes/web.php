@@ -26,6 +26,7 @@ $router->get('/checklist', 'CMS\Checklist\ChecklistController@Home');
 $router->get('/monitoring', 'CMS\Monitoring\MonitoringController@Home');
 $router->get('/monitoring/new', 'CMS\Monitoring\MonitoringController@New');
 $router->get('/monitoring/{id}', 'CMS\Monitoring\MonitoringController@Detail');
+$router->get('/monitoring/download-pdf/{id}', 'CMS\Monitoring\MonitoringController@Download');
 
 $router->get('/reaksi', 'CMS\Reaksi\ReaksiController@Home');
 

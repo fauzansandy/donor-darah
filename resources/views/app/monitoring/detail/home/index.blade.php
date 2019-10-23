@@ -172,8 +172,10 @@
                     </table>
                 </div>
             </div>
+            <a href="{{ url('/monitoring/download-pdf/'.$data['id']) }}" target="_blank" class="btn btn-block btn-success btn-cons"><i class="fas fa-download"></i> Download PDF</a>
         </div>
     </div>
+
 @endsection
 
 @section('script')
