@@ -12,7 +12,7 @@
         </div>
         <div id="refresh">
           <div id="time">
-            <?php echo date('H:i:s');?>
+              <h1>MONITA</h1>
           </div>
         </div>
         <div class="d-flex align-items-center">
@@ -47,7 +47,7 @@
 </div>
 
 <script type="text/javascript">
-setInterval("my_function();",1000);
+setInterval("my_function();",30000);
 function my_function(){
     axios.get('/notification/is_read/n/time_notification/1').then((response) => {
         var alldata = ''
@@ -62,7 +62,7 @@ function my_function(){
             Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
         }
     })
-    $('#refresh').load(location.href + ' #time');
+    // $('#refresh').load(location.href + ' #time');
 }
 function deleteNotif(a){
     const data = {

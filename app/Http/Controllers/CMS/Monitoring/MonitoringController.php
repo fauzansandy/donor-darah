@@ -98,8 +98,11 @@ class MonitoringController extends Controller
         $data = $PatientBrowseController->get($QueryRoute);
         // dd($data);
         // return view('app.monitoring.detail.download.index', [ 'data' => $data->original['data']['records'] ]);
+
         $pdf = PDF::loadView('app.monitoring.detail.download.index', [ 'data' => $data->original['data']['records'] ]);
-        return $pdf->download('invoice.pdf');
+        $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $pdf->setPaper('A4', 'Landscape');
+        return $pdf->stream();
     }
 
     public function Edit(Request $request, $id)
