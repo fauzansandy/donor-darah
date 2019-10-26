@@ -62,13 +62,19 @@ $(document).ready(function() {
                 const transfusion = $('select[name="transfusion"]')
                 const transfusion_date = $('input[name="transfusion_date"]')
                 const transfusion_time = $('input[name="transfusion_time"]')
+                const jenis_kelamin = $('input[name="jenis_kelamin"]')
+                const tgl_lahir = $('input[name="tgl_lahir"]')
+                const alamat = $('input[name="alamat"]')
 
                 axios.post('/patient', {
                     name: name.val(),
                     no_rm: no_rm.val(),
                     transfusion_id: transfusion.val(),
                     transfusion_date: transfusion_date.val(),
-                    transfusion_time: transfusion_time.val()
+                    transfusion_time: transfusion_time.val(),
+                    jenis_kelamin: jenis_kelamin.val(),
+                    tgl_lahir: tgl_lahir.val(),
+                    alamat: alamat.val()
                 }).then((response) => {
                     const { data } = response.data
                     if (!isRecreate) {

@@ -27,6 +27,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('b30m_jml_cairan_keluar') || $this->Model->PatientTransfusion->b30m_jml_cairan_keluar = $this->_Request->input('b30m_jml_cairan_keluar');
             !$this->_Request->input('b30m_ada_reaksi') || $this->Model->PatientTransfusion->b30m_ada_reaksi = $this->_Request->input('b30m_ada_reaksi');
             !$this->_Request->input('b30m_tidak_ada_reaksi') || $this->Model->PatientTransfusion->b30m_tidak_ada_reaksi = $this->_Request->input('b30m_tidak_ada_reaksi');
+            !$this->_Request->input('b30m_tanda_tangan') || $this->Model->PatientTransfusion->b30m_tanda_tangan = $this->_Request->input('b30m_tanda_tangan');
             !$this->_Request->input('td') || $this->Model->PatientTransfusion->td = $this->_Request->input('td');
             !$this->_Request->input('nadi') || $this->Model->PatientTransfusion->nadi = $this->_Request->input('nadi');
             !$this->_Request->input('suhu') || $this->Model->PatientTransfusion->suhu = $this->_Request->input('suhu');
@@ -35,6 +36,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('jml_cairan_keluar') || $this->Model->PatientTransfusion->jml_cairan_keluar = $this->_Request->input('jml_cairan_keluar');
             !$this->_Request->input('ada_reaksi') || $this->Model->PatientTransfusion->ada_reaksi = $this->_Request->input('ada_reaksi');
             !$this->_Request->input('tidak_ada_reaksi') || $this->Model->PatientTransfusion->tidak_ada_reaksi = $this->_Request->input('tidak_ada_reaksi');
+            !$this->_Request->input('tanda_tangan') || $this->Model->PatientTransfusion->tanda_tangan = $this->_Request->input('tanda_tangan');
             !$this->_Request->input('a15m_td') || $this->Model->PatientTransfusion->a15m_td = $this->_Request->input('a15m_td');
             !$this->_Request->input('a15m_nadi') || $this->Model->PatientTransfusion->a15m_nadi = $this->_Request->input('a15m_nadi');
             !$this->_Request->input('a15m_suhu') || $this->Model->PatientTransfusion->a15m_suhu = $this->_Request->input('a15m_suhu');
@@ -43,6 +45,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('a15m_jml_cairan_keluar') || $this->Model->PatientTransfusion->a15m_jml_cairan_keluar = $this->_Request->input('a15m_jml_cairan_keluar');
             !$this->_Request->input('a15m_ada_reaksi') || $this->Model->PatientTransfusion->a15m_ada_reaksi = $this->_Request->input('a15m_ada_reaksi');
             !$this->_Request->input('a15m_tidak_ada_reaksi') || $this->Model->PatientTransfusion->a15m_tidak_ada_reaksi = $this->_Request->input('a15m_tidak_ada_reaksi');
+            !$this->_Request->input('a15m_tanda_tangan') || $this->Model->PatientTransfusion->a15m_tanda_tangan = $this->_Request->input('a15m_tanda_tangan');
             !$this->_Request->input('a1h_td') || $this->Model->PatientTransfusion->a1h_td = $this->_Request->input('a1h_td');
             !$this->_Request->input('a1h_nadi') || $this->Model->PatientTransfusion->a1h_nadi = $this->_Request->input('a1h_nadi');
             !$this->_Request->input('a1h_suhu') || $this->Model->PatientTransfusion->a1h_suhu = $this->_Request->input('a1h_suhu');
@@ -51,6 +54,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('a1h_jml_cairan_keluar') || $this->Model->PatientTransfusion->a1h_jml_cairan_keluar = $this->_Request->input('a1h_jml_cairan_keluar');
             !$this->_Request->input('a1h_ada_reaksi') || $this->Model->PatientTransfusion->a1h_ada_reaksi = $this->_Request->input('a1h_ada_reaksi');
             !$this->_Request->input('a1h_tidak_ada_reaksi') || $this->Model->PatientTransfusion->a1h_tidak_ada_reaksi = $this->_Request->input('a1h_tidak_ada_reaksi');
+            !$this->_Request->input('a1h_tanda_tangan') || $this->Model->PatientTransfusion->a1h_tanda_tangan = $this->_Request->input('a1h_tanda_tangan');
             !$this->_Request->input('a2h_td') || $this->Model->PatientTransfusion->a2h_td = $this->_Request->input('a2h_td');
             !$this->_Request->input('a2h_nadi') || $this->Model->PatientTransfusion->a2h_nadi = $this->_Request->input('a2h_nadi');
             !$this->_Request->input('a2h_suhu') || $this->Model->PatientTransfusion->a2h_suhu = $this->_Request->input('a2h_suhu');
@@ -59,6 +63,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('a2h_jml_cairan_keluar') || $this->Model->PatientTransfusion->a2h_jml_cairan_keluar = $this->_Request->input('a2h_jml_cairan_keluar');
             !$this->_Request->input('a2h_ada_reaksi') || $this->Model->PatientTransfusion->a2h_ada_reaksi = $this->_Request->input('a2h_ada_reaksi');
             !$this->_Request->input('a2h_tidak_ada_reaksi') || $this->Model->PatientTransfusion->a2h_tidak_ada_reaksi = $this->_Request->input('a2h_tidak_ada_reaksi');
+            !$this->_Request->input('a2h_tanda_tangan') || $this->Model->PatientTransfusion->a2h_tanda_tangan = $this->_Request->input('a2h_tanda_tangan');
             !$this->_Request->input('a3h_td') || $this->Model->PatientTransfusion->a3h_td = $this->_Request->input('a3h_td');
             !$this->_Request->input('a3h_nadi') || $this->Model->PatientTransfusion->a3h_nadi = $this->_Request->input('a3h_nadi');
             !$this->_Request->input('a3h_suhu') || $this->Model->PatientTransfusion->a3h_suhu = $this->_Request->input('a3h_suhu');
@@ -67,6 +72,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('a3h_jml_cairan_keluar') || $this->Model->PatientTransfusion->a3h_jml_cairan_keluar = $this->_Request->input('a3h_jml_cairan_keluar');
             !$this->_Request->input('a3h_ada_reaksi') || $this->Model->PatientTransfusion->a3h_ada_reaksi = $this->_Request->input('a3h_ada_reaksi');
             !$this->_Request->input('a3h_tidak_ada_reaksi') || $this->Model->PatientTransfusion->a3h_tidak_ada_reaksi = $this->_Request->input('a3h_tidak_ada_reaksi');
+            !$this->_Request->input('a3h_tanda_tangan') || $this->Model->PatientTransfusion->a3h_tanda_tangan = $this->_Request->input('a3h_tanda_tangan');
             !$this->_Request->input('a4h_tgl_pemberian') || $this->Model->PatientTransfusion->a4h_tgl_pemberian = $this->_Request->input('a4h_tgl_pemberian');
             !$this->_Request->input('a4h_jam_pemberian') || $this->Model->PatientTransfusion->a4h_jam_pemberian = $this->_Request->input('a4h_jam_pemberian');
             !$this->_Request->input('a4h_td') || $this->Model->PatientTransfusion->a4h_td = $this->_Request->input('a4h_td');
@@ -77,6 +83,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('a4h_jml_cairan_keluar') || $this->Model->PatientTransfusion->a4h_jml_cairan_keluar = $this->_Request->input('a4h_jml_cairan_keluar');
             !$this->_Request->input('a4h_ada_reaksi') || $this->Model->PatientTransfusion->a4h_ada_reaksi = $this->_Request->input('a4h_ada_reaksi');
             !$this->_Request->input('a4h_tidak_ada_reaksi') || $this->Model->PatientTransfusion->a4h_tidak_ada_reaksi = $this->_Request->input('a4h_tidak_ada_reaksi');
+            !$this->_Request->input('a4h_tanda_tangan') || $this->Model->PatientTransfusion->a4h_tanda_tangan = $this->_Request->input('a4h_tanda_tangan');
             !$this->_Request->input('d_tgl_pemberian') || $this->Model->PatientTransfusion->d_tgl_pemberian = $this->_Request->input('d_tgl_pemberian');
             !$this->_Request->input('d_jam_pemberian') || $this->Model->PatientTransfusion->d_jam_pemberian = $this->_Request->input('d_jam_pemberian');
             !$this->_Request->input('d_td') || $this->Model->PatientTransfusion->d_td = $this->_Request->input('d_td');
@@ -87,6 +94,7 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('d_jml_cairan_keluar') || $this->Model->PatientTransfusion->d_jml_cairan_keluar = $this->_Request->input('d_jml_cairan_keluar');
             !$this->_Request->input('d_ada_reaksi') || $this->Model->PatientTransfusion->d_ada_reaksi = $this->_Request->input('d_ada_reaksi');
             !$this->_Request->input('d_tidak_ada_reaksi') || $this->Model->PatientTransfusion->d_tidak_ada_reaksi = $this->_Request->input('d_tidak_ada_reaksi');
+            !$this->_Request->input('d_tanda_tangan') || $this->Model->PatientTransfusion->d_tanda_tangan = $this->_Request->input('d_tanda_tangan');
             !$this->_Request->input('pt4_tgl_pemberian') || $this->Model->PatientTransfusion->pt4_tgl_pemberian = $this->_Request->input('pt4_tgl_pemberian');
             !$this->_Request->input('pt4_jam_pemberian') || $this->Model->PatientTransfusion->pt4_jam_pemberian = $this->_Request->input('pt4_jam_pemberian');
             !$this->_Request->input('pt4_td') || $this->Model->PatientTransfusion->pt4_td = $this->_Request->input('pt4_td');
@@ -97,6 +105,14 @@ class UpdateTransfusion extends BaseMiddleware
             !$this->_Request->input('pt4_jml_cairan_keluar') || $this->Model->PatientTransfusion->pt4_jml_cairan_keluar = $this->_Request->input('pt4_jml_cairan_keluar');
             !$this->_Request->input('pt4_ada_reaksi') || $this->Model->PatientTransfusion->pt4_ada_reaksi = $this->_Request->input('pt4_ada_reaksi');
             !$this->_Request->input('pt4_tidak_ada_reaksi') || $this->Model->PatientTransfusion->pt4_tidak_ada_reaksi = $this->_Request->input('pt4_tidak_ada_reaksi');
+            !$this->_Request->input('pt4_tanda_tangan') || $this->Model->PatientTransfusion->pt4_tanda_tangan = $this->_Request->input('pt4_tanda_tangan');
+
+            !$this->_Request->input('dokter') || $this->Model->PatientTransfusion->dokter = $this->_Request->input('dokter');
+            !$this->_Request->input('ruang') || $this->Model->PatientTransfusion->ruang = $this->_Request->input('ruang');
+            !$this->_Request->input('diagnosis') || $this->Model->PatientTransfusion->diagnosis = $this->_Request->input('diagnosis');
+            !$this->_Request->input('colf') || $this->Model->PatientTransfusion->colf = $this->_Request->input('colf');
+            !$this->_Request->input('no_batch') || $this->Model->PatientTransfusion->no_batch = $this->_Request->input('no_batch');
+
 
         }
     }

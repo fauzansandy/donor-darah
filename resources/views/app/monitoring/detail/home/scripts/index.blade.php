@@ -105,6 +105,19 @@ $(document).ready(function() {
         })
     },500));
 
+    $('input[name=b30m_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            b30m_tanda_tangan: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
     $('input[name=td]').keyup(debounce(function(){
         var $this=$(this);
         var id = $('input[name=transfusion_id]').val();
@@ -201,6 +214,19 @@ $(document).ready(function() {
         var id = $('input[name=transfusion_id]').val();
         axios.put('/patient_transfusions/'+id, {
             tidak_ada_reaksi: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            tanda_tangan: $this.val()
         }).then((response) => {
         }).catch((error) => {
             if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
@@ -313,6 +339,19 @@ $(document).ready(function() {
         })
     },500));
 
+    $('input[name=a15m_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            a15m_tanda_tangan: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
     $('input[name=a1h_td]').keyup(debounce(function(){
         var $this=$(this);
         var id = $('input[name=transfusion_id]').val();
@@ -409,6 +448,19 @@ $(document).ready(function() {
         var id = $('input[name=transfusion_id]').val();
         axios.put('/patient_transfusions/'+id, {
             a1h_tidak_ada_reaksi: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=a1h_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            a1h_tanda_tangan: $this.val()
         }).then((response) => {
         }).catch((error) => {
             if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
@@ -521,6 +573,19 @@ $(document).ready(function() {
         })
     },500));
 
+    $('input[name=a2h_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            a2h_tanda_tangan: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
     $('input[name=a3h_td]').keyup(debounce(function(){
         var $this=$(this);
         var id = $('input[name=transfusion_id]').val();
@@ -617,6 +682,19 @@ $(document).ready(function() {
         var id = $('input[name=transfusion_id]').val();
         axios.put('/patient_transfusions/'+id, {
             a3h_tidak_ada_reaksi: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=a3h_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            a3h_tanda_tangan: $this.val()
         }).then((response) => {
         }).catch((error) => {
             if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
@@ -755,6 +833,19 @@ $(document).ready(function() {
         })
     },500));
 
+    $('input[name=a4h_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            a4h_tanda_tangan: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
     $('input[name=d_tgl_pemberian]').keyup(debounce(function(){
         var $this=$(this);
         var id = $('input[name=transfusion_id]').val();
@@ -885,6 +976,19 @@ $(document).ready(function() {
         })
     },500));
 
+    $('input[name=d_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            d_tanda_tangan: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
     $('input[name=pt4_tgl_pemberian]').keyup(debounce(function(){
         var $this=$(this);
         var id = $('input[name=transfusion_id]').val();
@@ -1007,6 +1111,84 @@ $(document).ready(function() {
         var id = $('input[name=transfusion_id]').val();
         axios.put('/patient_transfusions/'+id, {
             pt4_tidak_ada_reaksi: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=pt4_tanda_tangan]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            pt4_tanda_tangan: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=dokter]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            dokter: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=diagnosis]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            diagnosis: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=ruang]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            ruang: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=colf]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            colf: $this.val()
+        }).then((response) => {
+        }).catch((error) => {
+            if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {
+                Swal.fire({ title: 'Opps!', text: error.response.data.exception.message, type: 'error', confirmButtonText: 'Ok' })
+            }
+        })
+    },500));
+
+    $('input[name=no_batch]').keyup(debounce(function(){
+        var $this=$(this);
+        var id = $('input[name=transfusion_id]').val();
+        axios.put('/patient_transfusions/'+id, {
+            no_batch: $this.val()
         }).then((response) => {
         }).catch((error) => {
             if (Boolean(error) && Boolean(error.response) && Boolean(error.response.data) && Boolean(error.response.data.exception) && Boolean(error.response.data.exception.message)) {

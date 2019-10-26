@@ -21,9 +21,57 @@
                 <div>
                     <div class="pull-left">
                         <h2 class="font-montserrat all-caps hint-text">{{ $data['name'] }}</h2>
-                        <address class="m-t-10">
-                            No RM: {{ $data['no_rm'] }}
-                        </address>
+                        <table>
+                            <tr>
+                                <td>
+                                    <table cellpadding="5" cellspacing="0">
+                                        <tr>
+                                            <td width=300px>
+                                                No RM: {{ $data['no_rm'] }}
+                                            </td>
+                                            <td width=300px>
+                                                Jenis Kelamin: {{ $data['jenis_kelamin'] }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Tanggal Lahir: {{ $data['tgl_lahir'] }}
+                                            </td>
+                                            <td>
+                                                Alamat: {{ $data['alamat'] }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <table border="0" cellspacing="0">
+                                            <tr>
+                                                <td>Dokter</td>
+                                                <td>:<input style="width:400px" type="text" name="dokter" value="{{ $data['patient_transfusions'][0]->dokter }}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Diagnosis</td>
+                                                <td>:<input style="width:400px" type="text" name="diagnosis" value="{{ $data['patient_transfusions'][0]->diagnosis }}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ruang</td>
+                                                <td>:<input style="width:400px" type="text" name="ruang" value="{{ $data['patient_transfusions'][0]->ruang }}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Colf Ke</td>
+                                                <td>:<input style="width:400px" type="text" name="colf" value="{{ $data['patient_transfusions'][0]->colf }}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>No. Batch</td>
+                                                <td>:<input style="width:400px" type="text" name="no_batch" value="{{ $data['patient_transfusions'][0]->no_batch }}"/></td>
+                                            </tr>
+                                        </table>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
                     </div>
                     <div class="pull-right sm-m-t-20">
                         <h2 class="font-montserrat all-caps hint-text">{{ $data['position']['name'] }}</h2>
@@ -34,6 +82,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div>
+
                     <table class="table table-bordered table-sm">
                         <tr>
                             <td rowspan="2">Saat Monitoring</td>
@@ -45,6 +94,7 @@
                             <td rowspan="2">Jumlah Cairan Masuk</td>
                             <td rowspan="2">Jumlah Cairan Keluar</td>
                             <td rowspan="1" colspan="2">Reaksi Transfusi</td>
+                            <td rowspan="2">Tanda Tangan Petugas</td>
                         </tr>
                         <tr>
                             <td>Tgl</td>
@@ -64,6 +114,7 @@
                             <td><input style="width:50px" type="text" name="b30m_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->b30m_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="b30m_ada_reaksi" value="{{ $data['patient_transfusions'][0]->b30m_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="b30m_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->b30m_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="b30m_tanda_tangan" value="{{ $data['patient_transfusions'][0]->b30m_tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>Saat Transfusi Mulai</td>
@@ -77,6 +128,7 @@
                             <td><input style="width:50px" type="text" name="jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="ada_reaksi" value="{{ $data['patient_transfusions'][0]->ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="tanda_tangan" value="{{ $data['patient_transfusions'][0]->tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>15 menit pertama Transfusi</td>
@@ -90,6 +142,7 @@
                             <td><input style="width:50px" type="text" name="a15m_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->a15m_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="a15m_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a15m_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="a15m_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a15m_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="a15m_tanda_tangan" value="{{ $data['patient_transfusions'][0]->a15m_tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>1 Jam pertama Transfusi</td>
@@ -103,6 +156,7 @@
                             <td><input style="width:50px" type="text" name="a1h_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->a1h_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="a1h_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a1h_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="a1h_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a1h_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="a1h_tanda_tangan" value="{{ $data['patient_transfusions'][0]->a1h_tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>1 Jam kedua Transfusi</td>
@@ -116,6 +170,7 @@
                             <td><input style="width:50px" type="text" name="a2h_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->a2h_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="a2h_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a2h_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="a2h_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a2h_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="a2h_tanda_tangan" value="{{ $data['patient_transfusions'][0]->a2h_tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>1 jam ketiga Transfusi</td>
@@ -129,6 +184,7 @@
                             <td><input style="width:50px" type="text" name="a3h_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->a3h_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="a3h_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a3h_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="a3h_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a3h_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="a3h_tanda_tangan" value="{{ $data['patient_transfusions'][0]->a3h_tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>1 jam keempat Transfusi</td>
@@ -142,6 +198,7 @@
                             <td><input style="width:50px" type="text" name="a4h_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->a4h_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="a4h_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a4h_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="a4h_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->a4h_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="a4h_tanda_tangan" value="{{ $data['patient_transfusions'][0]->a4h_tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>saat Transfusi selesai</td>
@@ -155,6 +212,7 @@
                             <td><input style="width:50px" type="text" name="d_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->d_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="d_ada_reaksi" value="{{ $data['patient_transfusions'][0]->d_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="d_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->d_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="d_tanda_tangan" value="{{ $data['patient_transfusions'][0]->d_tanda_tangan }}"/></td>
                         </tr>
                         <tr>
                             <td>4 jam post Transfusi selesai</td>
@@ -168,6 +226,7 @@
                             <td><input style="width:50px" type="text" name="pt4_jml_cairan_keluar" value="{{ $data['patient_transfusions'][0]->pt4_jml_cairan_keluar }}"/></td>
                             <td><input style="width:50px" type="text" name="pt4_ada_reaksi" value="{{ $data['patient_transfusions'][0]->pt4_ada_reaksi }}"/></td>
                             <td><input style="width:50px" type="text" name="pt4_tidak_ada_reaksi" value="{{ $data['patient_transfusions'][0]->pt4_tidak_ada_reaksi }}"/></td>
+                            <td><input style="width:100px" type="text" name="pt4_tanda_tangan" value="{{ $data['patient_transfusions'][0]->pt4_tanda_tangan }}"/></td>
                         </tr>
                     </table>
                 </div>

@@ -50,7 +50,18 @@
                                 <label>Transfusion Time</label>
                                 <input name="transfusion_time" class="form-control" type="text" id="time_picker" required>
                             </div>
-
+                            <div class="form-group form-group-default ">
+                                <label>Jenis Kelamin</label>
+                                <input name="jenis_kelamin" class="form-control" type="text">
+                            </div>
+                            <div class="form-group form-group-default ">
+                                <label>Tanggal Lahir</label>
+                                <input name="tgl_lahir" class="form-control" type="text">
+                            </div>
+                            <div class="form-group form-group-default ">
+                                <label>Alamat</label>
+                                <input name="alamat" class="form-control" type="text">
+                            </div>
                         </form>
                     </div>
                 </div>

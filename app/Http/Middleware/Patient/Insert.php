@@ -17,6 +17,9 @@ class Insert extends BaseMiddleware
 
         $this->Model->Patient->name = $this->_Request->input('name');
         $this->Model->Patient->no_rm = $this->_Request->input('no_rm');
+        $this->Model->Patient->jenis_kelamin = $this->_Request->input('jenis_kelamin');
+        $this->Model->Patient->tgl_lahir = $this->_Request->input('tgl_lahir');
+        $this->Model->Patient->alamat = $this->_Request->input('alamat');
         $this->Model->Patient->transfusion_type_id = $this->_Request->input('transfusion_type_id');
         $this->Model->Patient->transfusion_date = $this->_Request->input('transfusion_date');
         $this->Model->Patient->transfusion_time = $this->_Request->input('transfusion_time');
