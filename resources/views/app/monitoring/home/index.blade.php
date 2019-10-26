@@ -73,7 +73,13 @@
                             </td>
                             <td class="v-align-middle">
                                 <div class="btn-group">
-                                    <a href="monitoring/{{ $item->id }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                    <?php
+                                        if ($item->id > 1) {
+                                            ?>
+                                                <a href="monitoring/{{ $item->id }}" class="btn btn-xs btn-success btn-table-action">DETAIL</a>
+                                            <?php
+                                        }
+                                    ?>
                                 </div>
                             </td>
                         </tr>
